@@ -1,0 +1,717 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Вся боль доступного Веба</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Вся боль доступного Веба</h1>
+		<h1 style="font-size: 35px"> или WCAG 2.0 для людей</h1>
+		<p>Станислав Зубович, EPAM</p>
+	</header>
+	<section class="slide cover shout" id="Cover"><div>
+		<h2>Вся боль доступного Веба</h2>
+		<img src="pictures/6999547-dc-comics-art.jpg" alt="">
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>#A11Y</h2>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>#A11Y</h2>
+		<ul>
+			<li class="next">Если сайты правильно <b>спроектированы</b>, <b>разработаны</b> и <b>отредактированы</b>, все пользователи имеют <b>равный доступ</b> к информации и функционалу. <small>Wikipedia</small></li> 
+			<li class="next">Able to be <b>easily</b> obtained or used; easily understood or appreciated. <small>Oxford Dictionary</small></li>
+			<li class="next">Доступность ~ Юзабилити</li>
+			<li class="next">Все пользователи могут в равной мере использовать приложение, и оно должно быть простым в использовании для всех</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Каким пользователям мы помогаем?</h2>
+		<ul>
+			<li>Незрячие</li>
+			<li>Слабовидящие</li>
+			<li>Когнитивные расстройства</li>
+			<li>Нарущения опорнодвигательного аппарата</li>
+			<li>Дальтонизм</li>
+		</ul>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Кто все эти люди? О_о</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>~20% активных пользователей</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2 style="margin-top:-20px">Совершенно другой<br>Point of View</h2>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/point_of_view.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Совершенно другой User eXperience</h2>
+		<ul>
+			<li>Screen Readers</li>
+			<li>Screen magnifiers</li>
+			<li>Keyboard-only</li>
+			<li>Экраны Брайля</li>
+			<li>Шрифтовые/контрастные настройки</li>
+		</ul>
+		</div></section>
+		
+	<section class="slide"><div>
+		<h2>WCAG 2.0</h2>
+		<ul>
+			<li><a href="http://www.w3.org/TR/WCAG20/">The Standard</a></li>
+			<li><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/">Understanding WCAG</a></li>
+			<li><a href="http://www.w3.org/TR/WCAG20-TECHS/">Techniques</a></li>
+			<li><a href="http://www.w3.org/WAI/WCAG20/quickref/">Quick Reference</a></li>
+			<li><a href="http://www.w3.org/WAI/WCAG20/wcag2faq.html">FAQ</a></li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/w3c_wcag.png" alt="">
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Сложно!</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2><a href="http://a11yproject.com/checklist.html">Checklist?</a></h2>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2>W3C Checklist</h2>
+		<img src="pictures/checklist.png" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2>A11Y Checklist</h2>
+		<img src="pictures/checklist2.png" alt="">
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2 style="margin-top:-160px">Доступность</h2>
+		<h2>это не только</h2>
+		<h2 style="margin-top:160px">Checklist</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Начнемс</h2>
+		<h2 class="shout_h2_small">Первые шаги</h2>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>План такой:</h2>
+		<ul>
+			<li class="next">Ваш сайт должнен уметь работать keyboard-only</li>
+			<li class="next">Оставьте fallback для визуальной информации</li>
+			<li class="next">Формы должны работать идеально</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover shout"><div>
+		<h2>Было?</h2>
+		<h2 class="next" style="margin-top:160px">Ну было же :)</h2>
+		<img src="pictures/jira_issue.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Keyboard-only план</h2>
+		<ul>
+			<li>Очевидные focus состояния</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover shout"><div>
+		<img src="pictures/tumblr_outline.png" alt="">
+		</div></section>
+
+	<section class="slide cover shout"><div>
+		<img src="pictures/tumblr_outline_reveal.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Скажем НЕТЪ!</h2>
+		<pre class="deprecated">
+			<code>a, a:focus {</code>
+			<code>	<mark>outline: none;</mark></code>
+			<code>	<mark>outline: 0;</mark></code>
+			<code>}</code>
+			<next></next>
+			<div class="cross next"></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Keyboard-only план</h2>
+		<ul>
+			<li>Очевидные focus состояния <b class="next">(Оставьте outline в покое)</b></li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover shout"><div>
+		<img src="pictures/outline_google.png" alt="">
+		</div></section>
+
+	<section class="slide cover shout"><div>
+		<img src="pictures/outline_rs.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Keyboard-only план</h2>
+		<ul>
+			<li>Очевидные focus состояния <b>(Оставьте outline в покое)</b></li>
+			<li class="next">Fallback для :hover &amp; click <br><span class="next" style="margin-left:40px">:focus &amp; keydown</span></li>
+			<li class="next">Добавьте tabIndex=0 &amp; key events для non-focusable элементов</li>
+			<li class="next">Избегайте keyboard-traps &amp; time-wasting</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<pre>
+			<code>$(‘a.trap’).keydown(function(event){</code>
+			<code>	event.preventDefault();</code>
+			<code>	var href = $(this).attr(‘href’);</code>
+			<code>	var text = $(this).text();;</code>
+			<code>	window.open(href, text);</code>
+			<code>});</code>
+		</pre>
+		</div></section>
+
+	<section class="slide cover"><div>
+		    <video id="oops" data-scalable="" loop="" autoplay="" onclick="playOrPause();" style="height: 640px;width: 1024px;">
+            <source src="pictures/fail.webm" type="video/webm">
+        </video>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Keyboard-only план</h2>
+		<ul>
+			<li>Очевидные focus состояния <b>(Оставьте outline в покое)</b></li>
+			<li>Fallback для :hover &amp; click <br><span style="margin-left:40px">:focus &amp; keydown</span></li>
+			<li>Добавьте tabIndex=0 &amp; key events для non-focusable элементов</li>
+			<li>Избегайте keyboard-traps &amp; time-wasting</li>
+			<li class="next">HTML вам поможет! И абсолютно бесплатно!</li>
+		</ul>
+		</div></section>
+
+	<section class="slide code_88"><div>
+		<h2>Wanted: Free Events!</h2>
+		<ul>
+			<li><code>&lt;span class="btn toggle"&gt;Click to Toggle&lt;/span&gt;</code></li>
+		</ul>
+		</div></section>
+
+	<section class="slide code_88"><div>
+		<h2>Wanted: Free Events!</h2>
+		<ul>
+			<li><s><code>&lt;span class="btn toggle"&gt;Click to Toggle&lt;/span&gt;</code></s></li>
+			<li class="next"><code>&lt;a href="#" class="btn toggle"&gt;Click to Toggle&lt;/a&gt;</code></li>
+		</ul>
+		</div></section>
+
+	<section class="slide code_88"><div>
+		<h2>Wanted: Free Events!</h2>
+		<ul>
+			<li><s><code>&lt;span class="btn toggle"&gt;Click to Toggle&lt;/span&gt;</code></s></li>
+			<li><s><code>&lt;a href="#" class="btn toggle"&gt;Click to Toggle&lt;/a&gt;</code></s></li>
+			<li class="next"><code>&lt;button type="button" class="toggle"&gt;Click to Toggle&lt;/ button&gt;</code></li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Визуальная часть</h2>
+		<ul>
+			<li>
+				Начнем с хороших размеров шрифтов &amp; адекватного контраста
+				<ul style="font-size:75%">
+					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
+				</ul>
+			</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover" style="background: #fff;"><div>
+		<img src="pictures/contrast.png" alt="">
+		</div></section>
+
+	<section class="slide cover" style="background: #fff;"><div>
+		<img src="pictures/contrast2.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Визуальная часть</h2>
+		<ul>
+			<li>
+				Начнем с хороших размеров шрифтов &amp; адекватного контраста
+				<ul style="font-size:75%">
+					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
+				</ul>
+			</li>
+			<li class="next">И не забываем про em/rem. <span class="next">Почему?</span></li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover" style="background: #fff;"><div>
+		<img src="pictures/magnifier.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Визуальная часть</h2>
+		<ul>
+			<li>
+				Начнем с хороших размеров шрифтов &amp; адекватного контраста
+				<ul style="font-size:75%">
+					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
+				</ul>
+			</li>
+			<li>И не забываем про em/rem</li>
+			<li class="next">Не полагайтесь только на цвет</li>
+			<li class="next">Добавьте легенду и текстуру или символы</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/from_rg_blind.png" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/piechart.jpg" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Визуальная часть</h2>
+		<ul>
+			<li>
+				Начнем с хороших размеров шрифтов &amp; адекватного контраста
+				<ul style="font-size:75%">
+					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
+					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
+				</ul>
+			</li>
+			<li>И не забываем про em/rem</li>
+			<li>Не полагайтесь только на цвет</li>
+			<li>Добавьте легенду и текстуру или символы</li>
+			<li class="next">Все изображения должны иметь смысловой alt</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Формы</h2>
+		<ul>
+			<li>Каждое поле должно включать в себя реальный label <br><code>&lt;label for="[INPUT ID]"&gt;</code></li>
+			<li class="next">Внутри может быть вспомогательный текст, предупреждения, ошибки</li>
+			<li class="next">Вам жизненно необходимы адекватные error messages</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/ebay_form.png" alt="">
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Нам нужна помощь?</h2>
+		</div></section>
+
+	<section class="slide shout cover"><div>
+		<h2>Try Me</h2>
+		<img src="pictures/readers.jpg" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2>Как работает Screen Reader?</h2>
+		<ul>
+			<li>Забирает исходник</li>
+			<li class="next">Получаем приятный сгенерированный HTML в "как в исходнике". <br>Ну почти</li>
+		</ul>
+		<img src="pictures/blank.jpg" alt="">
+		<img src="pictures/reader_html.jpg" alt="" class="next">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Screen Reader</h2>
+		<ul>
+			<li>Для навигации и поиска поконтенту используется клавиатура</li>
+			<li>Сложная и могучая система шорткатов</li>
+			<li>98.6% пользователей screen reader'ов users не выключают JS!</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Screen Reader игнорирует</h2>
+		<ul>
+			<li>img с пустыми alt аттрибутами alt=""</li>
+			<li>display: none;</li>
+			<li>visibility: hidden;</li>
+			<li>:before content, :after content (тип того)</li>
+			<li>Держите в голове иконки и иконочные шрифты!</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Screen Reader не забудет</h2>
+		<ul>
+			<li>Контент, спрятанный через opacity, z-index, height</li>
+			<li>oﬀ-screen позиционирование (text-indent, top, left)</li>
+			<li>CSS clipping</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<pre>
+			<code>.wcag-hidden {</code>
+			<code>	border: 0;</code>
+			<code>	clip: rect(0 0 0 0);</code>
+			<code>	height: 1px;</code>
+			<code>	margin: -1px;</code>
+			<code>	padding: 0;</code>
+			<code>	position: absolute;</code>
+			<code>	width: 1px;</code>
+			<code>}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<pre>
+			<code>&lt;a href="#"&gt;</code>
+			<code>	&lt;span class="wcag-hidden"&gt;Next&lt;/span&gt;</code>
+			<code>&lt;/a&gt;</code>
+			<code><br></code>
+			<code>a {</code>
+			<code>	background: url(next.png);</code>
+			<code>}</code>
+		</pre>
+		<div class="wcag-block"><div class="wcag-read">Link Next</div></div>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>HTML<br>Имеет значение</h2>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Headings</h2>
+		<ul>
+			<li>Один из основных способов навигации по контенту</li>
+			<li class="next">А ваш контент имеет заголовки?</li>
+			<li class="next">Они достаточно информативны?</li>
+			<li class="next">Они следуют иерархии? (h1 >> h6)</li>
+		</ul>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2 class="shout_h2_big_2lines">За границами банального</h2>
+		<h2 class="shout_h2_small">Должно же быть что-то еще, да?</h2>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>WAI-ARIA</h2>
+		<ul>
+			<li>Обеспечим семантическую информацию и лучшее взаимодействие<br> со Screen Reader'ами</li>
+			<li>Пишем прямо в HTML</li>
+			<li>Часть спецификации HTML5</li>
+			<li>Roles, states &amp; properties</li>
+			<li>Не аффектает стили "нормального" поведения</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles</h2>
+		<ul>
+			<li>Мы можем создать новый семантический смысл элементов используя “role-” аттрибуты</li>
+			<li>Установили и забыли. Или поменяли с помощью JS</li>
+			<li><code>&lt;main role="main"&gt;</code></li>
+			<li><code>&lt;li role="list"&gt;</code></li>
+			<li><code>&lt;table role="presentation"&gt;</code></li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in HTML</h2>
+		<pre>
+			<code>&lt;span class="btn toggle"&gt;Click&lt;/span&gt;</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in HTML</h2>
+		<pre>
+			<code><s>&lt;span class="btn toggle"&gt;Click&lt;/span&gt;</s></code>
+			<code>&lt;a href="#" class="btn toggle"&gt;Click&lt;/a&gt;</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in HTML</h2>
+		<pre>
+			<code><s>&lt;span class="btn toggle"&gt;Click&lt;/span&gt;</s></code>
+			<code><s>&lt;a href="#" class="btn toggle"&gt;Click&lt;/a&gt;</s></code>
+			<code>&lt;a href="#" role="button" class="btn toggle"&gt;Click&lt;/a&gt;</code>
+			<div class="wcag-block"><div class="wcag-read">Click Button</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in HTML</h2>
+		<pre>
+			<code>&lt;table&gt;</code>
+			<code>&lt;thead&gt;</code>
+			<code>...</code>
+			<code>&lt;a href="#"&gt;Info&lt;/a&gt;</code>
+			<code>...&lt;/table&gt;</code>
+			<div class="wcag-block"><div class="wcag-read">table with 2 rows and 1 columns ... Info Link</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in HTML</h2>
+		<pre>
+			<code>&lt;table role="presentation"&gt;</code>
+			<code>&lt;thead&gt;</code>
+			<code>...</code>
+			<code>&lt;a href="#"&gt;Info&lt;/a&gt;</code>
+			<code>...&lt;/table&gt;</code>
+			<div class="wcag-block"><div class="wcag-read">... Info Link</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Roles in CSS</h2>
+		<pre>
+			<code>.btn <mark class="next">[role="button]</mark> {</code>
+			<code>	background: green;</code>
+			<code>	...</code>
+			<code>}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Widget Roles</h2>
+		<ul>
+			<li>Семантический смысл для ваших кастомных компонентов</li>
+			<li>tooltip</li>
+			<li>slider</li>
+			<li>dialog</li>
+			<li>tab</li>
+			<li>menu</li>
+			<li>alert</li>
+			<li>and много чего еще!</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>States &amp; Properties</h2>
+		<ul>
+			<li>Описывают отношения - между контентом и взаимодеййствием с пользователем</li>
+			<li>Updated via JS on UI changes</li>
+			<li>aria-аттрибуты:</li>
+			<li><code>&lt;section aria-labelledby="MainHeading"&gt;</code></li>
+			<li><code>&lt;div aria-expanded="true"&gt;</code></li>
+			<li>и т.д.</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Content Relationships</h2>
+		<ul>
+			<li>Семантически залинкуйте label наконтент или добавьте, если их не было</li>
+			<li>aria-labelledby, aria-label in action</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Content Relationships</h2>
+		<pre>
+			<code>&lt;label for="choosePassword">Choose Password:&lt;/label></code>
+			<code>&lt;input id="choosePassword"></code>
+			<code>&lt;span class="help">Passwords must be 8 characters&lt;/span></code>
+			<div class="wcag-block"><div class="wcag-read">Choose Password edit protected</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Content Relationships</h2>
+		<pre>
+			<code>&lt;label for="choosePassword">Choose Password:&lt;/label></code>
+			<code>&lt;span class="wcag-hidden"><br>   Passwords must be 8 characters long&lt;/span></code>
+			<code>&lt;input id="choosePassword"></code>
+			<code>&lt;span class="help">Passwords must be 8 characters&lt;/span></code>
+			<div class="wcag-block"><div class="wcag-read">Choose Password:Passwords must be 8 characters long</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Content Relationships</h2>
+		<pre>
+			<code>&lt;label for="choosePassword">Choose Password:&lt;/label></code>
+			<code>&lt;input id="choosePassword" <br>   aria-describedby="choosePasswordHelp"></code>
+			<code>&lt;span class="help" id="choosePasswordHelp"><br>   Passwords must be 8 characters long&lt;/span></code>
+			<div class="wcag-block"><div class="wcag-read">Choose Password:Passwords must be 8 characters long</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Content Relationships</h2>
+		<pre>
+			<code>&lt;p id="<mark>error_choosePassword</mark>" class="error">Error&lt;/p></code>
+			<code>&lt;label for="choosePassword">Choose Password:&lt;/label></code>
+			<code>&lt;input id="choosePassword" aria-describedby=<br>   "<mark>choosePasswordHelp</mark> <mark>error_choosePassword</mark>"></code>
+			<code>&lt;span class="help" id="<mark>choosePasswordHelp</mark>"><br>   Passwords must be 8 characters long&lt;/span></code>
+			<div class="wcag-block"><div class="wcag-read">Choose Password:Passwords must be 8 characters long. Error</div></div>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Используйте ARIA аккуратно</h2>
+		<ul>
+			<li>ARIA это связь, а не замена.</li>
+			<li>Используйте простой HTML так, где это возможно</li>
+			<li>Это не магия и не панацея</li>
+			<li>Ответственность за events, focus management, keyboard support и <b>смысл</b> всё еще лежит на вас</li>
+			<li>Есть только один способ быть на 10% уверенным... Потестить</li>
+		</ul>
+		</div></section>
+
+	<section class="slide shout high_contrast"><div>
+		<h2>High Contrast Mode</h2>
+		
+		</div></section>
+
+	<section class="slide shout cover high_contrast"><div>
+		<img src="pictures/high_contrast_google.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Кому нужен High Contrast mode?</h2>
+		<ul>
+			<li>Слабовидяшим пользователям</li>
+			<li>Пользователям с дальтонизмом</li>
+			<li>Пользователям с чуствительным зрением</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>А что под капотом?</h2>
+		<ul>
+			<li>Изменяется цветовая гамма (text color, borders, etc.)</li>
+			<li>Убираются фоновые цвета и изображения</li>
+			<li>Также увеличиваются размеры шрифтов</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>No background???</h2>
+		<ul>
+			<li class="next"><img src="pictures/contrast_toolbar_v1.png" alt=""></li>
+			<li class="next">Ииии...</li>
+			<li class="next"><img src="pictures/contrast_toolbar_hc.png" alt=""></li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Fix it!</h2>
+		<ul>
+			<li>У нас есть:</li>
+			<li class="next">HTML: <code>&lt;button type="button"&gt;Print&lt;/button&gt;</code></li>
+			<li class="next">CSS: <code>background: url(sprite.png);</code></li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Fix it!</h2>
+		<pre>
+			<code>button {</code>
+			<code>	overflow: hidden;</code>
+			<code>}</code>
+			<span class="next"><code>button:before {</code>
+			<code>	content: url(sprite.png);</code>
+			<code>	margin: -X 0 0 -Y;</code>
+			<code>}</code></span>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>High Contrast Mode checklist</h2>
+		<ul class="adv">
+			<li class="next">background-color</li>
+			<li class="next">background-image</li>
+			<li class="next">Transparent borders</li>
+			<li class="next">Transparent Outlines</li
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>High Contrast Browser Support</h2>
+		<ul class="adv">
+			<li class="yes next">Internet Explorer. <span class="next">И даже</span><br>
+			    <code class="next"> @media screen and (-ms-high-contrast: active)</code>
+			</li>
+			<li class="yes next">Firefox</li>
+			<li class="no next">Chrome (webkit-)</li>
+			<li class="no next">Safari</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Про кого же еще мы забыли?</h2>
+		<ul>
+		    <li>Люди с нарушениями памяти</li>
+			<li>Пожилые люди</li>
+			<li>Опытные пользователи</li>
+		</ul>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>И напоследок</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2 style="font-size: 70px; text-align:center; margin-top:-130px;">Волнуетесь об опыте пользовательского взаимодействия <br>и впечатлении пользователя?</h2>
+		<h2 class="next" style="font-size: 80px; text-align:center; margin-top:120px;">Не обходите эту проблему стороной ©</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Let's make web a better place</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Вопросы?</h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2><a href="http://j.mp/RS_WCAG">j.mp/RS_WCAG</a></h2>
+		</div></section>
+		
+	<section class="slide shout"><div>
+		<h2><a href="https://twitter.com/BigBadDev">@BigBadDev</a></h2>
+		</div></section>
+		
+		
+	<p class="badge"><a href="https://github.com/shower/shower">Powered by Shower</a></p>
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
