@@ -113,13 +113,14 @@
 	width: 2em;
 	height: 1em;
 	background-size: auto 100%;
-	background-repeat: no-repeat;    
+	background-repeat: no-repeat;
+	margin: -5px -10px -5px 10px;
 }
 .slide .adv LI.yes:before {
-	background-image: url(../pictures/yes.svg);
+	background-image: url(../pictures/check.svg);
 }
 .slide .adv LI.no:before {
-	background-image: url(../pictures/no.svg);
+	background-image: url(../pictures/cross.svg);
 }
 
 .slide.links ul {
