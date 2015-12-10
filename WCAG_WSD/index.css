@@ -117,10 +117,10 @@
 	margin: -5px -10px -5px 10px;
 }
 .slide .adv LI.yes:before {
-	background-image: url(../pictures/check.svg);
+	background-image: url(pictures/check.svg);
 }
 .slide .adv LI.no:before {
-	background-image: url(../pictures/cross.svg);
+	background-image: url(pictures/cross.svg);
 }
 
 .slide.links ul {
