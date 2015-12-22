@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>CSS Preprocessors</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>CSS Preprocessors</h1>
+		<p>Станислав Зубович, EPAM</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<h2>CSS Preprocessors</h2>
+		<img src="pictures/maincover.jpg" alt="">
+		<style>
+			#Cover h2 {
+				margin:-50px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+			}
+			#Cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+			}
+			#Cover p a {
+				color:#FFF;
+			}
+		</style>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; color: #3c3c3c;font-size:70px; margin-top:-60px;">CSS слабоват</h2>
+		<img src="pictures/css_weak.jpg" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Однажды в офисе:</h2>
+		<ul>
+			<li class="next">PM: А давай тут поменяем цвет на кнопке на синий. Это же быстро?</li>
+			<li class="next">Dev: Да, тут на полчаса работы</li>
+			<li class="next">Прошло полчаса...</li>
+			<li class="next">PM: Нет, это ужас! А давай ты мне лучше сделай светло синий. И еще зеленый и оранжевый для сравнения!</li>
+			<li class="next">Dev: ...</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; color: #3c3c3c;font-size:70px; margin-top:-60px;">CSS Variables?</h2>
+		<img src="pictures/troopers.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>CSS Variables. Почему бы и нет?</h2>
+		<ul>
+			<li class="next">Почему бы и НЕТ:</li>
+			<li class="next">IE 7 <span class="next">и IE 8</span> <span class="next">и IE 9</span> <span class="next">и IE 10</span> <span class="next">и IE 11</span></li>
+			<li class="next">Chrome</li>
+			<li class="next">и вообще всё, кроме Firefox</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>3 Слабости CSS</h2>
+		<ul>
+			<li>Малое количество функционала и фишек "из коробки"</li>
+			<li>Сложно поддерживать</li>
+			<li>Не достаточно ___________ (вставьте по вкусу)</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Работа с несколькими файлами</h2>
+		<ul>
+			<li>Такая архитектура будет сложна для сопровождения и поддержки</li>
+			<li>@import не настолько хорош и не решает многих проблем</li>
+			<li>Нам нужна сторонний инструмент для конкатенации</li>
+			<li class="next">...так может быть этот инструмент пригодятся еще и для чего-то большего?</li>
+			<li class="next">Это именно то, что делают препроцессоры!</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; color: #2b2c25;font-size:70px; margin-top:-80px;">Препроцессоры</h2> 
+		<img src="pictures/droids.jpg" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2>Тройка самых популярных</h2>
+		<ul>
+			<li><b><a href="http://yummynames.com/">LESS</a></b></li>
+			<li><a href="http://sass-lang.com/">SASS</a></li>
+			<li><a href="http://stylus-lang.com/">Stylus</a></li>
+			<img src="pictures/preprocessors.jpg" alt="">
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; font-size:65px; margin-top:-50px;">Как работают препроцессоры?</h2> 
+		<img src="pictures/preprocessor-wide.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Variables</h2>
+		<pre>
+			<code>@my_blue: #4e6cb0; //LESS</code>
+			<code>$my_blue: #4e6cb0; //SASS</code>
+			<code> my_blue: #4e6cb0; //Stylus</code>
+			<code>h1 {</code>
+			<code>	color:@my_blue;</code>
+			<code>}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Variables не только для цветовых переменных</h2>
+		<pre>
+			<code>@fonts: helvetica, Arial, sans-serif;</code>
+			<code>@images_path: "../img";</code>
+			<code>@font-size: 1.5em;</code>
+			<code>@margin: 20px;</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Операции и цветовые функции</h2>
+		<pre>
+			<code>width: 25px * 4 + 100px / 2 - 50px; //= 100px</code>
+			<code>color: #990033 + #666666; //= #FF6699</code>
+			<code>@light_blue: lighten(@my_blue, 20%);</code>
+			<code>@fancy_blue: saturnate(@my_blue, 20%);</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Mixins</h2>
+		<span>Функции возвращают значение, миксины - CSS </span>
+		<pre>
+			<code>.border-radius(@radius) {</code>
+			<code>  -webkit-border-radius: @radius;</code>
+			<code>     -moz-border-radius: @radius;</code>
+			<code>          border-radius: @radius;</code>
+			<code>}</code>
+			<code>#header { .border-radius(4px); }</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Наследование</h2>
+		<pre>
+			<code>.pop {</code>
+			<code>	.pop-btn {</code>
+			<code>	}</code>
+			<code>}</code>
+			<code>//OUTPUT:</code>
+			<code>.pop {}</code>
+			<code>.pop .pop-btn {}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Наследование</h2>
+		<pre>
+			<code>.link {</code>
+			<code>	&amp;:hover {</code>
+			<code>	}</code>
+			<code>}</code>
+			<code>//OUTPUT:</code>
+			<code>.link {}</code>
+			<code>.link:hover {}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Импорты и минификация</h2>
+		<p>Теперь без потери производительности</p>
+		<pre>
+			<code>@import "library"; // library.less</code>
+			<code>@import "typo.css";</code>
+		</pre>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; font-size:65px; margin-top:-50px;">Недопонимание</h2>
+		<img src="pictures/star-wars-vs-toast.jpg" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Нам будет нужен Ruby или Node на бэкэнде</h2>
+		<ul>
+			<li>Sass написан на Ruby</li>
+			<li>LESS написан на Javascript</li>
+			<li class="next">Всё это НЕ ЗАСТАВЛЯЕТ нас ставить Ruby или Node на прод</li>
+			<li class="next">Это необходимо нам только на дев машине</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>LESS работает на клиенте</h2>
+		<ul>
+			<li>LESS может запускаться client-side</li>
+			<li>Это OK для тестинга или если мы не можем залезть на дев машину</li>
+			<li class="next">НИКОГДА не используйте на проде. Это даже хуже. чем @import</li>
+			<li class="next">Используйте Node. Или Rhino</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Препроцессоры сложно установить</h2>
+		<ul>
+			<li>И Ruby и Node легко поставить на все платформы</li>
+			<li class="next">Mac: Ruby из коробки, Node.pkg</li>
+			<li class="next">Windows: RubyInstaller.exe, Node.exe</li>
+			<li class="next">Unix: apt-get install ruby/nodejs</li>
+		</ul>
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center; color: #c3bdbd;font-size:65px; margin-top:-70px;">Альтернативы?</h2>
+		<img src="pictures/alternative.jpg" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center;color: #af0808; font-size:65px; margin-top:-50px;">PostCSS</h2>
+		<img src="pictures/postcss-2.png" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<h2 style="text-align: center;font-size:65px; margin-top:-50px;">Как работают постпроцессоры?</h2>
+		<img src="pictures/postprocessor-wide.png" alt="">
+		</div></section>
+
+	<section class="slide cover"><div>
+		<img src="pictures/autoprefixer-logo.png" alt="">
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Autoprefixer</h2>
+		<ul>
+			<li><a href="https://github.com/postcss/autoprefixer">autoprefixer</a></li>
+			<li>Плагин для PostCSS</li>
+			<li>Всё что он делает это:</li>
+			<li class="next">Добавляет и убирает вендорные префиксы</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Как это работает?</h2>
+		<ul>
+			<li>Вы конфигурируете браузерную матрицу под плагин</li>
+			<li>К примеру 2 последние версии или все > 5%</li>
+			<li>Плагин парсит наш CSS и смотрит в CanIUse</li>
+			<li>И после этого вносит изменения в наш CSS</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Autoprefixer</h2>
+		<pre>
+			<code>a {</code>
+			<code>	-webkit-border-radius: 5px;</code>
+			<code>			border-radius: 5px;</code>
+			<code>}</code><br>
+			<code>a { border-radius: 5px; }</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Autoprefixer</h2>
+		<pre>
+			<code>a { transform: scale(0.5); }</code><br>
+			<code>a {</code>
+			<code>	-webkit-transform: scale(0.6);</code>
+			<code>	-moz-transform: scale(0.6);</code>
+			<code>	transform: scale(0.5);</code>
+			<code>}</code>
+		</pre>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Что еще?</h2>
+		<ul>
+			<li><a href="https://github.com/jonathantneal/precss">precss</a></li>
+			<li><a href="https://github.com/cssnext/cssnext">cssnext</a></li>
+			<li><a href="http://cssnano.co/">cssnano</a></li>
+			<li><a href="https://github.com/postcss/postcss-use">postcss-use</a></li>
+			<li><a href="https://www.npmjs.com/package/postcss-bem">postcss-bem</a></li>
+			<li><a href="https://github.com/css-modules/postcss-modules-scope">css modules</a></li>
+			<li class="next">Если вы чего-то не можете сделать - для этого уже есть postCSS плагин</li>
+		</ul>
+		</div></section>
+
+	<p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+	<div class="progress"></div>
+	<script src="shower/shower.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
