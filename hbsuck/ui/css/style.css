@@ -6200,6 +6200,7 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
 	height: 100%;
 	z-index: 100001;
 	display: none;
+	margin-left: 70%;
 	background: url(../../images/mobile_hamburger_navigation_overlay.png);
 }
 #mobile-navigation-header-items-list {
