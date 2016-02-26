@@ -1,0 +1,107 @@
+.rfl-add-card-btorg
+{
+border-color: #924500; line-height: 1; padding: 8px 15px 7px; background-color: #d96800; background-image: linear-gradient(top, #f08500 0%, #c24c00 100%); background-image: -o-linear-gradient(top, #f08500 0, #c24c00 100%); background-image: -moz-linear-gradient(top, #f08500 0, #c24c00 100%); background-image: -webkit-linear-gradient(top, #f08500 0, #c24c00 100%); background-image: -ms-linear-gradient(top, #f08500 0, #c24c00 100%); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f08500), color-stop(1, #c24c00)); text-shadow: #b65900 0 -1px 0; text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0; -webkit-box-shadow: rgba(0, 0, 0, 0.25) 1px 2px 3px 0, #f8c900 1px 1px 2px 0 inset; -moz-box-shadow: rgba(0, 0, 0, 0.25) 1px 2px 3px 0, #f8c900 1px 1px 2px 0 inset; box-shadow: rgba(0, 0, 0, 0.25) 1px 2px 3px 0, #f8c900 1px 1px 2px 0 inset; 
+}
+.rfl-add-card-btorgsbt
+{
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+-moz-background-origin:padding;
+-moz-border-radius-bottomleft:4px;
+-moz-border-radius-bottomright:4px;
+-moz-border-radius-topleft:4px;
+-moz-border-radius-topright:4px;
+-moz-box-shadow:1px 1px 2px 0  inset, 1px 2px 3px 0 rgba(0, 0, 0, 0.25);
+border:1px solid #1F6900;
+color:#FFFFFF;
+cursor:pointer;
+font-size:16px;
+font-weight:400;
+line-height:2;
+padding:8px 15px 7px;
+text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.rfl-add-card-bt-green
+{
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+-moz-border-radius-bottomleft:4px;
+-moz-border-radius-bottomright:4px;
+-moz-border-radius-topleft:4px;
+-moz-border-radius-topright:4px;
+-moz-box-shadow:1px 1px 2px 0 #94DA5C inset, 1px 2px 3px 0 rgba(0, 0, 0, 0.25);
+background:#5FAB3B none repeat scroll 0 0;
+border:1px solid #1F6900;
+color:#FFFFFF;
+cursor:pointer;
+font-size:16px;
+font-weight:400;
+line-height:2;
+padding:8px 15px 7px;
+padding:0px 15px 0px\0/; 
+text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.address-list label.radio .label-txt {
+    display: block;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.s-account-module  .address {
+    display: block;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+/*23jan13*/
+.account-register-rfl .fs-register.fs-address .selectBox-dropdown {
+    width: auto !important;
+    padding-right: 20px;
+}
+.error#enter-rfl-card-digits-update, .error#siebel-error-update, .error#invalid-rfl-card-update, .error#enter-login-details-update, .error#enter-rfl-card-update, .error#rfl-card-exists-update {
+    color: #D81C1C;    
+    font-size: 0.91em;
+    font-style: normal;
+}
+.rfl-add-card-bt.custom_greenbtn {
+    background: #5fab3b; 
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5fab3b), color-stop(100%, #428429)); 
+    background: -webkit-linear-gradient(#5fab3b, #428429); 
+    background: -moz-linear-gradient(#5fab3b, #428429); 
+    background: -o-linear-gradient(#5fab3b, #428429); 
+    background: linear-gradient(#5fab3b, #428429); 
+    -webkit-box-shadow: #94da5c 1px 1px 2px 0 inset, rgba(0, 0, 0, 0.25) 1px 2px 3px 0; 
+    -moz-box-shadow: #94da5c 1px 1px 2px 0 inset, rgba(0, 0, 0, 0.25) 1px 2px 3px 0; 
+    box-shadow: #94da5c 1px 1px 2px 0 inset, rgba(0, 0, 0, 0.25) 1px 2px 3px 0; 
+    border: 1px solid #1f6900; -webkit-border-radius: 4px; 
+    -moz-border-radius: 4px; 
+    -ms-border-radius: 4px; 
+    -o-border-radius: 4px; 
+    border-radius: 4px; 
+    line-height: 0.6; 
+    padding: 8px 15px 7px; 
+    font-size: 16px; 
+    font-size: 1.6rem; 
+    line-height: 1.2; 
+    font-weight: 400; 
+    color: #fff; 
+    text-shadow: #417828 0 -1px 0; 
+    text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0; 
+    cursor: pointer;
+}
+/*18jan13*/
+.video-clip #player_api {
+    height: 150px;
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .account-register-rfl #activeOrInactiveCardId #checkout_form_country, #rflRegistrationFormId #checkout_form_country{
+    width: auto !important;
+    padding-right: 15px;
+    max-width: 100%;
+    min-width: 180px;    
+}
+}

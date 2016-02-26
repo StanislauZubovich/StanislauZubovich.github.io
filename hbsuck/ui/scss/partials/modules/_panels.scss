@@ -1,0 +1,121 @@
+/*-------------------------------------
+  Panels
+  Theming for content blocks that have a border or bgnd that demarks them from the page
+  Typically these modules live in the 'sidebar'
+*/
+
+
+.panel {
+  padding: 20px;   
+  @include panel;
+
+  h2,
+  .panel-title {
+    margin-top: 0;
+    @include font-size(1.6);
+      @include font-weight(600);
+  }
+  .bullet-list {
+    @include font-size(1.6);
+    line-height: 1.35;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    li {
+      margin: 10px 0 0;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+
+    }
+
+  }  
+  
+  .l-fit-bottom-right {
+    margin-right: -20px;    
+  }
+  .l-fit-bottom {
+    margin-left: -20px;
+    margin-right: -20px;
+    @include border-radius(0 0 3px 3px);
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+    }
+
+  }
+  
+  &.reversed {
+   
+    background: #4d4d4d;
+    color: #fff;
+      @include font-weight(300);
+    text-shadow: none;
+    @include box-shadow(rgba(#000, 0) 0 0 0);
+  
+  }
+  
+  &.data {
+    
+    border: 2px #555 solid;
+    @include box-shadow(rgba(#000, 0) 0 0 0);
+    
+  }
+
+  .overflow {
+    margin: 20px -20px -20px -20px;
+
+    .trigger {
+      display: block;
+      width: 100%;
+      padding: 14px 22px;
+      @include border-radius(0);
+      background: #555;
+      color: #fff;
+      @include font-size(1.6);
+      @include font-weight(400);
+      text-align: left;
+      text-shadow: none;
+      
+      .ico {
+        margin: 0 8px 0 0;
+      }
+      &:hover {
+        text-decoration: none;
+        background: #4c4c4c;
+      }
+      
+    }
+  
+  }
+
+
+}
+.no-js {
+  .overflow {
+    .trigger {
+      display: none;
+    }
+  }
+}
+
+ 
+.lt-ie8 {
+
+  .panel {
+  
+    .overflow .trigger {   
+      padding-left: 0;
+      padding-right: 0;
+      text-indent: 22px;
+  
+      .ico {
+        margin: 0 8px -7px 22px;
+      }
+      
+    } 
+
+  }
+}

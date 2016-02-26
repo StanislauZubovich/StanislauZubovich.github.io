@@ -1,0 +1,28 @@
+
+.no-js .nojs-notice {
+  
+  background: none;
+  color: #fff;
+  text-shadow: none;
+  margin: 20px auto 0;
+  
+  @media print, screen and (min-width:768px) {
+    width: 60%;
+  }
+  p {
+    @include font-size(1.5);
+    line-height: 1.5;
+    margin: 0 0 14px;
+  }
+  strong {
+    color: #fff;
+  }
+  a {
+    text-decoration: underline;
+    color: #fff;
+  }
+  h1 {
+      @include font-weight(500);
+  }
+  
+}

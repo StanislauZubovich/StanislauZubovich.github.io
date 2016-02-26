@@ -1,0 +1,775 @@
+/* =============================================================================
+   Aisle 7 overrides
+   ========================================================================== */
+.aisle7-wrapper {
+  @include font-weight(300);
+  color:#333;
+  text-shadow: 0 1px 1px #fff;
+  font-size:15px;
+  line-height: 1.35;
+}//.aisle7-wrapper
+
+.aisle7-wrapper a,
+div.hnise_WhatAreInteractions a span,
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span strong {
+  color: $green !important;
+  text-decoration: none !important;
+}
+
+.aisle7-wrapper a:hover,
+.aisle7-wrapper div.hni_RelatedContentWrapper ol li a:hover span,
+.hni_OverlayWrapper div.hni_RelatedContentWrapper ol li a:hover span,
+div.hnise_WhatAreInteractions a:hover span {
+  text-decoration: underline !important;
+}
+
+.aisle7-wrapper div.hni_WidgetFrame p,.aisle7-wrapper div.hni_WidgetFrame li,.aisle7-wrapper div.hni_WidgetFrame a span {
+  margin:0;
+}
+
+.aisle7-wrapper div.hni_WidgetFrame_Content {
+  padding:0;
+}
+
+
+
+/* Search results page
+*/
+.aisle7-wrapper div.hni_ContentPanel div.hnie_SearchComponent {
+  z-index:1;
+}
+@media screen and (max-width: 767px) {
+  .aisle7-wrapper div.hni_ContentPanel div.hnie_SearchComponent {
+    float: none;
+    margin: 0 0 20px 0;
+  }
+}
+.aisle7-wrapper .hni_SearchResultsTopBar {
+  padding:0;
+  background:none transparent;
+  color:#333;
+  font-size:16px;
+}
+.aisle7-wrapper div.hni_SearchItemContainer {
+  margin:10px 0 0;
+  padding:20px 0 0;
+  width:75%;
+}
+.aisle7-wrapper div#hni_SearchResultsPanel {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d1d1d1;
+}
+.aisle7-wrapper div#hni_SearchResultsPanel div.hni_SearchItemContainer {
+  margin-top: 20px;
+  border-top: 1px solid #d1d1d1;
+}
+
+@media screen and (max-width: 767px) {
+
+  .aisle7-wrapper div.hni_SearchItemContainer {
+    width:100%;
+  }
+
+}
+.aisle7-wrapper .hni_SearchResultTitle a {
+  text-decoration:none!important;
+  font-size:21px;
+}
+.aisle7-wrapper .hni_SearchResultTitle a:hover {
+  text-decoration:underline!important;
+}
+.aisle7-wrapper .hni_SearchResultDescription {
+  margin:10px 0;
+}
+.aisle7-wrapper .hni_SearchResultCategory {
+  color:#888;
+}
+.aisle7-wrapper span.hni_SearchResultCategoryTerm {
+  font-style:normal;
+}
+.aisle7-wrapper #hni_SearchResultsPager,
+.aisle7-wrapper #hni_RecipeIndexPager {
+  clear:both;
+  float:left;
+  margin: 40px 0 10px;
+  padding:0;
+}
+.aisle7-wrapper #hni_SearchResultsPager span,
+.aisle7-wrapper #hni_RecipeIndexPager span {
+  display:0;
+  display:inline-block;
+  vertical-align:middle;
+  vertical-align:auto;
+  zoom:1;
+  display:inline;
+  margin:0 2px 0 0;
+  font-size:16px;
+  font-size:1.6rem;
+  line-height:30px;
+}
+.aisle7-wrapper #hni_SearchResultsPager span a,
+.aisle7-wrapper #hni_RecipeIndexPager span a {
+  display:0;
+  display:inline-block;
+  vertical-align:middle;
+  vertical-align:auto;
+  line-height:30px;
+  width:30px;
+  height:30px;
+  padding:0;
+  border:1px solid #d1d1d1;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -ms-border-radius:5px;
+  -o-border-radius:5px;
+  border-radius:5px;
+  color:#333 !important;
+  background:#fff;
+  text-align:center;
+  @include font-weight(400);
+}
+.lt-ie8 .aisle7-wrapper #hni_SearchResultsPager span a,
+.lt-ie8 .aisle7-wrapper #hni_RecipeIndexPager span a {
+  zoom:1;
+  display:inline;
+}
+.aisle7-wrapper span#hni_SearchResultsPagerPrevious a,
+.aisle7-wrapper span#hni_SearchResultsPagerNext a,
+.aisle7-wrapper span#hni_RecipeIndexPagerPrevious a,
+.aisle7-wrapper span#hni_RecipeIndexPagerNext a {
+  width: 60px;
+  color: #333 !important;
+}
+
+
+/* Pagination
+*/
+.list-pagination {
+}
+
+.list-pagination li {
+
+}
+
+.lt-ie9 .list-pagination li {
+  margin-right:6px;
+}
+
+@media only screen and (max-width: 768px) {
+  .list-pagination li {
+    margin-right:6px;
+  }
+}
+
+.list-pagination li.current a {
+  color:#999;
+}
+
+.list-pagination a {
+}
+
+.list-pagination .prev,.list-pagination .next {
+  font-size:19px;
+  font-size:1.9rem;
+}
+
+.list-pagination .prev a,.list-pagination .next a {
+  width:40px;
+}
+
+
+
+/* Landing page
+*/
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a,
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span,
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span strong {
+  width:100%;
+}
+
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span strong {
+  margin:-1px 0 0;
+  @include font-weight(400);
+}
+
+.aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li.hni_HomeCalloutTabActive span {
+  top:4px;
+}
+
+.aisle7-wrapper div.hnie_UnstructuredBody div.hni_NewswireWidget {
+  margin:8px 0 0;
+  border:0;
+}
+
+.aisle7-wrapper div.hnie_UnstructuredBody div.hni_NewswireWidget ul li {
+  background:none;
+  margin:4px 0 0;
+  padding:0;
+  border:0;
+}
+
+.aisle7-wrapper .div.hni_NewswireWidget {
+  margin:0;
+  border:0;
+}
+
+.aisle7-wrapper div.hni_NewswireLogoContainer {
+  background-color:transparent;
+}
+
+.aisle7-wrapper .hni_NewswireLogoContainer,.aisle7-wrapper div.hnise_Title {
+  margin:20px 0 10px;
+  padding:20px 0 0;
+  border:1px solid #e3e3e3;
+  border-width:5px 0 0;
+  font-size:18px;
+  font-size:1.8rem;
+  line-height:1.15;
+  @include font-weight(400);
+  color:#333;
+  background:none transparent;
+  text-transform:none;
+}
+
+.aisle7-wrapper #hni_LandingPage_Featured li {
+  margin:2px 0 0;
+}
+
+
+/* Tables
+*/
+.aisle7-wrapper div.hni_ContentPanel table {
+  margin: 0 0 20px;
+}
+.aisle7-wrapper div.hni_ContentPanel table tbody {
+  display: block;
+  margin: 11px 0 0;
+}
+.aisle7-wrapper div.hni_ContentPanel table tbody td {
+  padding: 4px 0;
+}
+.aisle7-wrapper div.hni_ContentPanel table td br {
+  height:0;
+  display:none;
+}
+
+.aisle7-wrapper div.hni_ContentPanel table td em {
+  font-style:normal;
+  @include font-weight(400);
+}
+
+
+/* Health Guides tables */
+
+.aisle7-wrapper #HealthGuidesBottomNav table td p {
+  margin:20px 0 30px;
+}
+.aisle7-wrapper #HealthGuidesBottomNav table td p a {
+  padding:4px 0 0;
+  font-size:16px;
+  font-size:1.6rem;
+}
+.aisle7-wrapper #HealthGuidesBottomNav table td p a:first-child {
+  border-width:0;
+  color:#333;
+}
+
+
+
+
+
+/* Content page
+*/
+.aisle7-wrapper div.hni_ContentPanel h2,.aisle7-wrapper div.hnise_HelpfulProductsDoSubhead,.aisle7-wrapper div.hnise_HelpfulProductsDontSubhead {
+  padding:0;
+}
+
+.aisle7-wrapper #hni_ContentPanel > h2.hnise_Title {
+  margin:0 0 30px;
+  font-size:33px;
+  line-height:1;
+  @include font-weight(400);
+}
+
+.aisle7-wrapper .hnie_Byline {
+  color:#888;
+}
+
+.aisle7-wrapper .hnise_Html h3 {
+  margin:30px 0 0;
+  font-size:19px;
+  @include font-weight(400);
+}
+.aisle7-wrapper .hnise_Html h3:first-child {
+  margin-top: 10px;
+}
+.aisle7-wrapper .hnie_Bio {
+  color:#888;
+  @include font-weight(400);
+}
+
+.aisle7-wrapper .hnie_Bio em {
+  font-style:normal;
+}
+
+/* article footer */
+.aisle7-wrapper div.hni_ContentPanel div.hnie_CopyrightDisclaimerText,.aisle7-wrapper div.hnie_PemDisclaimerText {
+  margin:30px 0 0;
+  padding:20px 0;
+  border:1px solid #BBB;
+  border-width:1px 0 0;
+  color:#888!important;
+  background:none transparent;
+}
+
+
+
+
+/* Pull quote */
+.aisle7-wrapper div.hni_ContentPanel div.hnie_MainImage div.hnise_PullQuoteText {
+  background-color:#E5E5E5;
+  background-color:rgba(0,0,0,0.05);
+}
+
+.aisle7-wrapper div.hni_AssetTypeFeature div.hnie_MainImage div.hnise_PullQuoteText span {
+  padding:35px 20px;
+  font-size:18px;
+  font-size:1.8rem;
+  @include font-weight(400);
+  text-align:center;
+}
+
+/* Related content */
+.aisle7-wrapper div.hni_RecipeSidebarSubhead span.hni_RecipeQuickFactsHeading,
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading,
+.hni_OverlayWrapper div.hni_RecipeSidebarSubhead span.hni_RecipeQuickFactsHeading,
+.hni_OverlayWrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading {
+  background:transparent;
+}
+.aisle7-wrapper div.hni_AssetTypeFeature div.hni_RelatedContentWrapper,
+.hni_OverlayWrapper div.hni_AssetTypeFeature div.hni_RelatedContentWrapper {
+  margin:0 0 20px;
+  padding: 0;
+  background:#E5E5E5;
+  background:rgba(0,0,0,0.05);
+  font-size:16px;
+  font-size:1.6rem;
+}
+.aisle7-wrapper div.hnie_RelatedContentPrimary,
+.hni_OverlayWrapper div.hnie_RelatedContentPrimary,
+.aisle7-wrapper div.hnie_RelatedContentSecondary {
+  padding: 10px;
+  background: none transparent;
+}
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading h3.hnise_SectionHead,
+.hni_OverlayWrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading h3.hnise_SectionHead {
+  margin:0 0 10px;
+  padding:0 0 10px;
+  border-bottom:1px solid #ccc;
+  font-size:18px;
+  font-size:1.8rem;
+  line-height:1.15;
+  @include font-weight(400);
+  color:#333;
+}
+.aisle7-wrapper div.hni_RelatedContentWrapper ol li,
+.hni_OverlayWrapper div.hni_RelatedContentWrapper ol li {
+  margin:0 0 8px;
+  padding:0;
+  border:0;
+}
+.aisle7-wrapper div.hni_RelatedContentWrapper ol li a span,
+.hni_OverlayWrapper div.hni_RelatedContentWrapper ol li a span {
+  margin:0;
+  color: $green;
+  font-size:16px;
+  font-size:1.6rem;
+}
+
+
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilter,
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilterDisabled {
+  border: 1px solid #b8b8b8;
+  font-size:16px;
+  font-size:1.6rem;
+  background: #cbcbcb;
+  text-shadow: rgba(0, 0, 0, 0.1) 0 1px 1px;
+  font-weight: 400;
+  vertical-align: middle;
+  margin: 5px 5px 0 0;
+}
+@media print, screen and (min-width: 768px) {
+
+  .aisle7-wrapper div.hni_RecipeIndexCalloutContainer div.hni_RecipeIndexFilterContainer {
+    border-bottom: 1px solid #b8b8b8;
+  }
+
+  .aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilter,
+  .aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilterDisabled {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 5px;
+    border-bottom: 0;
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    line-height: 35px;
+    padding: 0 25px;
+  }
+
+}
+
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span#filter0 {
+  border-color: #b8b8b8;
+}
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilter a {
+  color: #fff !important;
+}
+
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilter.Selected a {
+  color: $green !important;
+}
+.aisle7-wrapper div.hni_RecipeIndexCalloutContainer span.hni_RecipeIndexFilter.Selected {
+  background: #f3f3f2 url(/ui/css/img/body.jpg);
+  margin-bottom: -1px;
+}
+.aisle7-wrapper #hni_RecipeIndexResultCount {
+  background: none transparent;
+  color: #333;
+  font-weight: 400;
+  border: 0;
+  padding: 10px 0;
+}
+.aisle7-wrapper .hni_RecipeItemContainer {
+  padding: 8px 0 5px 0;
+  border: 0;
+  border-top: 1px solid #dedede;
+}
+.aisle7-wrapper #hni_RecipeIndexResultsContainer {
+  border-bottom: 1px solid #dedede;
+}
+.aisle7-wrapper .hni_RecipeItemContainer .hni_RecipeResultItem a {
+  font-size:16px;
+  font-size:1.6rem;
+}
+.aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table.hni_RecipeIndexCalloutTable,
+.aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table#hni_RecipeIndexCalloutTbl {
+  border: 0;
+}
+.aisle7-wrapper tr.hni_RecipeIndexCalloutHeaderText {
+  background: none;
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+.aisle7-wrapper tr.hni_RecipeIndexCalloutTitle td,
+.aisle7-wrapper tr.hni_RecipeIndexCalloutIcons td,
+.aisle7-wrapper table.hni_RecipeIndexCalloutTable td#hni_RecipeIndexCalloutHeaderTxt {
+  padding: 0;
+}
+.aisle7-wrapper tr.hni_RecipeIndexCalloutHeaderText,
+.aisle7-wrapper table.hni_RecipeIndexCalloutTable tr.hni_RecipeIndexCalloutHeaderText td {
+  border: 0;
+}
+.aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table td {
+  border: 0;
+  padding: 0 20px 0 0;
+}
+.aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table td img {
+  display: block;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 767px) {
+
+  .aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table td img {
+    width: 120px;
+  }
+  .aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table tr {
+    display: table-row;
+  }
+  .aisle7-wrapper div.hni_ContentPanel div.hni_RecipeIndexCalloutContainer table td {
+    display: table-cell;
+  }
+
+}
+
+
+.aisle7-wrapper div.hnie_Nutrition {
+  margin: 20px 0 0;
+  padding: 20px;
+  display: block;
+  background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 4px 4px 4px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 4px 4px 4px 0px;
+  box-shadow: rgba(0, 0, 0, 0.09) 4px 4px 4px 0px;
+  border: 3px solid #4d4d4d;
+}
+.aisle7-wrapper div.hnie_Nutrition h3.hnise_SectionHead {
+  font-size: 24px;
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: left;
+  color: #333;
+}
+.aisle7-wrapper div.Hni_FactLineMiddle,
+.aisle7-wrapper div.Hni_FactLineBottom,
+.aisle7-wrapper div.hnie_Nutrition h3.hnise_SectionHead {
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+}
+.aisle7-wrapper div.Hni_FactLineMiddle,
+.aisle7-wrapper div.Hni_FactLineBottom {
+  padding: 10px 0 5px 0;
+}
+.aisle7-wrapper .hnie_RecipeSidebar,
+.aisle7-wrapper div.hni_RelatedContentWrapper {
+  margin: 0;
+  padding: 0;
+  background: #E5E5E5;
+  background: rgba(0,0,0,0.05);
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #333;
+}
+.aisle7-wrapper div.hni_RecipeSidebar {
+  font-size: 16px;
+  font-size: 1.6rem;
+  color: #333;
+}
+.aisle7-wrapper div.hni_RecipeSidebarSubhead {
+  background: none;
+}
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hnie_RelatedContentPrimary .hni_RecipeSidebarArrow,
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hnie_RelatedContentSecondary .hni_RecipeSidebarArrow {
+  vertical-align: top;
+  margin-right: 5px;
+}
+.aisle7-wrapper div.hni_AttributionText em {
+  font-style: normal;
+}
+
+.aisle7-wrapper div.hni_RecipeServings,
+.aisle7-wrapper div.hni_RecipeYield,
+.aisle7-wrapper div.hni_RecipePrepTime,
+.aisle7-wrapper div.hni_RecipeCookTime,
+.aisle7-wrapper div.hni_RecipeTotalTime,
+.aisle7-wrapper div.hni_RecipeSidebarIcons {
+  padding: 4px 10px 4px 20px;
+  background: none transparent;
+  color: #333;
+  border-color: #E3E3E3;
+}
+
+div.hni_RecipeSidebarSubhead,
+div.hnie_RelatedContentPrimary,
+div.hnie_RelatedContentSecondary {
+}
+
+
+
+/* Search result details page (with sidebar)
+  (.hni_RelatedContentCompleteWrapper div distinguishes lots these declarations from the article page sidebar)
+*/
+.aisle7-wrapper .hni_RelatedContentCompleteWrapper .hni_RelatedTopicsHeading {
+  display:inline-block;
+  vertical-align:middle;
+  *display:inline;
+  zoom: 1;
+  width: 160px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.aisle7-wrapper .hni_RelatedContentCompleteWrapper .hnie_RelatedContentPrimary,
+.aisle7-wrapper .hni_RelatedContentCompleteWrapper .hnie_RelatedContentSecondary {
+  padding: 7px 0;
+}
+.aisle7-wrapper .hni_RelatedContentCompleteWrapper .hnie_RelatedContentPrimary .hnise_RelatedContentList,
+.aisle7-wrapper .hni_RelatedContentCompleteWrapper .hnie_RelatedContentSecondary .hnise_RelatedContentList {
+  padding: 7px 0 0;
+}
+.aisle7-wrapper div.hni_RelatedContentCompleteWrapper div.hnise_RelatedContentList ol li {
+  padding: 0 5px 0 15px;
+  background: none transparent;
+}
+.aisle7-wrapper div.hni_RelatedContentCompleteWrapper div.hnise_RelatedContentList ol li a:hover {
+  text-decoration: underline;
+}
+.aisle7-wrapper .hnie_RecipeSidebar .hni_RecipeQuickFactsHeading h3,
+.aisle7-wrapper div.hni_RelatedContentCompleteWrapper div.hni_RelatedTopicsHeading h3.hnise_SectionHead {
+  color: $green;
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  &:hover { text-decoration: underline !important; }
+}
+/*
+.aisle7-wrapper div.hni_RecipeSidebarSubhead .hni_RecipeQuickFactsHeading h3,
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hnie_RelatedContentPrimary .hni_RelatedTopicsHeading .hnise_SectionHead,
+.aisle7-wrapper div.hni_RelatedContentWrapper div.hnie_RelatedContentSecondary .hni_RelatedTopicsHeading .hnise_SectionHead {
+}
+*/
+
+
+
+/* Lightboxes
+*/
+.hni_OverlayWrapper div.hni_ContentPanel.hni_UIContextDefault.hni_UIContextOverlay {
+  padding: 0 20px;
+}
+
+.hni_OverlayWrapper div.hni_AssetTypeGeneric h2.hnise_Title {
+  position: relative;
+  padding: 20px 0 0 0 ;
+  margin: 0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+.hni_OverlayWrapper .hnise_Html {
+
+}
+
+.hni_OverlayWrapper .hnise_Html p,
+.hni_OverlayWrapper .hnise_Html h4,
+.hni_OverlayWrapper .hnise_Html td,
+.hni_OverlayWrapper .hnise_Html ul {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin: 11px 0 0;
+}
+.hni_OverlayWrapper .hnise_Html h3 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 22px 0 0;
+}
+.hni_OverlayWrapper .hnise_Html h3:first-child {
+  margin-top: 0;
+}
+.hni_OverlayWrapper .hnise_Html td {
+  margin: 0;
+}
+.hni_OverlayWrapper .hni_UIContextOverlay table tr {
+  border: 0;
+}
+.hni_OverlayWrapper .hnise_Html td em {
+  font-style: normal;
+  font-weight: 400;
+}
+.hni_OverlayWrapper .hnise_Html li {
+  margin: 3px 0 0;
+}
+.hni_OverlayWrapper .hnise_ItemText{
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+div.hni_ContentPanel div, div.hni_ContentPanel span, div.hni_ContentPanel td, div.hni_ContentPanel p, div.hni_ContentPanel li, div.hni_ContentPanel span.hni_GeneralCalloutText, div.hni_ContentPanel span.hni_GeneralCalloutCallToActionText, div.hni_ContentPanel span.hni_GeneralCalloutText strong, div.hnie_SubTitle div.hnise_ItemText, ul.hni_HomeCalloutTabs li a, div.hni_ContentPanel h3, div.hni_ContentPanel h4 {
+  font-weight: normal !important;
+}
+
+
+/* Mobilise!
+*/
+@media screen and (max-width: 767px) {
+
+  .aisle7-wrapper div.hni_ContentPanel tr,
+  .aisle7-wrapper div.hni_ContentPanel td,
+  .aisle7-wrapper div.hni_ContentPanel th {
+    display: block;
+  }
+  .aisle7-wrapper div.hni_NewswireLogoContainer,
+  .aisle7-wrapper td#hni_LandingPage_QuickTip,
+  .aisle7-wrapper td#hni_LandingPage_Featured {
+    width: 100%;
+  }
+  .aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts {
+    overflow: visible;
+    position: relative;
+    border: none;
+    margin: 20px 0 10px;
+    padding: 20px 0 0;
+    border: 1px solid #E3E3E3;
+    border-width: 5px 0 0;
+  }
+  /*  hide images :-o */
+  .aisle7-wrapper .hni_HomeCalloutWrapper {
+    display: none;
+  }
+  .aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    background: none transparent;
+    margin: 0;
+  }
+  .aisle7-wrapper .aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a,
+  .aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span,
+  .aisle7-wrapper div.hni_HomeCalloutsVersion2#hni_HomeCallouts ul.hni_HomeCalloutTabs li a span strong {
+    width: 280px;
+  }
+  div.hni_ContentPanel div.hnie_MainImage {
+    float: none;
+    width: 100%;
+    margin: 0;
+  }
+  div.hni_ContentPanel div.hnie_MainImage img {
+    width: 100%;
+  }
+  div.hni_AssetTypeGeneric div.hni_RelatedContentWrapper {
+    width: 50% !important;
+    margin: 10px 0 0 10px !important;
+  }
+  .aisle7-wrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading h3.hnise_SectionHead,
+  .aisle7-wrapper div.hni_RelatedContentWrapper ol li a span,
+  .hni_OverlayWrapper div.hni_RelatedContentWrapper ol li a span {
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
+  .aisle7-wrapper div.hni_RelatedContentWrapper div.hni_RelatedTopicsHeading h3.hnise_SectionHead {
+    margin: 0 0 10px;
+    padding: 0 0 10px;
+  }
+
+  /* Lightbox on mobile = override inline styles */
+  div.hni_OverlayWrapper {
+    width: 90% !important;
+    left: 5% !important;
+  }
+  div.hni_OverlayWrapper .hni_OverlayPadding {
+    padding: 0 !important;
+  }
+  div.hni_ContentPanel.hni_UIContextDefault.hni_UIContextOverlay div.hnie_MainImage img {
+    margin-left: 0 !important;
+  }
+  .hni_OverlayWrapper .hnise_Html h3:first-child {
+    margin-top: 10px;
+  }
+
+
+}

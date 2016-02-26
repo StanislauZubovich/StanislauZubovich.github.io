@@ -1,0 +1,184 @@
+/*-----------------
+  Signup /register
+*/
+
+/* Teaser
+*/
+.signup-teaser {
+
+  .trigger,
+  .is-collapsed .trigger {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .is-expanded {
+
+    .trigger {
+      opacity: 0;
+      @include transition(fade);
+      display: none;
+    }
+
+  }
+  form {
+    margin: 20px 0 0;
+  }
+  ol {
+    @include simpleList;
+    @include font-size(1.6);
+
+    label span {
+      display: block;
+      margin: 0 0 4px;
+    }
+    li {
+      margin: 0 0 0.8em 0;
+    }
+
+  }
+  [type=submit],
+  [type=email],
+  [type=text] {
+    width: 100%;
+  }
+  .trigger {
+    line-height: 1;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin: 0 0 30px;
+  }
+
+  /* Errors */
+  .form-errors {
+    margin-bottom: 25px;
+    padding: 15px 15px 5px;
+    h2 { @include font-size(1.6); }
+  }
+  li.error {
+    color: $errorRed;
+    em {
+      display: block;
+      margin: 8px 0 0;
+      @include font-size(1.4);
+        @include font-weight(500);
+      font-style: normal;
+    }
+    &.text input {
+      border: 2px solid $errorRed;
+    }
+  }//li.error
+
+}
+
+
+/* Pages
+*/
+.s-signup {
+  margin-bottom: 30px;
+
+  .i {
+    background: rgba(51,51,51,0.05);
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    margin-bottom: 0;
+
+    form {
+      padding: 0;
+
+      ol li {
+        padding-left: 190px;
+        border: 0;
+
+        label {
+          margin-left: -190px;
+          width: 180px;
+          margin-top: 0.3em;
+        }
+        small a {
+          color: $orange;
+        }
+
+      }
+
+    }
+    .text {
+      input {
+        width: 80%
+      }
+    }
+  }
+
+}
+
+.s-signup,
+.s-register {
+  font-size: 16px;
+
+  h2 {
+      @include font-weight(500);
+    font-size: 1.5em;
+    margin-bottom: 40px;
+  }
+  .i {
+    padding: 30px;
+  }
+}
+.s-register {
+
+ .i {
+    background: #FFF;
+    @include box-shadow(rgba(0,0,0,0.09) 2px 4px 5px 0);
+    text-align: center;
+
+    a {
+      @extend %greenButton;
+      @include inline-block;
+    }
+
+  }
+
+}
+.t-checkout {
+
+  .s-register {
+    display: none;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      display: block;
+    }
+
+  }
+
+}
+
+.s-signup {
+  position: relative;
+
+  h2 {
+    margin: -10px 0 5px;
+    line-height: 27px;
+    font-size: 21px;
+    padding-right: 80px;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      margin: 0 0 10px;
+      padding-right: 0;
+      @include font-size(2.4);
+      line-height: 1;
+    }
+  }
+  .register-link {
+    position: absolute;
+    margin: -10px 0 15px 5px;
+    right: 30px;
+    width: 80px;
+    top: 32px;
+    text-align: right;
+    color: $green;
+    @include font-size(1.5);
+  }
+}
+

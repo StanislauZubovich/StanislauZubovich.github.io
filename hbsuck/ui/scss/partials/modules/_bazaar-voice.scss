@@ -1,0 +1,81 @@
+/**
+ * Small screen overrides for the Bazaar Voice review form.
+ * !Important all the things, because their stylesheet comes after ours and wins
+ */
+.BVMEStaticTip {
+  width: auto !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    padding: 0 16px 6px !important;
+    width: 240px !important;
+    position: absolute !important;
+    top: 57px !important;
+    left: 430px !important;
+  }
+}
+
+.BVSU_SearchLightbox#BVLBWindow,
+.BVSU_SearchLightbox#BVLBContainer {
+  max-width: 100%;
+}
+
+#BVLBWindow.BVSU_SearchLightbox {
+  width: 100% !important;
+  margin-left: 0 !important;
+  left: 0 !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    width: 630px !important;
+    margin-left: -315px !important;
+    left: 50%  !important;
+  }
+}
+
+
+.BVTextCounter {
+  width: auto !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    width: 400px !important;
+  }
+}
+
+
+.BVFieldText, .BVFieldTextArea {
+  width: 100% !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    width: 400px !important;
+  }
+}
+
+.BVFieldNetPromoterScoreRadioLegendContainer {
+  width: auto !important;
+  float: none !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    width: 435px !important;
+  }
+}
+
+.BVPLInsideProductEmpty {
+  width: auto !important;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    width: 15% !important;
+  }
+}
+
+.BVFieldNetpromoterscore .BVFieldRadioContainer {
+  margin-right: 3px
+}
+
+/**
+ * Overrides for inline review element on product pages
+ */
+.BVRRPrimarySummary {
+  width: auto !important;
+}

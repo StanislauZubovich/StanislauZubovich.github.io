@@ -95,7 +95,18 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html {
+	font-size: 62.5%;
+}
 
+* + * {
+	margin-top: 1.5rem;
+}
+
+.container {
+	min-height: 100vh;
+	font-size: 1.6rem;
+}
 
 
 

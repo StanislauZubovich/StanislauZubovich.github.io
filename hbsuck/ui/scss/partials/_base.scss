@@ -1,0 +1,128 @@
+/* Base CSS
+ *
+ * Minimal on-brand base theming for element selectors
+ * Colour, typography, vertical rhythm(?)
+ *
+ * Apply sparingly, to minimise the need for overwrites in the project styles
+ *
+*/
+
+html {
+  font-size: 62.5%;
+  line-height: 1.35;
+}
+body {
+  @include font-weight(300);
+  color: $text-color;
+  text-shadow: 0 1px 1px #fff;
+  background: $site-bg-green;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    min-width: 1000px;
+  }
+
+}
+h1,h2,h3,h4,h5,h6 {
+  @include font-weight(400);
+}
+h2 {
+  font-size: 21px;
+  line-height: 24px;
+  margin: 30px 0 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+}
+p {
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 3px 0 0;
+}
+a {
+  text-decoration:none;
+  color: $text-color;
+}
+a:visited {
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+  @include transition (all 0.3s ease-out);
+}
+a[href^=tel] {
+  text-decoration: none;
+  cursor: default;
+}
+nav ul,
+nav ol {
+  @include simpleList;
+}
+img {
+  display: block;
+}
+blockquote p:before {
+  content: "\201C";
+  @include inline-block;
+  width: .2em;
+}
+blockquote p:last-child:after {
+  content: "\201D";
+  width: 2px;
+}
+label,
+input[type=button],
+input[type=submit],
+select {
+  cursor: pointer;
+}
+input[type=button],
+input[type=submit] {
+  @include wordBreak;
+}
+fieldset{
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+hr {
+  border: 0;
+  height: 5px;
+  background: $light-grey;
+  margin: 30px 0;
+}
+.lt-ie8 hr {
+  filter:alpha(opacity=30);
+}
+abbr,
+abbr[title] {
+  border-bottom: 0;
+}
+/*
+ * These selection declarations have to be separate
+ * No text-shadow: twitter.com/miketaylr/status/12228805301
+ */
+::-moz-selection {
+  background: $green;
+  color: #fff;
+  text-shadow: none;
+}
+::selection {
+  background: $green;
+  color: #fff;
+  text-shadow: none;
+}
+/* Global styles */
+
+// Previous price if discount
+strike.was {
+  font-size: 65%;
+  text-shadow: none;
+  @include font-weight(300);
+  text-decoration: line-through;
+  white-space: nowrap;
+}

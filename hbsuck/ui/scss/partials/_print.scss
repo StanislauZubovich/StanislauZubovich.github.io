@@ -1,0 +1,88 @@
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+   
+@media print {
+    * {
+        background:transparent!important;
+        color:black!important;
+        box-shadow:none!important;
+        text-shadow:none!important;
+        filter:none!important;
+        -ms-filter:none!important;
+    }
+    a,a:visited {
+        text-decoration:none;
+        color: black; /* Black prints faster: h5bp.com/s */
+    }
+/*
+  Compass chokes on these two
+    a[href^=javascript:]:after,
+    a[href^=#]:after,
+*/
+    .ir a:after    {
+        content:"";
+    }
+    /* Don't show links for images, or javascript/internal links */
+    pre,blockquote {
+        border:1px solid #999;
+        page-break-inside:avoid;
+    }
+    thead {
+        display:table-header-group;
+    }
+    /* h5bp.com/t */
+    tr,img {
+        page-break-inside:avoid;
+    }
+    img {
+        max-width:100%!important;
+    }
+    @page {
+        margin:.5cm;
+    }
+    p,h2,h3 {
+        orphans:3;
+        widows:3;
+    }
+    h2,h3 {
+        page-break-after:avoid;
+        margin-top: 0px;
+        padding: 0;
+    }
+    .l-col {
+    float: left;
+    width: 100%;
+  }
+    .l-col.l-one-half {
+    width: 50%;
+  }
+    .l-col.l-one-quarter {
+    width: 25%;
+  }
+  .l-three-quarters {
+    width: 75%;
+  }
+  .s-checkout-confirmation .mod-header {
+    padding-bottom: 10px;
+    border: 0;
+  }
+  .s-checkout-confirmation .mod-header .mod-title {
+    font-size: 36px;
+  }
+  .s-order-summary .mod-header {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: 0;
+  }
+    
+    // stuff to hide
+    .s-checkout-footer,
+    .checkout-progress-indicator,
+    [role=banner].header-basket h2 {
+      display: none;
+    }
+    
+}

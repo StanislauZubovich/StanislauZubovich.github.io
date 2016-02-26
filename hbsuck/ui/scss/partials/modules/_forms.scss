@@ -1,0 +1,791 @@
+/*=====================================
+  Forms
+
+  Note: this code sits on top of formalize.scss.
+  If excessive overriding becomes necessary then consider paring back formalize.
+
+*/
+
+
+//------------------------
+// VARIABLES & MIXINS
+
+%prettyTextInput {
+  padding: 9px 10px 7px;
+  @include box-shadow(rgba(0,0,0,0.1) 5px 5px 5px 0 inset);
+  @include border-radius(4px);
+  border: 1px solid #c4c4c4;
+/*   height: auto; */
+  @include font-weight(300);
+  @include font-size(1.4);
+  line-height: 1;
+  @include inline-block;
+}
+$defaultFormIndent: 250;
+$defaultFormLabel:  220;
+$errorRed: #d81c1c;
+
+
+/*-----------------
+  Common patterns
+*/
+
+.fieldset-msg {
+  @include font-size(1.4);
+}
+form {
+  outline: 0;
+
+  .optional {
+    display: block;
+    color: #888;
+  }
+}
+.form-items {
+  @include simpleList;
+}
+.form-info {
+  margin: 20px 0 0;
+  @include font-size(1.4);
+}
+.form-helper {
+  @include font-size(1.4);
+  @include font-weight(300);
+  color: $green;
+}
+/* Forms dynamically submitted with JS don't need a visible submit button*/
+.js .bh-auto-submit {
+
+  .submit,
+  [type=submit] {
+    display: none !important; // !important is there to trump more specific .lt-ie* rules
+  }
+
+}
+
+
+/*-----------------
+  Custom select lists
+
+  Extensions and overrides for _jquery.selectBox.scss
+*/
+/* a */.selectBox {
+  @include font-size(1.5);
+  color: $text-color !important;
+  cursor: pointer;
+}
+.select.error {
+  .selectBox {
+    border: 2px $errorRed solid;
+  }
+}
+.selectBox-dropdown {
+  .selectBox-label {
+    padding-top: 5px;
+    overflow: hidden;
+  }
+}
+.selectBox-dropdown-menu {
+  @include font-size(1.6);
+
+  a:hover {
+    cursor: pointer;
+  }
+
+}
+
+.multiselect {
+
+  a {
+    text-decoration: none;
+  }
+  li {
+    margin: 0;
+    padding: 0 !important;
+
+    a {
+      padding: 0px 4px;
+      cursor: pointer;
+      color: #888;
+    }
+
+  }
+
+}
+
+
+/*-----------------
+  Custom radios
+
+  <label class="radio">
+    <input type="radio">
+    <span class="ico ico-18 ico-radio"></span>
+    <span class="label-txt">
+      Label text
+    </span>
+  </label>
+
+  Note: rendering .checked state requires js to add class to label
+*/
+.js {
+
+  label.radio {
+
+    /* hide */
+    input {
+      position: absolute;
+      left: -999em;
+    }
+    .ico-radio {
+      background: url('img/icons/radios.png') 0 0 no-repeat;
+    }
+    background-color: rgba(255,255,255,.1);
+
+    &.has-focus {
+      background-color: rgba(255,255,255,.33);
+      @include transition(fade);
+      @include transition-duration(0.15s);
+    }
+
+
+    &:hover .ico-radio {
+      background-position: 0 -18px;
+    }
+    &.checked .ico-radio {
+      background-position: 0 -36px;
+    }
+    .label-txt {
+      @include inline-block;
+      padding-left: 10px;
+    }
+
+  }
+  .disabled {
+
+    label.radio {
+
+      .ico-radio {
+        opacity: 0.5;
+      }
+      &:hover {
+
+        .ico-radio {
+          background-position: 0 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+.js.lt-ie9 {
+
+  .disabled {
+
+    label.radio {
+
+      .ico-radio {
+        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+      }
+
+    }
+
+  }
+
+}
+
+
+
+/*-----------------
+  Input types
+*/
+
+input[type=number] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+/* 'Disabled' inputs
+*/
+input[readonly],
+input.readonly {
+  border-color: transparent;
+  background: transparent;
+  @include box-shadow(none);
+  cursor: default;
+  padding-left: 0;
+  padding-right: 0;
+  width: auto;
+}
+
+/* overrides for different row types
+*/
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=search],
+input[type=url],
+input[type=number],
+textarea {
+  @extend %prettyTextInput;
+}
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=url],
+input[type=number],
+textarea {
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+/*     width: 80%; */
+
+    &.medium {
+      width: 50%;
+    }
+    &.small  {
+      width: 10.5em;
+    }
+    &.tiny   {
+      width: 6em;
+    }
+
+  }
+}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+input[type=search] {
+  -webkit-appearance:textfield;
+}
+textarea {
+  line-height: 1.4;
+  width: 98%;
+  *width: 92%;
+}
+
+/*-----------------
+  'Feature' theming for forms
+*/
+form.feature {
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    .page-submit {
+      margin-left: 280px;
+    }
+  }
+
+  @include font-size(1.6);
+
+  ol,ul {
+    list-style: none outside;
+    margin: 0;
+    padding: 0;
+  }
+
+  label,
+  .pseudo-label {
+    display: block;
+    margin: 0 0 0.2em 0;
+
+    a {
+      color: $green;
+    }
+
+    .note {
+      font-style: normal;
+      @include font-weight(300);
+      color: #898989;
+      display: block;
+      @include font-size(1.3);
+    }
+
+  }
+
+  li,
+  .pseudo-li {
+    margin: 0 0 0.4em 0;
+    position: relative;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    .prompt {
+      margin: 0 0 14px;
+    }
+
+    label,
+    .pseudo-label {
+      @include font-size(1.5);
+      @include font-weight(300);
+      margin-top: 10px;
+    }
+    &.multiselect {
+
+      select {
+        @extend %prettyTextInput;
+        line-height: 1.3em;
+        padding: 5px 10px;
+        width: 100%;
+      }
+
+    }
+    &.postcode-lookup-field {
+      [type=text] {
+        width: 5em
+      }
+
+      &.loading {
+        padding-bottom: 30px;
+        background: transparent url(img/big-spinner.gif) no-repeat center bottom;
+
+        @include respond-wrapper-fallback(tablet, lt-ie9) {
+          background-position: 244px bottom;
+        }
+      }
+
+      &.error {
+        padding-top: 0;
+
+        em.error {
+          margin-top: 5px;
+        }
+      }
+
+    }
+    &.checkbox-inline,
+    &.radio-inline,
+    &.inline {
+      border: 0;
+    }
+    /* Offset -ve margin on top of .selectBox  */
+    &.select {
+      margin-top: 5px;
+      .selectBox {
+/*      margin: -5px 0 0px; */
+        color: $text-color
+      }
+    }
+
+    /* individual internals */
+    small,
+    .hint {
+      @include font-size(1.3);
+      @include font-weight(300);
+
+      &.hint-right {
+        display: block;
+        margin: 8px 0 0;
+
+        @include respond-wrapper-fallback(tablet, lt-ie9) {
+          @include inline-block;
+          margin-left: 1em;
+        }
+
+      }
+      &.group-hint {
+        color: #888;
+        margin: 8px 0 14px;
+
+        @include respond-wrapper-fallback(tablet, lt-ie9) {
+          position: absolute;
+          margin: 0 0 0 15px;
+
+          span {
+            display: block;
+            margin: 0 0 4px;
+          }
+
+        }
+
+      }
+
+    }
+    .hint {
+      color: #888;
+    }
+
+  }
+  // We the contents of these (fake) selects so we can afford to make them narrower (and avoid wrapping)
+  .date-select {
+
+    .selectBox-dropdown {
+      min-width: 100px;
+    }
+
+  }
+
+  #addressSelector {
+    width:100%;
+  }
+
+  // We the contents of these (fake) selects so we can afford to make them narrower (and avoid them breaking out of their container)
+  .pcl-country {
+
+    select,
+    .selectBox-dropdown {
+      width: 100%;
+      max-width: 90% !important;
+
+      @include respond-wrapper-fallback(tablet, lt-ie9) {
+        width: auto;
+      }
+    }
+
+  }
+
+  fieldset.multi-input,
+  fieldset.gender-select,
+  fieldset.date-select {
+
+    li {
+      border: 0;
+    }
+
+  }
+  fieldset.gender-select {
+
+    li {
+      @include inline-block;
+      margin-right: 10px;
+      width: auto;
+      padding: 0;
+    }
+    label {
+      width: auto;
+      float: none;
+      text-align: left;
+      margin: 0;
+    }
+  }
+  /* special case for date-select, otherwise we wind up with mutitudinal classes everywhere */
+  fieldset.date-select {
+    margin-top: -8px;
+
+    li {
+      margin-top: 8px;
+      margin-right: 8px !important; // fighting with specificity of IE/media-queries mixin
+    }
+    strong.pseudo-label {
+      margin-top: 15px !important;
+    }
+
+    ol {
+      margin: 0;
+    }
+
+    li.year input[type=text],
+    input[type=number]
+    {
+      @extend %prettyTextInput;
+      width: 5em;
+    }
+
+
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    /* note: non-stretchy, because otherwise it gets very messy very quickly… */
+
+    fieldset.gender-select {
+      margin-top: 0;
+    }
+    label,
+    .pseudo-label {
+      margin-top: 0;
+    }
+
+    label,
+    span.input-wrapper,
+    .pseudo-label {
+      float: left;
+      width: #{$defaultFormLabel}px;
+      margin: 0 0 0 -#{$defaultFormIndent}px;
+      text-align: right;
+    }
+
+    li.text {
+      label,
+      span.input-wrapper,
+      .pseudo-label {
+        margin-top: 8px;
+      }
+    }
+    li.multiselect {
+      label,
+      span.input-wrapper,
+      .pseudo-label {
+        margin-top: 5px;
+      }
+    }
+    fieldset.date-select {
+      li {
+        @include inline-block;
+        vertical-align: top;
+      }
+    }
+    ol.inline {
+      float: left;
+    }
+    li,
+    .pseudo-li {
+      padding: 10px 0 5px #{$defaultFormIndent}px;
+      margin: 0;
+
+      &.label-above {
+        text-align: left;
+        padding-left: 0;
+
+        label {
+          display: block;
+          float: none;
+          width: auto;
+          margin: 0 0 0.2em;
+          text-align: left;
+        }
+        .hint {
+          display: block;
+        }
+      }
+      &.inline {
+        @include inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        padding: 0;
+      }
+      &.fieldset {
+        padding-left: 0;
+      }
+      &.checkbox,
+      &.check,
+      &.radio {
+        label {
+          float: none;
+          margin: 0;
+          text-align: left;
+          width: auto;
+          display: inline;
+        }
+        .pseudo-label {
+          margin-left: -#{$defaultFormIndent}px;
+        }
+      }
+      &.checkbox-dual-label {
+        padding-left: #{$defaultFormIndent}px;
+
+        label {
+          padding-left: 2.5em;
+          display: block;
+        }
+        span.input-wrapper {
+          width: 2em;
+          margin-left: -2.5em;
+          text-align: left;
+        }
+
+      }
+      &.checkbox-inline,
+      &.radio-inline {
+        @include inline-block;
+        margin: 0 10px;
+        padding: 0;
+
+        label {
+          float: none;
+          display: inline;
+          width: auto;
+          margin: 0;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      &.fields-inline {
+
+        label {
+          margin-left: 0;
+          float: none;
+          width: auto;
+          text-align: left;
+        }
+
+      }
+    }
+
+    fieldset.multi-input {
+      padding-left: #{$defaultFormIndent}px;
+
+      h1,h2,h3,h4,h5,h6,
+      &>.pseudo-label {
+        float: left;
+        width: #{$defaultFormLabel}px;
+        margin: 0 0 0 -#{$defaultFormIndent}px;
+        text-align: right;
+/*         font-size: 1em; */
+      }
+      ol,ul {
+        margin: 0;
+      }
+      li {
+        padding-left: 0;
+        border: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  &,
+  &>fieldset {
+
+    &.feature-mist,
+    &.feature-white {
+      padding: 20px;
+      margin-bottom: 20px;
+      @include border-radius(3px);
+
+      &>h2,
+      &>h3 {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d3d3d3;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        margin: 0;
+      }
+      &.feature-mist {
+        background: #e7e7e7;
+        background: rgba(51,51,51,0.05);
+      }
+      &.feature-white {
+        background: #FFF;
+        @include box-shadow(rgba(0,0,0,0.09) 2px 5px 5px 0);
+      }
+      @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+        padding: 30px;
+        margin-bottom: 30px;
+        .buttons {
+          padding-left: #{$defaultFormIndent}px;
+        }
+
+      }
+    }
+
+
+    fieldset {
+      h2,h3 {
+        margin: 0;
+      }
+    }
+
+    &.fs-email-preferences {
+
+      @include respond-wrapper-fallback(tablet, lt-ie9) {
+        padding-left: 280px !important;
+      }
+
+      ol.fields-inline {
+        text-align: left !important;
+        margin: 0;
+
+        label {
+          font-size: 0.94em;
+        }
+      }
+      p {
+        margin-bottom: 1em;
+        font-size: 1.125em;
+      }
+      a {
+        color: $green;
+      }
+    }
+  }
+  &.no-mist {
+
+    .feature-mist {
+
+      padding: 0;
+      background: none transparent !important;
+
+    }
+  }
+  .form-items {
+    @include simpleList;
+    clear: both;
+    padding-top: 20px;
+  }
+
+
+  .grouped {
+    background: #d5d5d5;
+    background: rgba(0,0,0,0.05);
+
+    padding: 20px 0;
+    width: 380px;
+
+    .checkbox-inline {
+       float: left;
+       width: 190px;
+       margin: 0;
+
+       label {
+         padding-left: 20px;
+         color: #555;
+       }
+
+    }
+
+  }
+
+}
+form.feature {
+
+  li.error {
+
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
+
+    label,em,
+    .pseudo-label {
+      color: $errorRed;
+    }
+    em {
+      font-size: 0.91em;
+      font-style: normal;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* specials */
+    &.text input {
+      border: 2px solid $errorRed;
+    }
+    &.fieldset fieldset.multi-input {
+      h1,h2,h3,h4,h5,h6 {
+        color: $errorRed;
+      }
+    }
+
+  }
+
+}
+
+
+.no-js {
+  .postcode-lookup-field {
+    [type=submit] {
+      display: none;
+    }
+  }
+}

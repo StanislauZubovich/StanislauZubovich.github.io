@@ -1,0 +1,484 @@
+// Put all your variables, mixins and fun Sass/SCSS stuff here
+
+// --------------------------
+// COLOUR SWATCH VARIABLES
+
+// Base colours
+$white: #FFFFFF;
+$site-bg-green: #e2d589;
+$bg-color: #f3f3f2;
+$text-color: #333333;
+
+// Greys
+$mid-grey: #d0d0cf;
+$light-grey: #e3e8e8;
+$dark-grey: #4d4d4d;
+
+
+// Highlights
+$light-green: #57907f;
+$green: #3d7a6a;
+$dark-green: #3a7163;
+$purple: #685293;
+$magenta: #df5840;
+$orange: #df5840;
+$yellow: #dfffa1;
+
+// Forms
+$border-offer: #df5840;
+$border-prompt: #df5840;
+$border-task: #efc1b9;
+$border-complete: #c1d5cf;
+
+// Footer
+$footer-green: #d6c562;
+$footer-copy-green: #52673b;
+$footer-border-green: #cbbb5d;
+$footer-link-green: $green;
+
+// --------------------------
+// MISC MIXINS
+
+
+/**
+ * This mixin used to load different fonts according to font weight passed in.
+ * These custom fonts are now disabled, but for ease of transitioning, I have
+ * simply mapped the original font-weight -> font logic onto normal font weights
+ */
+@mixin font-weight($weight) {
+  @if $weight == 300 {
+    font-weight: normal;
+  }
+  @else {
+    font-weight: bold;
+  }
+}
+
+
+// font-size mixin for px w/ REMs backup
+@mixin font-size($sizeValue: 1.6){
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+// Top + bottom borders, with rgba + fallback
+@mixin ruleAbove {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #d3d3d3;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+@mixin ruleBelow {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+// Handling hyphens & otherwise breaking words in narrow viewports (using variable width containers)
+// 456bereastreet.com/archive/201204/automatic_line_breaks_in_narrow_columns_with_css_3_hyphens_and_word-wrap/
+// quirksmode.org/blog/archives/2012/11/hyphenation_wor.html
+// blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
+@mixin wordBreak {
+  white-space: normal !important;
+  -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word; // Non standard for webkit
+  @include hyphens(auto);
+
+  .lt-ie8 & {
+      word-wrap: break-word;
+    }
+
+}
+
+
+// Reset a list
+@mixin simpleList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Bulleted list
+@mixin bulletList {
+  margin-left: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+// Clearfix
+@mixin clearFix {
+  &:before,
+  &:after {
+    content:"";
+    display:table;
+  }
+  &:after {
+    clear:both;
+  }
+  zoom:1;
+}
+// Hide things accessibly
+@mixin accessiblyHide {
+  border:0;
+  clip:rect(0000);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  width:1px;
+}
+
+
+// inlineBlock (for ie7)
+@mixin inlineBlock {
+  display: inline;
+  zoom: 1;
+}
+/* @include inlineBlock; */
+
+@mixin panel {
+  display: block;
+  background: #fff;
+  @include border-radius(3px);
+  @include box-shadow(rgba(#000, .09) 4px 4px 4px 0px);
+  @include background-clip(padding-box)
+}
+
+@mixin lozenge {
+  @include inlineBlock;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: none;
+  @include border-radius(3px);
+  color: #fff;
+  background: $magenta;
+}
+// Left arrow
+@mixin leftArrow {
+  &:before {
+    content: "\276e";
+    padding-right: 4px;
+  }
+}
+// Left arrow
+@mixin rightArrow {
+  &:after {
+    content: "\276f";
+    padding-left: 4px;
+  }
+}
+
+
+// --------------------------
+// GRADIENTS
+
+// Composite linear gradient method: means we can extend it to add custom background images if required…
+
+@mixin hab-linear-gradient($start, $finish, $stStart: 0, $stFinish: 100%, $fallbackColor: null, $orientation: top, $image: null)
+{
+  @if $fallbackColor == null
+  {
+    $fallbackColor: mix($finish, $start); // fallback for less fortunate browsers
+  }
+
+  /* $orientation can be used to create gradients in different directions:
+   *    top = vertical
+   *    left = horizontal
+   *    -45deg = top-left to bottom-right
+   *    45deg = bottom-left to top-right
+   */
+
+  background-color: $fallbackColor;
+  background-image: linear-gradient($orientation, $start $stStart, $finish $stFinish);
+  background-image: -o-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+  background-image: -moz-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+  background-image: -webkit-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+  background-image: -ms-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+
+  @if $image != null {
+    background-image: url($image);
+    background-image: linear-gradient($orientation, $start $stStart, $finish $stFinish), url($image);
+    background-image: url($image), -o-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+    background-image: url($image), -moz-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+    background-image: url($image), -webkit-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+    background-image: url($image), -ms-linear-gradient($orientation, $start $stStart, $finish $stFinish);
+    *background-image: url($image); // IE7
+  }
+
+  $flStart: 0;
+  @if $stStart != 0
+  {
+      $flStart : $stStart / 100%;
+  }
+  $flFinish: $stFinish / 100%;
+
+  /* @iamkeir: Not sure what this is for?
+    background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop($flStart, $start),
+    color-stop($flFinish, $finish)
+  );*/
+
+}
+
+// --------------------------
+// BUTTONS
+
+%greenButton {
+  @include hab-linear-gradient(#57907f, #447164);
+  @include box-shadow(#71baa4 1px 1px 2px 0 inset,
+                      rgba(0,0,0,0.25) 1px 2px 3px 0);
+  border: 1px solid #2a6556;
+  @include border-radius(6px);
+  line-height: 1;
+  padding: 8px 15px 8px;
+
+  &:active {
+    @include hab-linear-gradient(#447164, #57907f);
+    @include box-shadow(rgba(0,0,0,0.25) 1px 2px 3px 0,
+               #71baa4 0 -2px 2px 0 inset);
+  }
+
+  @include font-size(1.8);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  @include font-weight(400);
+  color: #fff;
+  text-shadow: #417828 0 -1px 0;
+  cursor: pointer;
+
+  &.disabled,
+  &:disabled {
+    @include opacity(0.65);
+    @include background(linear-gradient(#767676, #444));
+    border-color: #111;
+    @include box-shadow(#bababa 1px 1px 2px 0 inset,
+                        rgba(0,0,0,0.25) 1px 2px 3px 0);
+    color: #ccc;
+  }
+}
+.lt-ie9 {
+
+  %greenButton {
+
+    &[disabled=disabled] {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+    }
+
+  }
+
+}
+
+%orangeSubmit {
+  border-color: #c56b31;
+  line-height: 1;
+
+  @include hab-linear-gradient(#ed813a, #be672e, 40%);
+  text-shadow: #ca6e32 0 -1px 0;
+  @include box-shadow(rgba(0,0,0,0.25) 1px 2px 3px 0,
+                      #ffb364 0 2px 2px 0 inset);
+  &:active {
+    @include hab-linear-gradient(#be672e, #ed813a);
+    @include box-shadow(rgba(0,0,0,0.25) 1px 2px 3px 0,
+               #ffb364 0 -2px 2px 0 inset);
+  }
+  /* Go large */
+  &.bigSubmit {
+    @include font-size(1.9);
+    padding: 11px 50px;
+  }
+}
+
+.lt-ie8 {
+
+  %orangeSubmit {
+    &.bigSubmit {
+      padding: 10px 20px 12px;
+    }
+  }
+}
+
+
+// --------------------------
+// GRID CONFIG
+
+// Set fixed gutter between columns
+// as we have font-size 62.5% on the body 1em = 10px
+$gutter : 2.0618557%; /* based on font size of 20px and a 'desktop' size of 960px 20/960 = .020618557 */
+
+// For smaller gutters
+$half-gutter : $gutter / 2;
+
+// Set the proportions you want to use
+// (Namespace relates to the class prefix. In our case, this is simply "l-")
+@mixin setup-grid($namespace) {
+  .#{$namespace}-full             { width: 100%; }
+  .#{$namespace}-one-half         { width: 50%; }
+  .#{$namespace}-one-third        { width: 33.333333%; }
+  .#{$namespace}-two-thirds       { width: 66.666666%; }
+  .#{$namespace}-one-quarter      { width: 25%; }
+  .#{$namespace}-three-quarters   { width: 75%; }
+  .#{$namespace}-one-sixth        { width: 16.666666%; }
+  .#{$namespace}-five-sixths      { width: 83.333333%; }
+  .#{$namespace}-one-fifth        { width: 20%; }
+  .#{$namespace}-two-fifths       { width: 40%; }
+  .#{$namespace}-three-fifths     { width: 60%; }
+  .#{$namespace}-four-fifths      { width: 80%; }
+
+  /* Major/minor
+     Non-standard layout on homepage
+     Calculations are based on column widths of 880 & 280 in full-width layout.
+     Note: the actual content width is 1180 (1200 - 2*10px outer gutters)
+     But to work with this grid system our calculations take the available width as 1160px (content width - inner 20px gutter)
+  */
+  .#{$namespace}-major      { width: 75.862068965517%; } /* 880/1160 * 100  */
+  .#{$namespace}-minor      { width: 24.137931034483%; &.#{$namespace}-initial-right { float: right; }} /* 280/1160 * 100  */
+
+// @TODO: the above creates cols that span the correct width, but the proportions are somehow wrong
+// But, this doesnt work either
+//  .#{$namespace}-major      { width: 74.576271186441%; } /* 880/1160 * 100  */
+//  .#{$namespace}-minor      { width: 23.728813559322%; } /* 280/1160 * 100  */
+
+}
+
+// Handle no border-box in ie6/7
+@mixin fix-oldie {
+
+  .oldie {
+    .l-wrap {
+      margin-left: 0; }
+
+    .l-col {
+      padding: 0;
+      margin-left: 5%;
+
+      &:first-child {
+        margin-left: 0; }
+    }
+  }
+}
+
+// Amend widths for IE7
+@mixin oldie-grid($namespace) {
+
+  .#{$namespace}-wrap { margin-left: 0; }
+
+  /*
+    Useful note: IE7 treats comments as children for the purposes of the :first-child pseudo-selector.
+
+    If you’re here because the first column in your grid has an unexpected left margin, make sure you don’t have a
+    comment between it and the .#{$namespace}-wrap opening tag…
+
+    Yes, I know. Don’t.
+  */
+  .#{$namespace}-col  { padding: 0; margin-left: 2%; &:first-child { margin-left: 0 !important; }}
+
+  .#{$namespace}-full             { width: 100%; margin: 0 auto; padding: 0; }
+
+  .#{$namespace}-one-half         { width: 48.9%; }
+  .#{$namespace}-one-third        { width: 31.8%; }
+  .#{$namespace}-two-thirds       { width: 66%; }
+  .#{$namespace}-one-quarter      { width: 23.4%; }
+  .#{$namespace}-three-quarters   { width: 74.5%; }
+  .#{$namespace}-one-fifth        { width: 18.33%; }
+  .#{$namespace}-two-fifths       { width: 38.8%; }
+  .#{$namespace}-three-fifths     { width: 59.2%; }
+  .#{$namespace}-four-fifths      { width: 79.61%; }
+  .#{$namespace}-four-fifths      { width: 79.61%; }
+  .#{$namespace}-one-sixth        { width: 14.9%; }
+  .#{$namespace}-five-sixths      { width: 83%; }
+
+  .#{$namespace}-major            { width: 74.52%; }
+  .#{$namespace}-minor            { width: 23.45%; }
+
+}
+
+// --------------------------
+// Flexbox Mixin
+
+@mixin boxit ($dir) {
+  display:-webkit-box;
+  display:-moz-box;
+  display:box;
+  -webkit-box-orient:$dir;
+  -moz-box-orient:$dir;
+  box-orient:$dir;
+}
+
+@mixin flexit($flex-dir) {
+
+display:-webkit-flex;
+display:-moz-flex;
+display:-ms-flex;
+display:-o-flex;
+display: flex;
+
+-webkit-flex-direction:$flex-dir;
+   -moz-flex-direction:$flex-dir;
+    -ms-flex-direction:$flex-dir;
+     -o-flex-direction:$flex-dir;
+        flex-direction:$flex-dir;
+
+}
+
+@mixin order ($num) {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  box-ordinal-group: 1;
+  -webkit-box-ordinal-group: #{$num};
+  -moz-box-ordinal-group: #{$num};
+  box-ordinal-group: #{$num};
+}
+
+@mixin new-order($num) {
+
+-webkit-box-ordinal-group: 1;
+   -moz-box-ordinal-group: 1;
+        box-ordinal-group: 1;
+-webkit-box-ordinal-group: $num;
+   -moz-box-ordinal-group: $num;
+        box-ordinal-group: $num;
+
+-webkit-box-order: 1;
+       -moz-order: 1;
+        -ms-order: 1;
+         -o-order: 1;
+            order: 1;
+
+-webkit-box-order: $num;
+       -moz-order: $num;
+        -ms-order: $num;
+         -o-order: $num;
+            order: $num;
+}
+
+
+// --------------------------
+// media queries mixin
+// NOTE YOU NEED Sass 3.2 Installed for it to 1 correctly
+
+// @include respond-to(tablet)
+
+@mixin respond-to($media) {
+
+  @if $media == tablet {
+    @media print, only all and (min-width: 768px) { @content; }
+  }
+
+}
+
+@mixin respond-wrapper-fallback($media, $wrapper-class) {
+
+  .#{$wrapper-class} & {
+    @content;
+  }
+  @include respond-to($media) {
+    @content;
+  }
+
+}

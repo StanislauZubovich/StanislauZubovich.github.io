@@ -1,0 +1,28 @@
+/*=====================================
+  Sitemap
+*/
+
+.t-sitemap {
+  .page-title {
+    @include ruleBelow();
+  }//.page-title
+}//.t-sitemap
+
+.sub-inline.nav-sitemap {
+
+  > ul {
+
+    > li {
+      
+      @include font-size(1.8);
+      line-height: 1.5;
+      @include ruleBelow();
+      
+      > a { color: $text-color; }
+      
+      li { line-height: 1em; }
+    
+    }// > li
+  }// > ul
+
+}//.sub-inline.nav-sitemap

@@ -1,0 +1,69 @@
+/* Styles for jQueryUI dialogs.
+ * I haven't used the styles that come with it because they are ugly and bloated and would only need to be override laboriously
+ */
+
+.ui-widget-overlay {
+  background-color: rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+
+  .no-rgba & {
+    background: transparent url(img/_fallbacks/black_10pc.png) repeat 0 0;
+  }
+}
+
+.ui-dialog {
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  outline: 0;
+  background-color: #fff;
+  @include border-radius(3px);
+  @include box-shadow(4px 4px 4px rgba(0,0,0,0.1));
+}
+
+  .ui-dialog-titlebar {
+    position: relative;
+    padding: 20px 150px 0 0; /* Wide right padding to leave breathing room for close button */
+    margin: 0 25px;
+    @include ruleBelow;
+    @include font-size(2.4);
+    @include font-weight(400);
+  }
+
+  .ui-dialog-titlebar-close {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    text-transform: capitalize;
+    @include font-size(1.4);
+
+    // Override inherited button styles
+    &,
+    &:focus {
+      color: green;
+      background: transparent none;
+      @include box-shadow(none);
+      border: 0 none;
+      text-shadow: none;
+      padding: 0;
+    }
+
+    .ui-icon {
+      @include inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      background: transparent url(img/icons/icon-sprite.png) no-repeat 0 0;
+    }
+  }
+
+  .ui-dialog-content {
+    padding: 25px;
+  }

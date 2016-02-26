@@ -1,0 +1,207 @@
+/*-------------------------------------
+  Banners
+*/
+
+// Banner colours
+$banner-light-green: #57907f;
+$banner-green: #3d7a6a;
+$banner-dark-green: #3a7163;
+
+/* general banner class */
+.banner {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 0 30px 0;
+  font-size: 16px;
+  text-shadow: none;
+
+  &,
+  a {
+    color: #FFF;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+
+}
+.no-js .hero-banner {
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+}
+
+.lt-ie8 .banner {
+  width: auto;
+}
+
+/* hero-style banner (with slideshow) */
+.hero-banner {
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  &.js {
+    position: relative;
+
+    padding-top: 359px;
+    @include border-radius(3px);
+
+    ul,ol {
+      list-style: none outside;
+      padding: 0;
+      margin: 0;
+    }
+
+    &>ul li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 359px;
+      @include border-top-radius(3px);
+
+      a {
+        display: block;
+        //font-size: 3.125em;
+        //line-height: 1.3em;
+        //height: 360px;
+        text-align: left;
+
+        em {
+            @include font-weight(600);
+          font-style: normal;
+        }
+
+      }
+      img {
+        position: absolute;
+        top: 0;
+      }
+
+
+    }
+
+    footer,.footer {
+      @include background(linear-gradient(rgba(0,0,0,0.1), transparent 30%));
+
+      li {
+
+        float: left;
+
+        &:first-child a {
+          border-left: 0;
+          @include border-bottom-left-radius(3px);
+        }
+        &:last-child  a {
+          @include border-bottom-right-radius(3px);
+        }
+
+        &.current a {
+          background: $green;
+
+          &:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -9px;
+            width: 20px;
+            height: 10px;
+            background-image: url('img/icons/icon-sprite.png');
+            background-position: -20px -330px;
+          }
+        }
+      }
+      a {
+        background-color: $light-green;
+        border-left: 1px solid rgba(255,255,255,0.3);
+        font-size: 1.06em;
+        @include font-weight(400);
+        display: block;
+        padding: 20px 0;
+        @include box-shadow(0 20px 20px -20px rgba(0,0,0,0.2) inset);
+        text-shadow: rgba(0,0,0,0.2) 0 1px 0;
+        text-decoration: none;
+        color: #FFF;
+        cursor: pointer;
+        line-height: 1em;
+        text-align: center;
+        position: relative;
+
+        &:hover {
+          background: $dark-green;
+        }
+
+      }//a
+
+      /* grids */
+      .half-grid  li   { width: 50%; }
+      .third-grid li   { width: 33.333333%; }
+      .quarter-grid li { width: 25%; }
+    }
+    /* hacks for IE */
+    .footer li {
+      float: left;
+      display: block;
+    }
+
+    /* also, why the heck not */
+    &,
+    footer a {
+      @include transition(all 100ms linear);
+    }
+  }
+}
+
+/* Category banner
+   Static banner used in cat and subcat pages
+*/
+
+.cat-banner {
+
+  img {
+    max-width: 100%;
+  }
+
+}
+
+.no-rgba {
+
+  .hero-banner {
+
+    footer,
+    .footer {
+      background: url(img/_fallbacks/black_10pc.png);
+
+      li {
+        &.current a,
+        &.current a:hover {
+          background: url(img/_fallbacks/black_45pc.png);
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.no-generatedcontent {
+
+    .hero-banner.js footer li,
+    .hero-banner.js .footer li {
+    background-image: url('img/_fallbacks/white_30pc.png');
+    background-position: 0 0;
+    background-repeat: repeat-y;
+
+      &:first-child {
+        background-image: none;
+      }
+
+    }
+
+}

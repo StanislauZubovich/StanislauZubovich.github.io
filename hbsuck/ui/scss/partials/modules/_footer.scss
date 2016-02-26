@@ -1,0 +1,122 @@
+/*-------------------------------------
+  Footer
+*/
+[role=contentinfo] {
+
+  @include font-size(1.4);
+  color: $footer-copy-green;
+  text-shadow: none;
+
+  a {
+    @include font-weight(400);
+    color: $footer-link-green;
+
+  }
+
+}
+
+/* These are .small-vp */
+.footer-utils {
+  background: #fff;
+  color: #333;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  li {
+    margin: 10px 0 0;
+    position: relative;
+    padding-left: 30px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  a {
+    color: $green;
+  }
+  .ico {
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+  }
+  .split {
+    @include inline-block;
+
+    a,
+    span {
+      clear: none;
+      margin: 0 0 0 10px;
+      padding: 0 0 0 10px;
+      border-left: 1px #a8a8a8 solid;
+
+      &:first-child {
+        margin-left: 0;
+        padding-left: 0;
+        border: 0;
+      }
+
+    }
+  }
+  .favs-nav-item {
+    .qty {
+      margin-left: 0.5em;
+    }
+  }
+  .currency-nav-item {
+    padding-left: 0;
+
+    > span {
+            color: #888;
+              @include font-weight(300);
+            margin-right: 10px;
+    }
+  }
+
+}
+.footer-links {
+  border-top: 5px solid $footer-border-green;
+  background: $footer-green;
+  padding: 0 0 20px 0;
+
+  .currency-nav-item {
+    .split {
+      @include inline-block;
+    }
+  }
+  .list-head {
+    @include font-size(1.8);
+    margin: 30px 0 0;
+  }
+  .link-list {
+    margin: 15px 0;
+    li {
+      margin: 0 0 8px;
+    }
+  }
+
+}
+.footer-bar {
+  @include font-weight(400);
+  padding: 25px 0;
+
+  p {
+    margin: 0;
+    padding: 3px 0 0;
+    @include font-size(1.5);
+  }
+  .verisign {
+    width: 180px;
+    height: 110px;
+    margin: 10px 0;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      margin: 0;
+      float: right;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+}

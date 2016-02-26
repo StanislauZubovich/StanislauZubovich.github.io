@@ -1,0 +1,7 @@
+/*28th mar 13 for Aisle 7 styling */
+#hni_ContentPanel .hnie_SearchComponent {
+    display: none !important;
+}
+.hni_SearchResultCategory {
+    color: #888888;
+}

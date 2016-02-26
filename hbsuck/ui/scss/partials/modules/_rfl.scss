@@ -1,0 +1,418 @@
+/*=====================================
+  Rewards for life pages
+*/
+
+.t-rfl-landing {
+
+  .rfl-header,
+  .rfl-activate {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px #d9d9d9 solid;
+  }
+  .rfl-header {
+
+    position: relative;
+
+    .page-title {
+      margin-bottom: 6px;
+    }
+    .strap {
+      margin: 0;
+      @include font-size(2.4);
+      line-height: 1.1;
+      color: #888;
+      @include font-weight(400);
+    }
+    nav {
+      clear: both;
+      margin-top: 6px;
+      @include font-size(1.4);
+
+      a {
+          @include font-weight(300);
+        color: $orange;
+      }
+
+    }
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+      nav {
+        position: absolute;
+        top: -6px;
+        right: 0;
+      }
+
+    }
+
+  }
+  .rfl-footer {
+    @include font-size(1.8);
+    line-height: 20px;
+    @include clearFix();
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      nav { float: left; }
+    }
+
+    @media screen and (max-width: 767px) {
+      nav {
+        clear: both;
+      }
+    }
+    a, span {
+      color: $green;
+    }
+  }
+  .rfl-card {
+    max-width: 100%;
+    margin: 0 0 30px;
+  }
+  .panel {
+    margin: 0 0 30px;
+
+    .panel-title,
+    .bullet-list {
+      @include font-size(2.1);
+    }
+
+  }
+  .body-copy {
+    .cta {
+      @include font-size(2.0);
+      line-height: 1.4;
+        @include font-weight(500);
+      margin: 15px 0 0;
+
+    }
+  }
+  .rfl-footer {
+    margin: 30px 0;
+    padding-top: 30px;
+    border-top: 1px #d9d9d9 solid;
+  }
+  .rfl-activate {
+
+    .success {
+      @include font-size(1.8);
+      line-height: 20px;
+        @include font-weight(600);
+      margin: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    &.boxout {
+      background: #fff;
+      border: 5px #dcabc3 solid;
+      margin: 0;
+    }
+  }
+  .lost-card {
+
+    float: none;
+    margin-top: 10px;
+
+    h2 {
+      @include font-size(1.8);
+      line-height: 20px;
+      color: $green;
+    }
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      float: right; margin-top: 0;
+      h2 {
+        text-align: right;
+      }
+    }
+
+  }
+
+}
+.lost-card {
+
+  .panel {
+    text-align: left;
+    width: 240px;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      width: 300px;
+    }
+
+  }
+
+}
+
+
+.t-rfl-activation {
+
+  .fs-email-preferences {
+
+    background: yellow;
+
+    .fields-inline {
+
+      li.checkbox-inline {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        vertical-align: top;
+        width: 32%;
+
+        label {
+          text-align: left;
+          padding-left: 22px;
+          position: relative;
+          @include inline-block;
+
+          input {
+            position: absolute;
+            left: 0;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .rfl-activation-summary {
+    position: relative;
+    background: #fff;
+    @include font-size(1.8);
+
+    dl {
+      margin: 0;
+      overflow: hidden;
+    }
+    dt {
+      margin: 10px 0 0 0;
+    }
+    dd {
+      margin: 0;
+    }
+    b{
+      display: block;
+    }
+    a {
+      @include font-size(1.4);
+      color: $orange;
+    }
+    img {
+
+      @media screen and (min-width: 767px) and (max-width: 1120px) {
+        visibility: hidden;
+      }
+      @media screen and (min-width: 1121px) and (max-width: 1180px) {
+        visibility: visible;
+        width: 80px;
+      }
+     @media print, screen and (min-width: 1181px) {
+        width: auto;
+      }
+
+    }
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+      img {
+        position: absolute;
+        left: 0;
+        top: 10px;
+      }
+      dt, dd {
+        float: left;
+        width: 50%;
+      }
+      dt {
+        clear: both;
+        padding-right: 30px;
+        text-align: right;
+        margin-top: 10px;
+      }
+      dd {
+        margin-top: 10px;
+      }
+      b {
+        display: inline;
+        padding-right: 20px;
+      }
+
+    }
+
+    &.boxout {
+      border: 3px solid $border-complete;
+
+      img {
+        left: 30px;
+        top: 30px;
+      }
+
+    }
+
+  }
+  .rfl-card-summary {
+    clear: both;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      text-align: center;
+
+      .next-steps {
+
+        h2 {
+          @include font-size(2.0);
+        }
+        p {
+          @include font-size(1.8);
+        }
+
+      }
+      a {
+        color: $orange;
+      }
+    }
+  }
+
+  .rfl-points,
+  .next-steps {
+    border-top: 1px $light-grey solid;
+    margin-top: 10px;
+    padding-top: 10px;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      margin-top: 30px;
+      padding-top: 30px;
+      @include font-size(2.0);
+    }
+
+  }
+
+  form.feature {
+
+    ol {
+      margin: 20px 0 0;
+
+      .boxout {
+        border: 3px #ecc09b solid;
+        background: rgba(255,255,255,0.33);
+        margin: 20px 0;
+        padding: 30px;
+
+        @include respond-wrapper-fallback(tablet, lt-ie9) {
+          li {
+            padding-left: 220px;
+          }
+          label {
+            width: 190px;
+          }
+          /* These sizes are specific to a boxout containing medium width inputs */
+          .group-hint {
+            width: 23%;
+            top: 20px;
+            right: 0;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+    label.has-img {
+      position: relative;
+
+      &.has-rfl-card {
+
+        .label-txt {
+          padding-left: 80px;
+        }
+      }
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+    }
+  }
+  .rfl-add-card-bt {
+    margin: 10px 0 0;
+  }
+
+}
+
+.lt-ie8 {
+  .t-rfl-activation {
+    .rfl-activation-summary {
+      @include font-size(1.6);
+
+      img {
+        width: 80px;
+      }
+      dt {
+        width: 45%;
+      }
+      dd {
+        width: 49%;
+      }
+    }
+  }
+}
+.lt-ie9 {
+  .rfl-activation-summary {
+    input.readonly {
+      line-height: 33px;
+    }
+  }
+}
+
+.rfl-card-no {
+  float: left;
+  margin-top: 10px;
+  font-style: normal;
+  @include font-weight(500);
+  color: $magenta;
+
+  .lt-ie9 & {
+    margin-top: 0;
+  }
+}
+
+
+.rfl-add-new {
+  margin: 15px 0 10px;
+
+  .boxout {
+    background: #fff;
+    border-color: #F1F1F1;
+    margin: 0;
+    padding: 15px 15px;
+  }
+
+  a {
+    display: block;
+    color: $orange;
+  }
+  ul.form-items {
+    padding-top: 0;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+      li.text {
+        margin-left: -20px;
+      }
+
+    }
+
+  }
+
+}

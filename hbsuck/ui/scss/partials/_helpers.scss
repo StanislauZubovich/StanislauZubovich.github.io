@@ -1,0 +1,114 @@
+/*=====================================
+  'Helper' utility classes
+*/
+
+/* Display only on touch-enabled devices
+*/
+.no-touch .touch-only {
+  display: none;
+}
+
+/* We can hide these if JS is enabled
+*/
+.js-hide {
+  display: none;
+}
+
+/* Display only in mobile view
+*/
+.small-vp {
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    position: absolute !important;
+    top: -999em !important;
+    left: -999em !important;
+    z-index: 11;
+
+    & a {
+      position: absolute; z-index: 1; // #58: This may be culprit of issue
+    }
+
+  }
+
+}
+/* Display only in desktop view
+*/
+.large-vp {
+
+  @media screen and (max-width:  767px) {
+    position: absolute;
+    left: -999em !important;
+    left: 0;
+    z-index: 11;
+    background: blue;
+
+      & a {
+        position: absolute; z-index: 1;
+      }
+
+  }
+
+}
+
+/* For image replacement */
+.ir {
+    display:block;
+    border:0;
+    text-indent:-999em;
+    overflow:hidden;
+    background-color:transparent;
+    background-repeat:no-repeat;
+    text-align:left;
+    direction:ltr;
+    line-height:0;
+}
+.ir br {
+    display:none;
+}
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden {
+    display:none!important;
+    visibility:hidden;
+}
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden {
+    border:0;
+    clip:rect(0000);
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+    padding:0;
+    position:absolute;
+    width:1px;
+  left: -10000px;
+}
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip:auto;
+    height:auto;
+    margin:0;
+    overflow:visible;
+    position:static;
+    width:auto;
+  left: auto;
+}
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+    visibility:hidden;
+}
+/* Contain floats: h5bp.com/q */
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    zoom:1;
+}
+
+.clear {
+  clear: both;
+}

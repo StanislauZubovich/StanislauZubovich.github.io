@@ -1,0 +1,128 @@
+@import url("mobilePhonePayPage.css");
+
+/* Add custom styles below here */
+
+@import url("customPayPage.css");
+
+/* Tooltips 
+*/
+.tooltip {
+  left: 315px;
+  top: -29px;
+  width: 211px;
+  height: 0;
+  margin: 0;
+}
+.tooltipText {
+  position: absolute;
+  background: none;
+  padding: 0;
+  min-height: auto;
+}
+.tooltipBottom {
+  display: none;
+}
+
+#purchaseDetailsPanel,
+#paymentDetailsPanel {
+  border: 0;
+  padding: 0;
+}
+
+fieldset,
+#purchaseDetailsPanel,
+#paymentDetailsPanel {
+	box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;
+}
+
+.formLabel,
+.formInput {
+  width: auto;
+  display: block;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
+}
+
+#amountLabel,
+#amount {
+  display: block !important;
+}
+#amount {
+  float: right;
+  text-align: right;
+}
+
+#paymentDetailsPanel .formLabel,
+#paymentDetailsPanel input,
+#paymentDetailsPanel select {
+  float: none;
+  width: auto !important;
+  font-size: 100% !important;
+}
+#paymentDetailsPanel input {
+  display: block !important;
+  width: 90% !important;
+}
+#paymentDetailsPanel select {
+  font-size: 14px !important;
+}
+
+.formLabel#expiryLabelPanel,
+.formLabel#startLabelPanel {
+  margin-top: 19px;
+}
+
+select#expiryMonth,
+select#startMonth,
+select#expiryYear,
+select#startYear {
+  margin: 5px 10px 0 0;
+  display: inline-block;
+}
+
+input#csc {
+  float: left;
+  width: 30% !important;
+}
+
+#cscDescLink { top: 0; }
+
+.linkText {
+  font-family: inherit !important;
+  color: inherit !important;
+  font-size: 100%;
+  padding: 0;
+  border: 0;
+  background: none !important;
+  border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0;
+  box-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none;
+}
+
+#commands {
+  margin: 0;
+}
+
+#commands .submitButton { font-size: 100% !important; }
+
+#cscDialog {
+  left: 5%;
+  right: 5%;
+  width: auto;
+  top: 300px;
+}
+#cscDialogContent {
+  width: auto;
+  padding-bottom: 0;
+  height: 250px;
+}
+
+#cscDialogBody {
+  text-align: center;
+}
+
+#cscBottomImage {
+  width: 137px;
+  background-position: 0 0;
+  margin: 0 auto;
+}

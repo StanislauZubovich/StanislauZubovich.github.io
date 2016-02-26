@@ -1,0 +1,1494 @@
+/*=====================================
+  Products
+*/
+
+
+.prod-img {
+  margin: 0 0 15px 0;
+  padding: 20px 0;
+  @include panel;
+
+  img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .mobile-carousel {
+    height: 200px;
+    width: 300px;
+
+    li {
+      height: 200px;
+      width: 300px;
+
+      &.out-left  {
+        @include transform(translate(-300px, 0));
+      }
+      &.out-right {
+        @include transform(translate(300px, 0));
+      }
+
+    }
+
+  }
+
+}
+.prod-container {
+
+  .prod-img {
+    height: 240px;
+    background: #FFF none center center no-repeat;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      height: 370px;
+    }
+  }
+
+}
+.prod-item,
+.preview-container .content {
+
+  .prod-img-thumbs {
+    list-style: none outside;
+    margin: 0 0 20px 0;
+    padding: 0;
+
+    li {
+      @include inline-block;
+      margin-right: 15px;
+      background: #FFF;
+      border: 5px solid #FFF;
+      @include border-radius(2px);
+      @include panel;
+
+      &.ui_active {
+        border-color: $orange;
+      }
+
+    }
+    a {
+      display: block;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    &.mobile-pips {
+      text-align: center;
+
+      $pip-size: 16px;
+      margin: 0 0 20px;
+      padding: 0;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        margin: 0 6px 0 0;
+        border: 0;
+        width: $pip-size;
+        height: $pip-size;
+        @include box-shadow(none);
+        @include border-radius($pip-size);
+        @include transition(background 0.3s linear);
+        background: #999;
+
+        &.current {
+          background: #CCC;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/*-------------------------------------
+  Product teasers
+
+There are two possible layout states in desktop/tablet view
+.is-grid {}
+.is-list {}
+
+*/
+
+/*-----------------
+  Product teaser blocks
+*/
+
+.prod-teaser-block {
+   margin: 0 0 30px;
+
+   .teaser-block-title {
+     margin: 0;
+   }
+
+}
+
+/*-----------------
+  Product teaser items
+*/
+
+.prod-teaser-item {
+
+  margin: 20px 0;
+  position: relative;
+  @include font-size(1.4);
+  line-height: 16px;
+
+  .prod-title,
+  .prod-price {
+    margin: 0 0 5px 0;
+    line-height: 1;
+  }
+  .prod-title {
+    @include font-size(1.6);
+  }
+  .prod-price {
+    @include font-size(2.0);
+      @include font-weight(500);
+
+    em {
+      @include font-size(1.2);
+      font-style: normal;
+    }
+
+  }
+  .prod-offers {
+    @include font-size(1.2);
+    text-shadow: 0 1px 1px #fff;
+
+    strong {
+      display: block;
+      margin: 0 0 5px 0;
+      @include font-weight(300);
+      color: #555555;
+    }
+
+    ul {
+      @include simpleList;
+      color: $orange;
+    }
+
+  }
+
+  /* 'Best seller' type messages */
+  .prod-flag {
+    padding: 3px 4px;
+    font-size: 11px;
+    line-height: 1;
+      @include font-weight(600);
+    text-transform: uppercase;
+    color: #fff;
+    background: #c1c1c1;
+    text-shadow: 0 0 1px #999;
+    @include border-radius(2px);
+    @include inline-block;
+  }
+
+  /* 'Favourited' products (display only)
+    @TODO: replace generated unicode char with sprite (or apply sprite as fallback for .no-generatedcontent browsers
+  */
+  .ico-fav {
+    position: absolute;
+    left: 5px;
+    top: 8px;
+  }
+
+  /* if we have an image, position the flags/favs over the image */
+  &.teaser-with-image {
+
+    .prod-flag {
+      position: absolute;
+      left: 5%;
+      top: 195px;
+    }
+
+  }
+
+  /* Product teaser descriptions
+   In teaser context this is displayed only in list view
+  */
+  .prod-desc {
+
+    p {
+      margin: 0;
+    }
+    br {
+      display: none; // handling overlarge/crappy content from server as requested
+    }
+    .truncate_more_link {
+      color: $green;
+    }
+
+  }
+  .prod-desc-title {
+    margin: 0 0 6px;
+    @include font-size(1.6);
+      @include font-weight(500);
+  }
+
+
+  /* Tweak view in hover panels */
+  &.lightbox-container {
+    position: absolute;
+    margin: 0;
+
+    .ico-fav {
+      left: 10px;
+      top: 12px;
+    }
+    .prod-img {
+      margin: 0 0 0px 0;
+      padding: 10px 0 0;
+    }
+    .prod-title,
+    .prod-offers {
+      margin-bottom: 12px;
+    }
+
+  }
+
+
+}
+
+.new-prod-teaser-block {
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 20px;
+    border-bottom: 8px $light-grey solid;
+  }
+
+}
+
+
+/*-----------------
+  Product teaser form
+  This contains the options required to enable 'quick-buy' and star ratings (which are read-only in teaser view)
+*/
+.prod-teaser-form {
+
+  label {
+    display: block;
+    margin: 0 0 7px;
+  }
+  .label-txt,
+  .label-txt strong {
+    @include font-size(1.4);
+    line-height: 1.4;
+    @include font-weight(400);
+  }
+
+}
+
+
+/*-----------------
+  Product teaser states
+  Handle list/grid view scenarios
+
+*/
+.prod-teaser-block,
+.prod-quickbuy-container {
+
+  .prod-qty input {
+    @extend %prettyTextInput;
+    float: left;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+  }
+
+}
+.prod-teaser-block {
+  /* Grid view is the default layout */
+
+  /* Hide stuff */
+  .prod-desc {
+    position:absolute; left: -999em;
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+    /* in grid view, we want the ‘buy now’ to appear on hover
+
+    @TODO: remove dependency on 'is-grid' class (which is the default layout)
+
+     */
+    &.is-grid article.prod-teaser-item {
+
+      .prod-quickbuy-container {
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+
+        fieldset {
+          display: none;
+        }
+
+      }
+
+    }
+
+    &.is-list {
+
+      .prod-teaser-item {
+        margin-bottom: 30px;
+
+        .prod-img {
+          margin-bottom: 0;
+        }
+
+      }
+      .prod-desc,
+      .prod-submit-opts,
+      .prod-submit-bt {
+        position:relative;
+        left: 0;
+      }
+      /* Decommission grid-system locally */
+      .l-col {
+        float: none;
+        width: auto;
+      }
+
+      /* Apply to nested containers instead */
+      .prod-teaser-item {
+        margin-left: -$gutter;
+
+        &:hover .prod-submit-bt {
+          position: relative;
+          left: auto;
+          top: auto;
+        }
+        .ico-fav {
+          left: 25px;
+        }
+
+      }
+      /* This should be used in a five-column context */
+      .l-prod-col {
+        float: left;
+        width: 20%;
+        padding-left: $gutter;
+
+        &.l-double-col {
+          width: 40%;
+        }
+
+      }
+      /* quickbuy is always visible */
+      .prod-quickbuy-container {
+        display: block;
+      }
+      input[type=submit].prod-submit-bt {
+        @include font-size(1.4);
+        padding: 10px 10px 8px;
+      }
+      .ico-basket-add {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
+
+
+/*-----------------
+  Product quickbuy styles
+
+*/
+/* in the mobile version, we don't have quickbuy, so completely hide this */
+.prod-quickbuy-container {
+  @include clearFix;
+  display: none;
+
+  span.label-txt {
+    @include inline-block;
+
+    .opt-size {
+      color: $orange;
+    }
+    .opt-price {
+        @include font-weight(500);
+      margin-left: 0.5em;
+    }
+
+  }
+  .prod-size-opts {
+    margin-bottom: 0.8em;
+  }
+  .prod-qty {
+    float: left;
+    margin-right: 0.5em;
+
+    label {
+      @include inline-block;
+    }
+    input {
+      width: 3.5em;
+    }
+
+    label.error {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    em.error {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      white-space: nowrap;
+      height: 20px;
+      margin-top: 10px;
+      color: $errorRed;
+    }
+
+  }
+  .prod-offers {
+    font-size: 12px;
+    text-shadow: 0 1px 1px #fff;
+
+    strong {
+      display: block;
+      margin: 0 0 5px 0;
+      @include font-weight(300);
+      color: #555555;
+    }
+    ul {
+      @include simpleList;
+      color: $orange;
+    }
+
+  }
+
+}
+
+
+.prod-form,
+.prod-teaser-form {
+
+   /* Block level links wrapped around teaser content
+  */
+  .block {
+
+    .prod-title {
+      color: $green;
+    }
+    &:hover {
+
+      .prod-title {
+        text-decoration: underline;
+      }
+      .prod-img {
+        @include box-shadow(rgba(#000, .09) 2px 2px 2px 0px);
+        @include transition( all 0.3s ease-out );
+      }
+
+    }
+
+  }
+  .prod-size-opts {
+
+    label.radio {
+      padding-left: 22px;
+      position: relative;
+    }
+    .ico-radio {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+  }
+}
+
+.prod-form,
+.prod-teaser-form {
+
+  .ico-basket-add {
+    position: absolute;
+    top: 11px;
+    left: 8px;
+  }
+  input[type=submit].prod-submit-bt {
+    @extend .orangeSubmit;
+    padding: 8px 10px;
+  }
+
+}
+
+.t-product {
+
+  .page-title {
+    margin-bottom: 10px;
+  }
+  .prod-submit-opts {
+
+    .ico-basket-add {
+      top: 12px;
+      left: 13px;
+    }
+    input[type=submit].prod-submit-bt {
+      padding: 10px 30px 8px 50px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .prod-teaser-block {
+      margin-top: 30px;
+    }
+  }
+
+}
+
+.prod-quickbuy-container {
+
+  .ico-basket-add {
+    display: none;
+    left: 12px;
+    top: 16px;
+  }
+  /*@media screen and (min-width: 768px) and (max-width: 1260px) {
+
+    input[type=submit].prod-submit-bt {
+      @include font-size(1.4);
+      padding: 8px 12px;
+    }
+
+  }*/
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    input[type=submit].prod-submit-bt {
+      @include font-size(1.6);
+      padding: 8px 12px;
+    }
+  }
+  /*@media screen and (min-width: 1161px) {
+
+    input[type=submit].prod-submit-bt {
+      @include font-size(1.6);
+    }
+
+  }*/
+
+}
+
+
+.lt-ie8 {
+  .prod-teaser-form {
+    .prod-quickbuy-container {
+      .ico-basket-add {
+        display: none;
+      }
+      input[type=submit].prod-submit-bt {
+        //padding: 8px 3px !important;
+        overflow: visible; // Fixes IE additional button padding
+      }
+    }
+  }
+}
+
+.prod-item {
+
+  .prod-share {
+    padding: 0;
+    text-align: left;
+
+    a {
+      color: #333;
+    }
+    ul {
+      padding: 0;
+    }
+
+  }
+
+}
+
+/*-----------------
+  Static star ratings
+  These are read-only stars, used in product lists and product reviews
+*/
+$star-width : 18px;
+
+.prod-rating {
+
+  margin: 6px 0 0;
+
+  .prod-rating-max {
+    width: $star-width * 5;
+    height: 16px;
+    background: url(/ui/css/img/icons/ratings-stars-16px.png) 0 0 repeat-x;
+    overflow: hidden;
+    display: block;
+  }
+
+  .prod-rating-actual {
+    float: left;
+    height: 16px;
+    background: url(/ui/css/img/icons/ratings-stars-16px.png) 0 -16px repeat-x;
+    width: 0;
+    text-indent: -999em;
+
+    // Fractional star notation - e.g. .prod-rating--3_7 is a product rating of 3.7
+    @for $whole from 0 through 4 {
+      @for $decimal from 0 through 9 {
+        &.prod-rating--#{$whole}_#{$decimal} {
+          width: ($whole + ($decimal / 10)) * $star-width;
+        }
+      }
+    }
+
+    .prod-rating--5_0 {
+      width: $star-width * 5;
+    }
+
+    // These are slightly redundant, but I have left them in as elegant shorthand versions of the above fractional notation
+    &.one-star {
+      width: $star-width * 1;
+    }
+    &.two-stars {
+      width: $star-width * 2;
+    }
+    &.three-stars {
+      width: $star-width * 3;
+    }
+    &.four-stars {
+      width: $star-width * 4;
+    }
+    &.five-stars {
+      width: $star-width * 5;
+    }
+
+  }
+
+}
+
+/* Bigger stars in product page header */
+.prod-approval {
+
+  $big-star-width : 28px;
+
+  .prod-rating {
+
+    .prod-rating-max {
+      width: $big-star-width * 5;
+      height: 23px;
+      background: url(/ui/css/img/icons/ratings-stars-23px.png) 0 0 repeat-x;
+    }
+
+    .prod-rating-actual {
+      float: left;
+      height: 23px;
+      background: url(/ui/css/img/icons/ratings-stars-23px.png) 0 -23px repeat-x;
+
+      &.one-star {
+        width: $big-star-width * 1;
+      }
+      &.two-stars {
+        width: $big-star-width * 2;
+      }
+      &.three-stars {
+        width: $big-star-width * 3;
+      }
+      &.four-stars {
+        width: $big-star-width * 4;
+      }
+      &.five-stars {
+        width: $big-star-width * 5;
+      }
+
+    }
+
+  }
+}
+
+
+/* Product teaser footers
+   For pagination, sort controls etc.
+   (see +pagination.scss)
+*/
+.prod-teaser-footer {
+
+  .l-switcher {
+    display: none;
+  }
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    .l-switcher { display: block; }
+  }
+}
+
+
+/*-------------------------------------
+  Product pages
+*/
+
+.js {
+  .prod-img {
+    cursor: pointer;
+  }
+}
+
+.prod-img-container {
+
+  &.loading {
+    background: transparent image-url('big-spinner.gif') no-repeat center center;
+  }
+
+  .prod-img {
+    height: 220px;
+    background: #FFF none center center no-repeat;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      height: 370px;
+      margin-bottom: 20px;
+    }
+
+  }
+  .prod-zoom-icon {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    @include lozenge;
+    background: #bdbdbd;
+    @include font-size(1.2);
+    line-height: 1;
+    @include font-weight(400);
+    padding: 4px 3px 1px 4px;
+
+    .ico {
+      margin: 0 0 3px 4px;
+    }
+
+  }
+  .prod-img-thumbs {
+    list-style: none outside;
+    margin: 0 0 20px 0;
+    padding: 0;
+
+    li {
+      @include inline-block;
+      margin-right: 15px;
+      background: #FFF;
+      border: 5px solid #FFF;
+      @include border-radius(2px);
+
+      &.ui_active {
+        border-color: $orange;
+      }
+
+    }
+    a {
+      @include respond-wrapper-fallback(tablet, lt-ie9) {
+        display: block;
+        text-align: center;
+        height: 70px;
+        width: 110px;
+
+        img {
+          display: inline;
+        }
+      }
+    }
+
+  }
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+    .prod-img-thumbs li {
+      margin: 0 7px;
+    }
+    .prod-img-carousel-wrapper {
+      position: relative;
+      text-align: center;
+      margin: 0 auto 20px;
+      width: 100%;
+    }
+    .prod-img-carousel-control {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 21px;
+      text-indent: -9999em;
+      background: url(img/icons/icon-sprite.png) no-repeat;
+
+      &.control-left {
+        background-position: -20px -82px;
+        left: -20px;
+      }
+      &.control-right {
+        background-position: -60px -82px;
+        right: -20px;
+      }
+    }
+    .prod-img-carousel {
+      position: relative;
+      @include inline-block;
+      width: 402px;
+      height: 90px;
+      overflow: hidden;
+      margin: 0 10px;
+
+      li {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+    }
+
+  }
+
+}
+
+.prod-form {
+  font-size: 14px;
+  line-height: 17px;
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 20px 0 0;
+  }
+
+  .page-title {
+    color: #888;
+    font-size: 27px;
+    @include font-weight(400);
+
+    .prod-title {
+      color: $text-color;
+      font-size: 33px;
+        @include font-weight(500);
+    }
+    em {
+      font-style: normal;
+    }
+
+  }
+
+  .prod-offers {
+    @include simpleList;
+
+    li {
+      margin: 0 3px 6px 0;
+      padding: 3px 4px 3px 5px;
+      @include lozenge;
+      @include font-size(1.3);
+      line-height: 1.5;
+      @include font-weight(400);
+      @include inline-block;
+    }
+
+  }
+
+  .prod-cust-opts {
+
+    h3 {
+      margin: 25px 0 0;
+      @include font-size(1.6);
+        @include font-weight(500);
+    }
+    .form-item {
+      clear: both;
+      padding: 20px 0 0 0;
+
+    }
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      label,
+      .user-msg {
+        float: left;
+      }
+    }
+    .label-txt {
+      @include font-size(1.8);
+      padding-left: 34px;
+    }
+    .prod-size-title {
+      color: $green;
+      @include font-weight(400);
+    }
+    .user-msg {
+      margin: 1px 0 0 32px;
+      @include font-size(1.3);
+
+      @include respond-wrapper-fallback(tablet, lt-ie9) {
+        margin-left: 10px;
+      }
+
+    }
+    .msg-outOfStock {
+      ul {
+        list-style: none outside;
+        margin: 0;
+        padding: 0;
+      }
+
+    }
+    .prod-size-price {
+      @include font-weight(600);
+      padding-left: 4px;
+    }
+    .prod-rfl-pts {
+      @include font-size(1.3);
+      padding-left: 4px;
+      color: #888;
+    }
+    .prod-meta {
+      display: block;
+      margin: 4px 0 0;
+      color: #888;
+      font-size: 14px;
+    }
+    .prod-submit-bt {
+      float: left;
+      margin: 0 20px 0 0;
+    }
+
+    .prod-qty {
+      @include font-size(1.6);
+
+      label {
+        float: none;
+        margin-right: 10px;
+          @include font-weight(500);
+      }
+      button {
+        @include inline-block;
+        margin: 0;
+        line-height: 1;
+        padding: 8px 15px 8px;
+      }
+      input {
+        @extend %prettyTextInput;
+        float: none;
+        @include inline-block;
+        margin: 0 5px;
+        width: 3em;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+      }
+
+      .error {
+        color: $errorRed;
+        display: block;
+        margin-top: 5px;
+      }
+
+    }
+
+  }
+
+  .img-panel {
+    position: relative;
+  }
+  .roundel {
+    position: absolute;
+    left: -22px;
+    top: -22px;
+  }
+
+  .user-prompt {
+    padding: 10px 15px;
+    background: $mid-grey;
+
+    p {
+      margin: 0 0 0.5em 0;
+    }
+    input {
+      margin: 0;
+    }
+  }
+
+  /* Out of stock products */
+  .disabled {
+
+    .prod-size-title {
+      color: $dark-grey;
+    }
+    label {
+      cursor: default;
+    }
+
+  }
+
+  /* add to favourite */
+  .prod-fav-opt {
+    float: left;
+    margin: 20px 0 0;
+
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      margin-top: 9px;
+    }
+    p {
+      @include font-size(1.5);
+      margin: 0;
+    }
+    .success {
+      color: $magenta;
+      cursor: default;
+      text-decoration: none;
+    }
+    input {
+      margin: 0 10px 0 0;
+      float: none;
+      display: inline;
+    }
+    &.js {
+
+    }
+
+  }
+  .prod-submit {
+
+    position: relative;
+
+    .basket-message {
+      padding-top: 20px;
+      clear: both;
+    }
+
+  }
+
+}
+.no-js {
+  .img-panel {
+    display: none;
+  }
+}
+
+.lt-ie8 {
+  .prod-form {
+
+    .prod-qty {
+
+      button {
+        float: none;
+        height: 35px;
+      }
+      input {
+        width: 1.5em;
+      }
+
+    }
+    .prod-submit {
+      input[type=submit].prod-submit-bt {
+        padding-left: 16px;
+      }
+    }
+
+  }
+
+}
+
+.prod-cta {
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 15px 0 5px;
+}
+.prod-shipping-link a {
+  color: $green;
+}
+.prod-header {
+  position: relative;
+  margin: 0 0 35px;
+}
+
+.prod-size-multi-opts {
+  list-style: none outside;
+  margin: 15px 0 -4px 0;
+  padding: 0;
+
+  li {
+    background: #fff;
+    @include inline-block;
+    margin: 0 4px 4px 0;
+    padding: 6px 11px;
+    border: 1px solid $mid-grey;
+    @include border-radius(5px);
+
+    a {
+      color: #adadad;
+    }
+
+    &.active {
+      padding: 5px 10px;
+      border-color: $green;
+      border-width: 2px;
+
+      a {
+        color: $green;
+      }
+    }
+
+  }
+
+}
+.prod-item {
+
+  .prod-desc.panel {
+    margin: 0 0 30px;
+
+    h2 {
+      margin: 0 0 15px;
+      @include font-size(2.4);
+        @include font-weight(300);
+    }
+
+  }
+
+}
+
+.prod-chat {
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+.prod-approval {
+  @include simpleList;
+  margin: 0 0;
+
+  li {
+    @include inline-block;
+    margin: 0 20px 0 0;
+  }
+  .split {
+
+    a {
+      margin-top: 10px;
+     color: #888;
+    }
+  }
+
+}
+
+.lt-ie8 .prod-approval li {
+  @include inlineBlock;
+}
+
+
+.prod-advisory {
+  @include simpleList;
+  margin: 0;
+  @include font-size(1.8);
+
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+
+  li {
+    margin: 10px 0 0;
+    padding-left: 35px;
+    position: relative;
+
+    .ico {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+
+  }
+
+}
+
+
+/*-----------------
+  Dynamic star ratings
+  Requires jQuery.Rating Plugin  (fyneworks.com/jquery/star-rating)
+  Used only in product pages
+*/
+
+.rating-cancel,
+.star-rating {
+  float:left;
+  width:28px;
+  height:23px;
+  text-indent:-999em;
+  cursor:pointer;
+  display:block;
+  background:transparent;
+  overflow:hidden;
+}
+.rating-cancel,
+.rating-cancel a {
+  background:url(/ui/css/img/icons/delete.gif) no-repeat 0 -16px;
+  @include transition( none );
+}
+
+.star-rating,
+.star-rating a {
+  background: url(/ui/css/img/icons/ratings-stars-23px.png) 0 -0 repeat-x;
+  @include transition( none );
+}
+
+.rating-cancel a,
+.star-rating a {
+  display:block;
+  width:28px;
+  height:100%;
+  background-position:0 0;
+  border:0;
+}
+
+.star-rating-on a {
+  background-position:0 -23px!important;
+}
+
+.star-rating-hover a {
+  background-position:0 -23px;
+}
+
+/* Read Only CSS */
+.star-rating-readonly a {
+  cursor:default!important;
+}
+
+/* Partial Star CSS */
+.star-rating {
+  background:transparent!important;
+  overflow:hidden!important;
+}
+
+
+/*
+ * Hide product facet filtering on mobile versions
+ */
+@media only screen and (max-width: 767px) {
+
+  .js nav.prod-filter-nav .prod-filters {
+    display: none;
+  }
+
+}
+
+/* quickbuy overlay */
+.quickbuy-container {
+
+  .content {
+    width: 240px;
+
+    h3 {
+      color: $green;
+    }
+    .prod-img {
+      @include box-shadow(none);
+    }
+    .prod-quickbuy-container {
+      display: block;
+
+      &.loading {
+        padding-bottom: 20px;
+        background: transparent url(img/spinner.gif) no-repeat center bottom;
+      }
+
+      .prod-size-opts label {
+        display: block;
+      }
+      .ico-basket-add {
+        display: none;
+      }
+      .prod-submit-bt {
+        padding-left: 15px;
+      }
+
+    }
+
+  }
+
+}
+
+.lt-ie8 {
+  .prod-quickbuy-container {
+    input[type=submit].prod-submit-bt {
+      padding: 8px 0px 7px 30px;
+    }
+  }
+  .prod-form,
+  .prod-teaser-form {
+    input[type=submit].prod-submit-bt {
+      padding: 8px 8px 7px;
+    }
+  }
+
+  .prod-teaser-block.is-list {
+    .l-col {
+      margin-left: 0;
+    }
+
+    .l-prod-col.l-double-col {
+      width: 28%;
+    }
+    .l-prod-col.prod-quickbuy-container {
+      width: 22%;
+
+      .prod-qty {
+        input {
+          width: 1.5em;
+        }
+      }
+      input[type=submit].prod-submit-bt {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+    }
+
+  }
+
+}
+
+.basket-message {
+  position: relative;
+  margin: 1em 0 0 0;
+  font-size: 12px;
+  padding-left: 25px;
+  line-height: 1.5em;
+  color: $green;
+
+  em {
+    display: block;
+    color: #000;
+    font-size: 1.08em;
+    font-style: normal;
+  }
+  span.ico {
+    background-color: $purple;
+    left: 0;
+    position: absolute;
+  }
+  .offer-link a {
+    color: $green;
+  }
+
+}
+
+
+/* zoom overlay
+*/
+.preview-container .content {
+/*   position: fixed; */
+
+  ul.prod-img-thumbs {
+    width: 120px;
+    float: left;
+
+    li {
+      display: block;
+      margin: 0 0 10px 0;
+      padding: 0;
+    }
+  }
+  .prod-img {
+    height: 724px;
+    width: 724px;
+    @include box-shadow(none);
+    margin: 0 0 0 130px;
+    padding: 0;
+    background-repeat: no-repeat; // bg image added with JS
+    background-position: center top;
+  }
+}
+
+/**
+ * Define the table to be of the class "prod-facts"
+ */
+.prod-facts {
+  margin: 30px 0 0;
+  border: 3px solid $dark-grey;
+  @include box-shadow(0);
+
+  table {
+    border: 0;
+    width: 100%;
+  }
+  caption {
+    @include font-size(2.4);
+      @include font-weight(600);
+    text-align: left;
+  }
+  th {
+    text-align: left;
+    padding: 2px 0 5px;
+    border-bottom: 2px solid $dark-grey;
+    @include font-size(1.6);
+      @include font-weight(300);
+  }
+
+  td {
+    padding: 9px 0 5px;
+    border-bottom: 1px solid $dark-grey;
+    @include font-size(1.6);
+  }
+
+  .prod-calories td {
+    border-bottom: 2px solid $dark-grey;
+  }
+  .prod-sub td {
+    text-indent: 10px;
+    @include font-size(1.4);
+
+    b {
+      @include font-weight(400);
+    }
+  }
+
+  /* Daily values
+  */
+  .prod-dv {
+      @include font-weight(600);
+    text-align: right;
+  }
+  tfoot td {
+    border-top: 5px solid black;
+    border-bottom: 0;
+    @include font-size(1.4);
+  }
+
+}
+
+/**
+ * Bazaar Voice overrides
+ */
+
+#BVRRSummaryContainer {
+
+  .BVRRRatingSummaryLinks {
+
+    @media screen and (max-width: 767px) {
+
+      float: none;
+      clear: both;
+      margin: 0;
+      padding: 5px 0 0;
+
+    }
+
+  }
+
+}

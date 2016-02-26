@@ -1,0 +1,229 @@
+/*-----------------
+  Page container
+*/
+.page {
+  margin: 0 auto; 
+  padding: 0 10px;
+  
+  /* serve linearised 320 layout to any viewport narrower than iPad portrait  */    
+  @media screen and (max-width: 767px) {
+    max-width: 320px;
+  }
+  @include respond-wrapper-fallback(tablet, lt-ie9) {     
+    min-width: 940px;
+    max-width: 1220px;
+    padding: 0 20px;    
+  }
+}
+.lt-ie9 .page {
+  // IE7 adding padding, as usual...
+  min-width: 900px;
+  max-width: 1180px;
+}
+.lt-ie8 .page {
+  //width: 960px;
+}
+
+#content {
+  clear: both;
+  padding: 30px 0; 
+  background: $bg-color;  
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    background: $bg-color url(img/body.jpg);  
+  }
+
+}
+  
+
+// Fix for clipped bgnd colour when page is zoomed (desktop + iPad portrait)
+[role=banner],
+#content,
+[role=contentinfo] {
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    min-width: 940px;
+  }
+  
+}
+  
+/*-----------------
+  Grid system
+*/
+
+/* 
+Grid system loosely based on builtbyboon.com/posed/Proportional-Grids
+
+Some notes:
+
+* We currently have only one breakpoint (768px)
+
+* As we're appyling mobile-first principles we don't need anything special set up for the linear view, 
+  so this grid system is currently only invoked above 786px. This means we don't need the built-in namespacing feature to set multiple grids
+  Therefore we've set our single namespace prefix as 'l-' (as advocated by SMACSS) to improve document semantics 
+
+* The min-width above 768px is 960px: meaning the layout isn't 'responsive' for the small number of browsers between those widths
+
+* Between 960px-1200px range the column widths are fluid and proportional but the gutters remain fixed-width
+
+* There's a known sub-pixel rendering bug w/ Webkit (apparently fixed in Chrome Canary) and Opera. 
+  It can't be patched without negative effects for other browsers.
+
+*/
+
+/* Column wrapper
+*/
+.l-wrap {    
+  margin: 0;
+  margin-left: -$gutter;
+  padding: 0;
+  clear: both; 
+  list-style: none; /* So we can make grids out of lists. */
+
+  /* Half-gutter option
+  */
+  &.half-gutter {
+    margin-left: -$half-gutter;
+  
+    .l-col {
+      padding-left: $half-gutter; 
+    }
+  
+  } 
+
+} 
+
+/* Individual columns
+*/
+.l-col {
+  padding-left: $gutter; /* this is your gutter between columns */
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; 
+}
+
+/* Set up grids for each view 
+   (we have only one grid view - see note above)
+*/
+body { 
+
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+
+    /* we only want these definitions on widescreen devices */
+    .l-col { 
+      float: left; 
+      width: 100%; 
+    } 
+
+    @include setup-grid($namespace: l);
+  
+  }
+
+}
+
+/* Give old IE a fixed-width 960 layout
+*/
+.lt-ie8 .page {
+  //min-width: 960px;
+  //max-width: 960px;
+  /*width:     1220px !important;
+  background: blue !important;
+  min-width: 940px;
+  max-width: 1220px;*/
+}
+// repeat for each set of grids you have
+
+// @include grid-config-oldie();
+// @include grid-setup-oldie("col");
+
+@include oldie-grid($namespace: "lt-ie8 body .l");
+
+
+
+/*-----------------
+  Layout helpers
+*/
+
+/* Use this wrapper if you want to centrally align an element at 60% width
+*/
+body { 
+  @include respond-wrapper-fallback(tablet, lt-ie9) {
+    .l-island,
+    .l-island:first-child {
+      float: none;
+      width: 60%;
+      margin-left: auto !important;
+      margin-right: auto;  
+    }
+  }
+}
+/*-----------------
+  Content Choreography
+*/
+
+.l-major {
+/*
+  @include boxit(vertical);
+  @include flexit(vertical);
+*/
+}
+
+.banner, .notice {
+  @include order(2);
+  @include new-order(2);
+}
+  
+.promo-teaser-block {
+  @include order(2);
+  @include new-order(2);
+  @include respond-to(tablet) { 
+    @include order(1);
+    @include new-order(1);
+  }
+}
+.signup-teaser {
+  @include order(1);
+  @include new-order(1);
+  @include respond-to(tablet) { 
+    @include order(3);
+    @include new-order(3);
+  }
+  
+}
+
+.l-minor {
+  @include order(3);
+  @include new-order(3);
+  @include respond-to(tablet) { 
+    @include order(2);
+    @include new-order(2);
+  }
+}
+
+/* --- hacky stuff -- */
+
+.no-js {
+
+  .signup-form {
+    @include respond-wrapper-fallback(tablet, lt-ie9) { 
+      position: absolute;
+      top: 0;
+      right: 0;
+      width:  24%;
+    }
+
+  } 
+  .l-minor {
+    @include respond-wrapper-fallback(tablet, lt-ie9) {
+      position: relative;
+    }
+    
+  }
+  .l-wrap {
+    @include respond-wrapper-fallback(tablet, lt-ie9) { 
+      position: relative;
+    }
+    
+  }
+
+}
