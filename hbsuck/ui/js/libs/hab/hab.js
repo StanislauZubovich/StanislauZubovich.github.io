@@ -5179,8 +5179,9 @@ HAB.mobileHamburgerNavigationClass = {
 			var that = this;
 			
 			$(that.config.mobileHamburgerNavigationOverlay).hide();
-			$("html").css({"overflow-x": ""});
-			$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
+			$(that.config.mobileHamburgerNavigationOverlay).promise().done(function(){
+				$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
+			});
 			$(that.config.mobileNavigationBtn)
 				.removeClass(that.config.closeClassSelector)
 				.addClass(that.config.openClassSelector);
