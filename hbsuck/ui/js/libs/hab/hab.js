@@ -5179,9 +5179,9 @@ HAB.mobileHamburgerNavigationClass = {
 			var that = this;
 			
 			$(that.config.mobileHamburgerNavigationOverlay).hide();
+			$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			setTimeout(function() {
 				$("html").css({"overflow-x": ""});
-				$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			}, 500);
 			$(that.config.mobileNavigationBtn)
 				.removeClass(that.config.closeClassSelector)
@@ -5235,9 +5235,9 @@ HAB.mobileHamburgerNavigationClass = {
 				})
 				.on("click", that.config.mobileNavigationBtn+"."+that.config.closeClassSelector, function (ev) {
 					$(that.config.mobileHamburgerNavigationOverlay).hide();
+					$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					setTimeout(function() {
 						$("html").css({"overflow-x": ""});
-						$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					}, 500);
 					$(that.config.mobileNavigationBtn)
 						.removeClass(that.config.closeClassSelector)
