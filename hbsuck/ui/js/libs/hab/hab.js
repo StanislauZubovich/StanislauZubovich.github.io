@@ -5178,8 +5178,8 @@ HAB.mobileHamburgerNavigationClass = {
 		remove: function() {
 			var that = this;
 			
-			$("html").css({"overflow-x": ""});
-			$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
+			$("html").delay(2000).css({"overflow-x": ""});
+			$('body').delay(2000).removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			$(that.config.mobileHamburgerNavigationOverlay).hide();
 			$(that.config.mobileNavigationBtn)
 				.removeClass(that.config.closeClassSelector)
@@ -5232,9 +5232,9 @@ HAB.mobileHamburgerNavigationClass = {
 
 				})
 				.on("click", that.config.mobileNavigationBtn+"."+that.config.closeClassSelector, function (ev) {
+					$("html").delay(2000).css({"overflow-x": ""});
+					$("body").delay(2000).removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					$(that.config.mobileHamburgerNavigationOverlay).hide();
-					$("html").delay(400).css({"overflow-x": ""});
-					$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					$(that.config.mobileNavigationBtn)
 						.removeClass(that.config.closeClassSelector)
 						.addClass(that.config.openClassSelector);
