@@ -5180,6 +5180,7 @@ HAB.mobileHamburgerNavigationClass = {
 			
 			$(that.config.mobileHamburgerNavigationOverlay).hide();
 			$(that.config.mobileHamburgerNavigationOverlay).promise().done(function(){
+				$("html").css({"overflow-x": ""});
 				$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			});
 			$(that.config.mobileNavigationBtn)
