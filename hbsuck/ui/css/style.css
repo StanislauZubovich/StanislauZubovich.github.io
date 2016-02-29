@@ -6214,11 +6214,11 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
 	top: 0;
 	bottom: 0;
 	background-color: #1c735d;
-	-webkit-transition: margin 0.4s linear;
-	-moz-transition: margin 0.4s linear;
-	-ms-transition: margin 0.4s linear;
-	-o-transition: margin 0.4s linear;
-	transition: margin 0.4s linear;
+	-webkit-transition: transform 0.4s linear;
+	-moz-transition: transform 0.4s linear;
+	-ms-transition: transform 0.4s linear;
+	-o-transition: transform 0.4s linear;
+	transition: transform 0.4s linear;
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     -o-transform: translateX(-100%);
