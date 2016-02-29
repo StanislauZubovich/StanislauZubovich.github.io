@@ -6206,20 +6206,24 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
 #mobile-navigation-header-items-list {
 	width: 70%;
 	min-width: 210px;
-	padding: 10px;
 	margin: 0;
+	padding: 10px;
 	list-style: none;
 	position: absolute;
 	left: 0;
 	top: 0;
 	bottom: 0;
 	background-color: #1c735d;
-	-webkit-transition: transform 0.4s linear;
-	-moz-transition: transform 0.4s linear;
-	-ms-transition: transform 0.4s linear;
-	-o-transition: transform 0.4s linear;
-	transition: transform 0.4s linear;
-	transform: translateX(-100%);
+	-webkit-transition: margin 0.4s linear;
+	-moz-transition: margin 0.4s linear;
+	-ms-transition: margin 0.4s linear;
+	-o-transition: margin 0.4s linear;
+	transition: margin 0.4s linear;
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 body > header,
 body > #content,
@@ -6237,7 +6241,11 @@ body > #content ~ .breakpoint-768 {
 	
 }
 .mobile-menu-opened #mobile-navigation-header-items-list {
-	transform: translateX(0);
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -o-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
 }
 .mobile-menu-opened > header,
 .mobile-menu-opened > #content,
