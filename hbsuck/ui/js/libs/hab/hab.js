@@ -5182,7 +5182,7 @@ HAB.mobileHamburgerNavigationClass = {
 			$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			setTimeout(function() {
 		    	$("html").css({"overflow-x": ""});
-			}, 400);
+			}, 600);
 			$(that.config.mobileNavigationBtn)
 				.removeClass(that.config.closeClassSelector)
 				.addClass(that.config.openClassSelector);
@@ -5238,7 +5238,7 @@ HAB.mobileHamburgerNavigationClass = {
 					$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					setTimeout(function() {
 						$("html").css({"overflow-x": ""});
-					}, 400);
+					}, 600);
 					$(that.config.mobileNavigationBtn)
 						.removeClass(that.config.closeClassSelector)
 						.addClass(that.config.openClassSelector);
