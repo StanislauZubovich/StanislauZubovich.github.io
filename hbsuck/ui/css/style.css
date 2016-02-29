@@ -1411,7 +1411,7 @@ section.form-errors ul ul, section.form-errors ul.ois-email-unknown{ color: #c1c
 */
 
 .prod-filters { position: relative; }
-.prod-filters label { display: block; margin: 6px 0 0; padding-left: 24px; font-size: 16px; font-size: 1.6rem; }
+.prod-filters label { display: block; margin: 6px 0 0; padding-left: 24px; font-size: 14px; font-size: 1.4rem; }
 .prod-filters label input { position: absolute; left: 0; }
 .prod-filters .prod-rating { display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; margin-top: 0; }
 .prod-filters.is-disabled { color: #d0d0cf; }
@@ -1864,7 +1864,7 @@ form.f-store-finder input[type=text] { margin-bottom: 10px; width: 300px; }
 .storefinder-results, .storefinder-results p, .storefinder-results .element { font-size: 16px; font-size: 1.6rem; }
 .storefinder-results {margin: 0 0 0 -3%;}
 
-.storefinder-results .element {margin: 0 0 20px 3%; padding: 20px 10px 10px 50px; width: 30%; float: left; background: #fff;height: 400px;}
+.storefinder-results .element {margin: 0 0 20px 3%; padding: 30px 30px 10px 60px; width: 30%; float: left; background: #fff;height: 420px;}
 .storefinder-results .element.first-child {height: 500px;}
 .storefinder-results .element-inner {position: relative; }
 .storefinder-results .element ul { padding: 0; margin: 0; list-style: none outside; }
@@ -1873,12 +1873,19 @@ form.f-store-finder input[type=text] { margin-bottom: 10px; width: 300px; }
 .storefinder-results .element li strong:after { content: ":"; }
 .storefinder-results h3 { font-size: 21px; font-size: 2.1rem; margin: 0; }
 .storefinder-results h3 span {
-	position: absolute; top: -2px; left: -40px; width: 31px; height: 48px; font-size: 16px; font-size: 1.6rem; line-height: 32px; text-align: center; text-transform: uppercase; font-weight: bold;
+	position: absolute; top: -2px; left: -40px; width: 31px; height: 48px;
+	font-size: 12px;
+	font-size: 1.2rem;
+	line-height: 32px; text-align: center; text-transform: uppercase; font-weight: bold;
 	background: url(../../ui/css/img/icons/icon-sprite.png) -20px -210px no-repeat;
 	}
 .storefinder-results h3 strong { font-weight: bold; }
 .storefinder-results p { margin: 0 0 0.5em 0; }
-.storefinder-results .storefinder-directions { font-size: 0.875em; margin: 0 0 1em 0; }
+.storefinder-results .storefinder-directions { 
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin: 0 0 1em 0;
+}
 .storefinder-results .storefinder-directions a { color: #3d7a6a; }
 .lt-ie9 .storefinder-results .storefinder-directions a.lnk-map { display: none; }
 .storefinder-results .tel { font-weight: bold; }
@@ -6214,15 +6221,14 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
 	top: 0;
 	bottom: 0;
 	background-color: #1c735d;
-	-webkit-transition: transform 0.4s linear;
-	-moz-transition: transform 0.4s linear;
-	-ms-transition: transform 0.4s linear;
-	-o-transition: transform 0.4s linear;
+	-webkit-transition: -webkit-transform 0.4s linear;
+	-moz-transition: -moz-transform 0.4s linear;
+	-o-transition: -o-transform 0.4s linear;
 	transition: transform 0.4s linear;
-    -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
     transform: translateX(-100%);
 }
 body > header,
