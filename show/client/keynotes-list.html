@@ -1,0 +1,21 @@
+<template name="keynotesList">
+  <div class="color-line"></div>
+
+  <div class="floor keynotes-list btn-group-vertical btn-block">
+    {{#each keynotes}}
+      <button class="btn btn-block btn-{{#unless equal show 'none'}}{{#if equal show 'active'}}danger{{else}}default{{/if}}{{else}}none{{/unless}} js-edit"><span class="row">
+          <span class="col-xs-10">
+            {{#if title}}
+              {{title}}{{else}}
+              <span class="text-muted">Untitled</span>
+            {{/if}}</span><span class="col-xs-2 text-right">
+            <i class="glyphicon glyphicon-chevron-right"></i>
+          </span>
+        </span></button>
+    {{else}}
+      {{#if Session 'keynoteListReady'}}
+        <p class="lead text-center">No Presentations</p>
+      {{/if}}
+    {{/each}}
+  </div>
+</template>
