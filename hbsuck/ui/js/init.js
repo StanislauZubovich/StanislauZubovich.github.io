@@ -270,8 +270,6 @@ HAB.init = function() {
   
   HAB.initScrollToError();
   
-  // Password strength meter module
-  HAB.passwordStrengthMeter.init();
 
   //Description on Category and Subcategory pages
   HAB.showMoreLessDescription();
