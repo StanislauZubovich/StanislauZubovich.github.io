@@ -5518,7 +5518,7 @@ HAB.quantitySelectboxClass = {
 };
 
 	HAB.quantitySelectboxClass.init();
-
+/*
 HAB.mobileHamburgerNavigationClass = {
 		init: function() {
 			this.config = {
@@ -5648,6 +5648,7 @@ HAB.mobileHamburgerNavigationClass = {
 	}
 
 HAB.mobileHamburgerNavigationModule = Object.create(HAB.mobileHamburgerNavigationClass);
+*/
 
 /* because of ie bug with coockies and loosing session 
  * https://connect.microsoft.com/IE/feedback/details/810700/subject-ie11-is-losing-cookie-information-and-thus-becoming-detached-from-a-web-application-session */
