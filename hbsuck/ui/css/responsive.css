@@ -472,7 +472,7 @@
   .rgba .branding { border-top: none; }
   .main-nav.replete-nav .page { width: 100%; max-width: 100%; padding: 0; margin: 0; }
   .f-row {-webkit-flex-direction: column;-ms-flex-direction: column;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;}
-  .f-col,.f-col-1,.f-col-2,.f-col-3,.f-col-4,.f-col-5,.f-col-6 {-ms-flex-preferred-size: 100%;  -webkit-flex-basis: 100%;  flex-basis: 100%;  max-width: 100%; width: 100%; padding: 0;} 
+  .f-col,.f-col-1,.f-col-2,.f-col-3,.f-col-4,.f-col-5,.f-col-6 {-ms-flex-preferred-size: auto;  -webkit-flex-basis: auto;  flex-basis: auto;  max-width: 100%; width: 100%; padding: 0;} 
    #content { padding: 10px 0; }
   [role=banner] .utility-nav .basket-nav-item { position: absolute; right: 0; top: 0; font-weight: bold; }
   [role=banner] .utility-nav .locator-nav-item { width: auto; margin: 0 0 20px; padding: 0; text-align: center; }

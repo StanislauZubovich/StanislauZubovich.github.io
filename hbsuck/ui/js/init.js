@@ -153,8 +153,8 @@ HAB.init = function() {
     
     SFR.Utils.deleteResponsiveTables();
     
-	HAB.mobileHamburgerNavigationModule.remove();
-	HAB.mobileCheckoutBtnPos.remove();
+	//HAB.mobileHamburgerNavigationModule.remove();
+	//HAB.mobileCheckoutBtnPos.remove();
   });
 
   //Post breakpoint init functions.
@@ -174,8 +174,8 @@ HAB.init = function() {
 //        });
       });
     }
-	HAB.mobileHamburgerNavigationModule.init();
-	HAB.mobileCheckoutBtnPos.init();
+	//HAB.mobileHamburgerNavigationModule.init();
+	//HAB.mobileCheckoutBtnPos.init();
   }; 
   
   /* Viewport-agnostic functions
