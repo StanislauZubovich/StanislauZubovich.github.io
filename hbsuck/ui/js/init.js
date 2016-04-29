@@ -136,9 +136,9 @@ HAB.init = function() {
           $(item).find('.panel').equalHeight();
         });
 
-        $.root.find('.l-eq-height').has('.l-fit-bottom').each(function(index, item) {
+        /*$.root.find('.l-eq-height').has('.l-fit-bottom').each(function(index, item) {
             $(item).find('.l-fit-bottom').css({'bottom':0,'margin':0,'position':'absolute','right':0, 'left':0});
-        });
+        });*/
       }
     }).trigger('resize');
 
@@ -202,6 +202,8 @@ HAB.init = function() {
   HAB.checkProdInfoOverflow();
 
   HAB.reStyleSelects();
+  
+  HAB.storeTooltip.init();
 
   // Initialise product teaser modules (grid/list view, show/hide, quick buy, sumbit)   
   HAB.setupProdTeasers();
@@ -241,7 +243,7 @@ HAB.init = function() {
   HAB.setupAddToFavourites();
   
   HAB.setupProdOptImages();
-
+  
   HAB.setupProdOptOffers();
   
   HAB.hookHomeHero();
@@ -252,6 +254,8 @@ HAB.init = function() {
   
   HAB.addSubmitIcons();
   
+  HAB.pdp.init(); // should be after HAB.addSubmitIcons because it hides/shows these icons
+  
   HAB.setupReorderAllItemsLinks();
 
   HAB.lightboxes.setup();
@@ -260,16 +264,14 @@ HAB.init = function() {
   
   // Mostly CSS polyfills
   HAB.fixIE();
-    
-  if ($.root.find('.prod-share').length) {
-    HAB.initAddThis();
-  }
-  
+
   //#MK highlight favorites
   HAB.loadFavorites();
   
   HAB.initScrollToError();
   
+  // Password strength meter module
+  HAB.passwordStrengthMeter.init();
 
   //Description on Category and Subcategory pages
   HAB.showMoreLessDescription();
@@ -292,6 +294,11 @@ HAB.init = function() {
   
   //Terms and conditions tooltip
   HAB.termsAndConditionsTooltip.init();
+  
+  //Confirmation of registration
+  HAB.confirmationOfRegistration.init();
+  
+  HAB.address.init();
 };
 
 HAB.hookLanguageSelection();

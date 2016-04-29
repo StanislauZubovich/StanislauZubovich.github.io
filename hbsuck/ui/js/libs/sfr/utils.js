@@ -163,7 +163,8 @@ SFR.Utils.clearNthChild = function(ctx,count) {
  */
 SFR.Utils.setupPrintLinks = function(link) {
 	if (window.print && typeof(window.print) === 'function' && !checkIsWinphone() && !checkIsAndroid()) {
-		$.root.on('click', link, function() {
+		$.root.on('click', link, function(e) {
+		  e.preventDefault();
 			window.print();
 		});
 	} else {
@@ -844,6 +845,85 @@ SFR.Utils.showAjaxLoader = function(target) {
  */
 SFR.Utils.hideAjaxLoader = function() {
   $('.ajax-loader-bg, .ajax-loader').hide();
+}
+
+/**
+ * Show popup
+ * 
+ * @param settings - json object with the following properties: 
+ *   showBackground     - boolean, true by default. Detemines whether need to show grey background overlay.
+ *   closableBackground - boolean, true by default. Determines whether user can close popup by clicking on background overlay.
+ *   showAjaxLoader     - boolean, false by default. Determines whether need to show spinner during popup loading (it's useful for timeconsuming operations).
+ *   url                - string. Popup page url. See http://api.jquery.com/jQuery.ajax/ for details.
+ *   data               - object. Data to be sent to the server. See http://api.jquery.com/jQuery.ajax/ for details.
+ *   content            - object or string. It is alternative way for showing popup. 
+ *                        Can be DOM object or string or any valid jquery selector.
+ *   init               - function. Initializes popup, e.g. attach an event handlers. It will be called after successfull popup loading.
+ *                        Take popup container (jquery object) as parameter.
+ */
+SFR.Utils.showPopup = function(settings) {
+  initSettings();
+  showBackgroundOverlay();
+  
+  if (settings.url) {
+    $.ajax({
+      url: settings.url,
+      data: settings.data,
+      beforeSend: switchAjaxLoader,
+      complete: switchAjaxLoader,
+      success: displayPopup,
+      error: console.error
+    });
+  } else if (settings.content) {
+    displayPopup(settings.content);
+  }
+  
+  function initSettings() {
+    settings = $.extend(true, {
+      showBackground: true,
+      closableBackground: true,
+      showAjaxLoader: false,
+      data: {}
+    }, settings);
+  }
+  
+  function showBackgroundOverlay() {
+    var $backgroundOverlay = $('#popup-bg');
+    if (settings.closableBackground) {
+      $backgroundOverlay.on("click", SFR.Utils.hidePopup);
+    } else {
+      $backgroundOverlay.off("click");
+    }
+    
+    if (settings.showBackground) {
+      $backgroundOverlay.show();
+    } else {
+      $backgroundOverlay.hide();
+    }
+  }
+  
+  function switchAjaxLoader() {
+    if (settings.showAjaxLoader) {
+      SFR.Utils.switchAjaxLoader();
+    }
+  }
+  
+  function displayPopup(popup) {
+    $popup = $(popup);
+    $('#popup-content').html($popup);
+    if (settings.init) {
+      settings.init($popup);
+    }
+    $('#popup-container').show();
+  }
+}
+
+/**
+ * Hide popup
+ */
+SFR.Utils.hidePopup = function() {
+  $('#popup-container').hide();
+  $('#popup-content').html('');
 }
 
 /**

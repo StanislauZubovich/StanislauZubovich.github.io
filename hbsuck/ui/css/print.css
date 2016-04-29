@@ -67,3 +67,63 @@ h2, h3 { page-break-after: avoid; margin-top: 0px; padding: 0; }
 a.act-print { display: none !important; }
 
 .desktop-hidden {display:none !important; }
+
+/* Print VAT receipt */
+.your-order-page .utility-nav,
+.your-order-page #site-search,
+.your-order-page .main-nav,
+.your-order-page .page-title,
+.your-order-page .account-nav,
+.your-order-page .reorder-link-out,
+.your-order-page .buttons,
+.your-order-page .footer-links,
+.your-order-page .mnav-selectBox-dropdown-menu,
+.your-order-page .footer-utils,
+.your-order-page .language-mobile {
+  display: none;
+}
+
+.your-order-page .branding {
+  border-bottom: 5px solid #3a7163;
+  padding-bottom: 20px;
+}
+
+.your-order-page .logotype {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.your-order-page h2.mod-title {
+  font-size: 28px;
+}
+
+.your-order-page .order-details-section {
+  padding: 0;
+  margin: 0;
+}
+
+.your-order-page .vat-order-details {
+  background: transparent;
+  padding: 0;
+}
+
+.your-order-page .vat-order-details.details-for-print {
+  display: table;
+  margin-bottom: 20px;
+}
+
+.your-order-page .breakdown-overview-name {
+  page-break-after: avoid;
+}
+
+.your-order-page .header-print-receipt {
+  display: block;
+  padding: 0 0 20px;
+}
+
+.your-order-page .header-print-receipt .order-address,
+.your-order-page .header-print-receipt .order-customer {
+  padding: 0 0 10px;
+}
+
+/* End Print VAT receipt */

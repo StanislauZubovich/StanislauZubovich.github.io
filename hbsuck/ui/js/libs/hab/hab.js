@@ -135,24 +135,6 @@ HAB.setupReorderAllItemsLinks = function()
     
 };
 
-
-/**
- * Initialise AddThis 
- * 
- * We're firing this on DOM ready to prevent blocking
- * http://support.addthis.com/customer/portal/articles/381221#.UGtDEPlxsVk
- */
-HAB.initAddThis = function() {
-//    Fix for http://s7.addthis.com/js/250/addthis_widget.js net::ERR_CONNECTION_REFUSED.
-    try {
-        addthis.init();
-    }
-    catch(err) {
-//        console.error(err.message);
-    }
-};
-
-
 /**
  * Re-render select lists with JS
  * Note: this is done for cosmetic reasons only. There's no behavioural gain.
@@ -190,15 +172,19 @@ HAB.reStyleSelects = function()
  */
 HAB.addSubmitIcons = function()
 {
-    $.root.find('.prod-submit-bt').each( function(){
-
-      var icon = $('<span class="ico ico-basket-add" />');
+    $.root.find('.prod-submit-bt, .js-emwa').each(function(){
       var button = $(this);
-      icon.on("click", function(){
-        button.click();
-      });
-      button.before(icon);
-    
+      var iconClass = button.data("iconClass");
+      if (iconClass) {
+        var icon = $('<span/>').addClass("ico").addClass(iconClass);
+        if (!button.not(':visible')) {
+          icon.hide();
+        }
+        icon.on("click", function(){
+          button.click();
+        });
+        button.before(icon);
+      }
     });
 };
 
@@ -529,6 +515,9 @@ jQuery.widget( "ui.slow_dropdown", $.ui.cx_dropdown, {
         clearTimeout(this.vars.tabOffTimer);
 
         this.vars.tabOffTimer = setTimeout(function() {
+            if (that.options.overlayClass && that._closestListItem(e.target).hasClass(that.options.hoverClass)) {
+              $('.' + that.options.overlayClass + '.lightbox-container').fadeOut(0);
+            }
             that._closestListItem(e.target).removeClass(that.options.hoverClass).find(that.options.menuClass).removeAttr('style');
         }, this.options.flyOutDelay);
     }
@@ -541,7 +530,8 @@ HAB.setupDropdowns = function() {
       ariaAttr: 'aria-haspopup',
       ariaValue: 'true',
       fixPosition: false,
-      mouseDelay: HAB.slowDropdownConfig.mouseDelay
+      mouseDelay: HAB.slowDropdownConfig.mouseDelay,
+      overlayClass: 'mega-menu-overlay'
     });
 };
 
@@ -728,15 +718,11 @@ HAB.setupMobileMenu = function() {
   
   // The menu should load open on homepage
   if ( $('body').hasClass('t-home') ) {
-  
-   // console.log('home');
     $menuBar.addClass('is-expanded');
-  
   } else {
-  
-   // console.log('not home');
-    $menuBar.hide();
-  
+    if (!$('html').hasClass('lt-ie9')) {
+      $menuBar.hide();
+    }
   }
   setMenuBtState();
 
@@ -806,6 +792,10 @@ HAB.checkProdInfoOverflow = function() {
  * Initialise any functions required for teaser pages
  */
 HAB.setupProdTeasers = function() {
+
+  if ($('.l-switcher.large-vp').length) {
+    return;
+  }
 
   /**
    * Layout switcher
@@ -1096,8 +1086,16 @@ HAB.hookProdQuickBuy = function()
       // Hook up validation
       oContent.find('[name=prod-qty-field]').inlineValidation();
 
-      // 6. fade in
+      // 6. fade in & scroll to viewport if not fully in
       oQbDiv.fadeIn(400);
+      var quickBuy_lightbox = $('.quickbuy-container .quick-buy');
+      if (quickBuy_lightbox.offset().top < $(window).scrollTop()){
+          $("html, body").animate({ scrollTop: quickBuy_lightbox.offset().top }, 400);
+      } else if (quickBuy_lightbox.offset().top + quickBuy_lightbox.height() + 110 > $(window).scrollTop() + $(window).height()) {
+          $("html, body").animate({ scrollTop: (quickBuy_lightbox.offset().top + quickBuy_lightbox.height() - $(window).height()) + 110}, 400);
+      }
+      
+      $(".quickbuy-container .quick-buy .prod-size-opts input:radio:checked").change();
 
       // inhibit normal behaviour
       return false;
@@ -1200,10 +1198,11 @@ HAB.setupTooltips = function() {
     .hide();
 
   function closeTooltips() {
+    $.root = $.root || $(document.body); 
     $.root
       .find('.tooltip-target.is-visible')
         .removeClass('is-visible')
-        .fadeOut(100);  
+        .fadeOut(100);
   }
 
   // Attach click handlers to trigger text
@@ -1236,7 +1235,7 @@ HAB.setupTooltips = function() {
    * Hide *any* open panels on click outside
    */
   $(document).on('click touchstart', function(e) {
-
+    
     if (e.type === 'click' ) {
       if ( $('body').hasClass('breakpoint-220') ) {
         /*
@@ -1249,7 +1248,8 @@ HAB.setupTooltips = function() {
         e.preventDefault();
       }*/
     }
-
+    
+    $.root = $.root || $(document.body); 
 
     if ( $.root.find('.tooltip-target.is-visible').length ) {
       closeTooltips();
@@ -1911,7 +1911,7 @@ HAB.hookProductImagesMB = function()
             sImgUri = oLink.data('img-mobile');
         if ((sImgUri === undefined) || (sImgUri === ''))
         {
-            sImgUri = oLink.attr('href').replace(/\.(mobile|thumb|desktop)\./i, '.').replace(/\.([a-z0-9]+)$/i, '.$1').replace(/370/, '180');
+            sImgUri = oLink.attr('href').replace(/\.(mobile|thumb|desktop)\./i, '.').replace(/\.([a-z0-9]+)$/i, '.$1').replace(/370/, '252');
         }
             
         // b. create it
@@ -1983,7 +1983,7 @@ HAB.hookFacetedSearch = function()
               'href': '#',
               'class': 'filter-clear-all',
               'title': 'Clear all filters'
-            }).html('Clear');
+            }).html('Clear all');
 
             oClearLink.on('click', function(e) {
               oContainer.find(':input').each(function() {
@@ -1994,7 +1994,7 @@ HAB.hookFacetedSearch = function()
               e.preventDefault();
             });
 
-            oContainer.find('h2.prod-filter-title').after(oClearLink);
+            oContainer.find('.active-prod-filters').after(oClearLink);
           }
         }
 
@@ -2284,6 +2284,170 @@ HAB.setupProdOptOffers = function()
 
 };
 
+/**
+ * Product details page (PDP) handler
+ */
+HAB.pdp = {
+  init: function() {
+    $(".js-product-container").each(function(){
+      var productContainer = $(this);
+      HAB.pdp.initSkus(productContainer);
+    });
+  },
+
+  initSkus: function(productContainer) {
+    productContainer.on("click", ".js-select-sku", HAB.pdp.selectSku);
+    productContainer.on("click", ".js-show-emwa-popup", HAB.pdp.showEMWAPopup);
+  },
+
+  showEMWAPopup: function(event) {
+    SFR.Utils.showPopup({
+      url: "/common/popup/emwaPopup.jsp",
+      data: $(this).data(),
+      init: function ($popupContainer) {
+        $popupContainer.on("click", ".js-hide-popup", SFR.Utils.hidePopup);
+        $popupContainer.on("click", ".js-register-emwa-request", registerEMWARequest);
+        $popupContainer.find("form").on("submit", registerEMWARequest);
+        $popupContainer.find("input").inlineValidation();
+      }
+    });
+    
+    function registerEMWARequest() {
+      var $emwaPopupForm = $(this).closest('form');
+      $emwaPopupForm.ajaxSubmit({
+        success: function(data) {
+          var $data = $(data);
+          if ($data.hasClass("js-error")) {
+            showErrors($emwaPopupForm, $data);
+          } else {
+            showConfirmedPopup($data);
+          }
+        },
+        error: console.error
+      });
+      return false;
+    }
+    
+    function showErrors(emwaPopupForm, errors){
+      emwaPopupForm.find(".js-error-messages").html(errors);
+    }
+    
+    function showConfirmedPopup(confirmedPopup) {
+      SFR.Utils.showPopup({
+        content: confirmedPopup,
+        init: function ($popupContainer) {
+          $popupContainer.on("click", ".js-hide-popup", SFR.Utils.hidePopup);
+        }
+      });
+    }
+  },
+
+  selectSku : function() {
+    var $sku = $(this);
+    var skuId = $sku.data("skuId");
+    
+    updateProductRecomendedBundlesLink(skuId);
+    
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/browse/json/selectSkuForPDP.jsp",
+      data: $sku.data(),
+      success: function(result) {
+        $('.skuImage').html(result.images);
+        fillInFavouriteForm(skuId);
+        fillInAddToBasketFrom(skuId);
+        resetProdQuantity();
+        
+        if ($('.prod-fav-opt').length > 0) {
+          $('.prod-fav-opt').html(result.isFavourite);
+        }
+        
+        setTitlePrice(result.price);
+        resetAddedToBasketMsg();
+        omnitureUpdate(skuId, result.unit_price, result.unit_sale_price, result.thumbnail_url, result.stock, result.size);
+        setSkuDescription(result.description);
+        setProdTitle(result.title);
+        
+        if(HAB.isMobile()){
+          HAB.hookProductImagesMB();
+              if($('.pdp-accordion #skuDescription .pdp-accordion-opened')) {
+                  $('#skuDescription .pdp-accordion-opened').removeClass('pdp-accordion-opened').addClass('pdp-accordion-closed');
+                  $('#skuDescription .pdp-accordion-content').slideToggle(500);
+              }
+        } else {
+          HAB.hookProductImagesDT();
+        }
+        
+        $('select.item-quantity-selectbox').each(function() {
+          $(this).prop('selectedIndex',0).selectBox('destroy').selectBox();
+        });
+      }
+    });
+    
+    function updateProductRecomendedBundlesLink(skuId) {
+      var $productsBundleHolder = $('#js-products-bundle');
+      var productsBundleHref = '';
+      if ($productsBundleHolder && $productsBundleHolder.data('href')) {
+        productsBundleHref = $productsBundleHolder.data('href');
+      }
+      
+      if (productsBundleHref) {
+        $productsBundleHolder.data('href', productsBundleHref.match(/^\/\w.*\=/) + skuId);
+        HAB.loadingContent($productsBundleHolder);
+      }
+    }
+    function setSkuDescription(description){
+      $('#skuDescription').html(description);
+    }
+    function setPromoMessages(promoMessages) {
+      $('ul.prod-offers').html(promoMessages);
+    }
+    function setProdTitle(title){
+      $('.page-title .prod-title').text(title);
+    }
+    function fillInFavouriteForm (skuId){
+      $('#favouriteform #catalogRefIds').val(skuId);
+      
+      var transientPrefix ='transient:';
+      var sessionParamSkuId = $('#favouriteform .sessionParamSkuId');
+      if (!!sessionParamSkuId.val() && sessionParamSkuId.val().indexOf(transientPrefix)!=-1){
+        sessionParamSkuId.val(transientPrefix + skuId);
+      } else {
+        sessionParamSkuId.val(skuId);
+      }
+    }
+    function fillInAddToBasketFrom (skuId){
+      $('.prod-submit .prodSubmitSkuId').val(skuId);
+    }
+    function resetProdQuantity(){
+      $('.prod-qty #prod_qty').val(1);
+    }
+    function setTitlePrice(price){
+      $('.page-title .prod-price').html(price);
+    }
+    function resetAddedToBasketMsg(){
+      $('.prod-submit-bt').siblings('.basket-message').remove();
+    }
+    function omnitureUpdate(skuId, unit_price, unit_sale_price, thumbnail_url, stock, size){
+      if (!!window.universal_variable) {
+        window.universal_variable.product.sku_code=skuId;
+        window.universal_variable.product.unit_price=parseFloat(unit_price);
+        window.universal_variable.product.unit_sale_price=parseFloat(unit_sale_price);
+        window.universal_variable.product.thumbnail_url=thumbnail_url;
+        window.universal_variable.product.stock=parseInt(stock);
+        window.universal_variable.product.size=size;
+      }
+      
+      (window.uvAddEvent || function(){})({
+        "category": "product_detail_page",
+        "action": "sku_change"
+      });
+      
+      HAB.callTealiumView();
+    }
+  }
+}
 
 HAB.initBasket = function()
 {
@@ -2964,12 +3128,13 @@ HAB.doCheckoutHooks = function()
          var setVal = oElm.data( checkbox.is(':checked')?'set-value':'default-value');
          if(oElm.is('#checkout_form_country')) {
            if(setVal === undefined) setVal = oElm.find("option:first")[0].value;
-           oElm.selectBox('value', setVal);
+           oElm.selectBox('value', setVal).change();
          } else {
-           oElm.val(setVal === undefined ? '' : setVal);
+           oElm.val(setVal === undefined ? '' : setVal).change();
          }
        });
-       $('#checkout_form_country').change()
+       
+       HAB.address.switchAddressView(addrForm, true);
      });
 
      /*
@@ -3179,8 +3344,7 @@ HAB.postcodeLookup = {
   oneTimeInit: function() {
 
     // bind initial click on the button
-    $.root.on('click', '.postcode-lookup-field input[type="button"]', function(e)
-    {
+    $.root.on('click', '.postcode-lookup-field input[type="button"]', function(e) {
       if(typeof String.prototype.trim !== 'function') {
         String.prototype.trim = function() {
           return this.replace(/^\s+|\s+$/g, ''); 
@@ -3204,13 +3368,15 @@ HAB.postcodeLookup = {
       var countryISO = addressForm.find(':input[name="country"]').val();
       var data = {};
       data["countryISO"] = countryISO;
+      data["houseNumName"] = addressForm.find('input[name="house-lookup"]').pVal(); // NOTE: using pVal for prevent getting placeholder value in IE
+      data["street"] = addressForm.find('input[name="street-lookup"]').pVal();
+
       if (countryISO == "IRL") {
-        data["houseNumName"] = addressForm.find('input[name="house-lookup"]').val();
-        data["street"] = addressForm.find('input[name="street-lookup"]').val();
-        data["locality"] = addressForm.find('input[name="town-lookup"]').val();
+	      data["locality"] = addressForm.find('input[name="town-lookup"]').pVal();
       } else {
-        data["postalCode"] = addressForm.find('input[name="registration-rfl_postcode-lookup"]').val();
+        data["postalCode"] = addressForm.find('input[name="postcode-lookup"]').pVal();
       }
+
       if(countryISO == "IRL"){
 	      data["layout"] = "NBTYIRL4"; //NBTYATG-3869
       }
@@ -3218,9 +3384,9 @@ HAB.postcodeLookup = {
         data["layout"] = "HANDBNLD"; //NBTYATG-4686
       }
       $.get(sU, data, function(data, textStatus, jqXHR) {
-        var qasResults = $(data).find(".data_attr_value");
+        var qasResults = $(data).find("option:not(.js-qas-default-option)");
         if (qasResults.length == 1) {
-          populateHB(qasResults, addressForm);
+          populateQASAddress(qasResults, addressForm);
         } else {
           oP.after(data);
         }
@@ -3237,11 +3403,9 @@ HAB.postcodeLookup = {
     return false;
     });
 
-    $.root.on('change', '.postcode-lookup-field select.address-select', function(e)
-    {   
-    
+    $.root.on('change', '.postcode-lookup-field select.address-select', function(e) {
       // grab everything
-      var oThis   = $(this),
+      var oThis = $(this),
           oP = oThis.closest('.postcode-lookup-field'),
           sU      = oThis.data('submit-url'),
           oFields = oThis.closest('.postcode-lookup-field').nextAll('.pcl-house-number, .pcl-address-line-1, .pcl-address-line-2, .pcl-town, .pcl-county, .pcl-country'),
@@ -3252,39 +3416,150 @@ HAB.postcodeLookup = {
         'prefix': lookupBtn.data('prefix'),
         'namePrefix': lookupBtn.data('name-prefix')
       };
-  
-   //   HAB.blocker.block('Fetching address details');
       
-
-    oP.addClass('loading');
+      oP.addClass('loading');
       oThis.prop('disabled', true).selectBox('disable');
       
-        //oThis.closest('.postcode-lookup-field').after(response);
-        //oFields.remove();
-      populateHB($('option:selected', oThis), oThis.closest('form'));
+      populateQASAddress($('option:selected', oThis), oThis.closest('form'));
     
-    
-    //HAB.blocker.unblock();
-    //oFields.remove();
-    oThis.trigger('domUpdated');
-    //oP.removeClass('loading');
-    
-    oThis.prop('disabled', false).selectBox('enable'); 
-    
-    $('#addressSelectedFlag').val(true);
-    $('#addr_verified_status').val("Full Address and Postal Code Found");
-     
+      oThis.trigger('domUpdated');
+      
+      oThis.prop('disabled', false).selectBox('enable'); 
+      
+      $('#addressSelectedFlag').val(true);
+      $('#addr_verified_status').val("Full Address and Postal Code Found");
     });
 
-    $.root.on('keypress', '.house-lookup, .town-lookup, .street-lookup', function(e) {
+    $.root.on('keypress', '.postcode-lookup, .house-lookup, .town-lookup, .street-lookup', function(e) {
       var addrForm = $(this).closest('form');
       if(e.which == 13){
         addrForm.find('.postcode-lookup-field input[name=postcode-lookup-trigger]').trigger('click');
         return false;
       }
     });
+
   }
 };
+function populateQASAddress(dataText, addrForm) {
+  var ajaxUrl = createAddrResponseUrl(dataText);
+  if (ajaxUrl === "") {
+    return;
+  }
+  
+  $.ajax({
+    url: ajaxUrl,
+    dataType: "JSON",
+    success: function(result) {
+      var housenumber = htmlUnescape(result.address.houseNo);
+      var street = htmlUnescape(result.address.street);
+      var town = htmlUnescape(result.address.town);
+      var county = htmlUnescape(result.address.county);
+      var postcode = htmlUnescape(result.address.postcode);
+      
+      addrForm.find('#deliverButtonId').removeClass("hdn");
+      addrForm.find('#checkout_form_use_delivery').prop('checked', false);
+      
+      
+      /* Start NBTYATG-5887: QAS address changes for UK addresses - DT,HB */
+      
+      /* 
+       fix client validation: switch to manual view - focus on mandatory field - lost focus (will see red border and error message) 
+       - switch to search view - lookup address - switch back to manual view - red border and error message should dissapear
+       */
+      addrForm.find('li.error').removeClass('error').find('em').empty(); 
+      // show selected address (selected search results) after choosing QAS address
+      addrForm.find('.selectedSearchSection').removeClass('hdn').removeClass('isEmpty');
+      // show submit buttons, phone number, email and other hidden fields after choosing QAS address
+      addrForm.find(".js-hide-if-empty-address").removeClass("hdn").removeClass("js-address-manual-input");
+      
+      var title = addrForm.find('.js-address-title').val();
+      var firstName = addrForm.find('.js-address-fname').val();
+      var lastName = addrForm.find('.js-address-lname').val();
+      var country = addrForm.find('.js-address-country :selected').text(); // addrForm.find('#shipping_form_country').val(); - return ISO code "NLD", but we need text
+      
+      var personalInfo = "";
+      if (title) {
+        personalInfo = title + ' ';
+      }
+      if (firstName) {
+        personalInfo += firstName + ' ' + lastName;
+      }
+      
+      addrForm.find('.selected-search-personal-info').text(personalInfo);
+      addrForm.find('.selected-search-country').text(country);
+      
+      addrForm.find('.selected-search-house').text(housenumber);
+      addrForm.find('.selected-search-street').text(street);
+      addrForm.find('.selected-search-city').text(town);
+      addrForm.find('.selected-search-county').text(county);
+      addrForm.find('.selected-search-postcode').text(postcode);
+      /* End NBTYATG-5887: QAS address changes for UK addresses - DT,HB */
+      
+      
+      addrForm.find('#frm_registration-rfl_postcode-lookup').val(postcode);
+
+      addrForm.find('#frm_address_housenumber').val(housenumber);
+      addrForm.find('#frm_address_street').val(street);
+      addrForm.find('#frm_address_town').val(town);
+      addrForm.find('#frm_address_county').val(county);
+
+      addrForm.find('#checkout_form_housenumber').val(housenumber);
+      addrForm.find('#checkout_form_street').val(street);
+      addrForm.find('#checkout_form_town').val(town);
+      addrForm.find('#checkout_form_county').val(county);
+
+      addrForm.find('#frm_activation_housenumber').val(housenumber);
+      addrForm.find('#frm_activation_street').val(street);
+      addrForm.find('#frm_activation_town').val(town);
+      addrForm.find('#frm_activation_county').val(county);
+
+      addrForm.find('#frm_registration-rfl_housenumber').val(housenumber);
+      addrForm.find('#frm_registration-rfl_street').val(street);
+      addrForm.find('#frm_registration-rfl_town').val(town);
+      addrForm.find('#frm_registration-rfl_county').val(county);
+      addrForm.find('.postcode-lookup-field').removeClass('loading');
+    }
+  });
+}
+
+function createAddrResponseUrl(dataText) {
+  var ajaxUrl = "";
+  
+  var data_house_number = dataText.data('house-number');
+  var data_street = dataText.data('street');
+  var data_address_line = dataText.data('address-line');
+  var data_town = dataText.data('town');
+  var data_county = dataText.data('county');
+  var data_country = dataText.data('country');
+  var data_moniker = dataText.data('moniker');
+  var data_core = dataText.data('core');
+  var data_postcode = dataText.data('postcode');
+  
+  if (data_house_number || data_street || data_address_line || data_town|| data_county || data_country || data_moniker || data_core || data_postcode) {
+    ajaxUrl = "/my-account/includes/addrResponse.jsp?" +
+                  "data_house_number=" + data_house_number + 
+                  "&data_street=" + data_street + 
+                  "&data_address_line=" + data_address_line + 
+                  "&data_town=" + data_town + 
+                  "&data_county=" + data_county + 
+                  "&data_country=" + data_county + 
+                  "&data_postcode=" + data_postcode + 
+                  "&data_moniker=" + data_moniker + 
+                  "&data_core=" + data_core;
+  }
+  
+  return ajaxUrl;
+}
+
+function htmlUnescape(value) {
+  return String(value)
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'")
+      .replace(/&#39;/g, "'")
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&amp;/g, '&');
+}
 
 /**
  * Fires account hooks
@@ -3923,7 +4198,6 @@ HAB.account.linkRelatedPrefs = function()
     HAB.setupAutocompleteSearch = function()
     {
        var ignoreNextBlur = true;
-      var contextPath = document.getElementById('contextPath').value;
         /**
          * Internal function called when the search field is updated
          *
@@ -3954,15 +4228,13 @@ HAB.account.linkRelatedPrefs = function()
                   var cartridge = autoSuggestCartridges[j];
                     if(cartridge['@type'] == "RecordSearchAutoSuggestItem")
                     {
-                      var servletPath = contextPath;
                       recordSearchResult = cartridge;
                       if (recordSearchResult != null && recordSearchResult.records != null && recordSearchResult.records.length > 0) {
                         oResultList.append('<div class="auto-suggest-group">Products</div>');
                         var maxRecs = typeof recordSearchResult['defaultRecsPerPage'] != 'undefined' ? recordSearchResult['defaultRecsPerPage'] : 10;
                         $.each(recordSearchResult.records, function(index, record) {
                           if ( index < maxRecs ) {
-                              var prodId = getAttribute(record,'product.repositoryId',"");
-                              var recUrl = servletPath + record.detailsAction.contentPath  + record.detailsAction.recordState.slice(0,-1) + '-' + prodId;
+                              var recUrl = contextPath + record.detailsAction.contentPath  + record.detailsAction.recordState;
                               var prod_nam = getAttribute(record,'Name',"");
                               var iconSrc = getAttribute(record,'iconURL',"");
                               tabIndex++;
@@ -3975,7 +4247,6 @@ HAB.account.linkRelatedPrefs = function()
                   }
                   if(cartridge['@type'] == "DimensionSearchAutoSuggestItem")
                   {
-                      var servletPath = contextPath;
                       var dimSearchResult = cartridge;
                       
                       if (dimSearchResult != null && dimSearchResult.dimensionSearchGroups != null && dimSearchResult.dimensionSearchGroups.length > 0) {
@@ -4301,8 +4572,6 @@ HAB.account.linkRelatedPrefs = function()
             $('#selectBoxError1').hide();
             $('#selectBoxError').hide();
     }
-      //var errLength = $('#selectCountry').find('.error').length;
-      //alert(errLength);
     });
     $('#checkout_form_country').change(function(){
       var savedVal = $.trim($('#checkout_form_country option:selected').text());
@@ -4334,6 +4603,17 @@ HAB.account.linkRelatedPrefs = function()
       $(this).parents('li').find('.error').remove();
       }
       });
+
+    // function for prevent getting placeholder value for IE 9
+    $.fn.pVal = function(){
+      var $this = $(this);
+      var val = $this.eq(0).val();
+      if(val == $this.attr('placeholder')) {
+        return '';
+      } else {
+        return val;
+      }
+    }
     
 })(jQuery);
 
@@ -4414,6 +4694,17 @@ function loadHeaderMenuItem(obj, id, N) {
         url: "/common/flyoutmenuwrap.jsp?page=/flyout"+N,
     success: function( data ) {
       document.getElementById(id).innerHTML = data;
+      $(obj).addClass('loaded');
+    }
+  });
+}
+
+function loadMobileHeaderMenuItem(obj, id, N, item) {
+  $.ajax({
+    dataType: "html",
+        url: "/common/flyoutmenuwrap.jsp?page=/flyout"+N,
+    success: function( data ) {
+      document.getElementById(id).innerHTML = item + data;
       $(obj).addClass('loaded');
     }
   });
@@ -4752,7 +5043,7 @@ HAB.mainAccordionClass = {
 
     $(this.config.parentSelector, this.config.$container).each(function() {
       if ($(this).next(that.config.childHolderSelector).html()) {
-        $(this).addClass('main-accordion-plus');
+        $(this).addClass('main-accordion-closed');
         $(this).next(that.config.childHolderSelector).css({"display": "none"}).find(that.config.childSelector).addClass('main-accordion-link');
       } else {
         $(this).addClass('main-accordion-link');
@@ -4764,12 +5055,12 @@ HAB.mainAccordionClass = {
     var that = this;
 
     this.config.$container
-      .on('click', that.config.parentSelector + '.main-accordion-plus', function (ev) {
+      .on('click', that.config.parentSelector + '.main-accordion-closed', function (ev) {
         ev.preventDefault();
 
         that.openClose(this);
       })
-      .on('click', that.config.parentSelector + '.main-accordion-minus', function (ev) {
+      .on('click', that.config.parentSelector + '.main-accordion-opened', function (ev) {
         ev.preventDefault();
 
         that.openClose(this);
@@ -4777,7 +5068,7 @@ HAB.mainAccordionClass = {
   },
 
   openClose: function(holder) {
-    $(holder).hasClass('main-accordion-plus') ? $(holder).removeClass('main-accordion-plus').addClass('main-accordion-minus') : $(holder).removeClass('main-accordion-minus').addClass('main-accordion-plus');
+    $(holder).hasClass('main-accordion-closed') ? $(holder).removeClass('main-accordion-closed').addClass('main-accordion-opened') : $(holder).removeClass('main-accordion-opened').addClass('main-accordion-closed');
     $(holder).next(this.config.childHolderSelector).slideToggle(500);
   },
 
@@ -4796,6 +5087,77 @@ HAB.mainAccordionClass = {
 }
 
 HAB.mainAccordionModule = Object.create(HAB.mainAccordionClass);
+
+HAB.pdpAccordionClass = {
+init: function(holder) {
+  this.config = {
+    initAccordion: true,
+    parentSelector: '.pdp-accordion-title',//div
+    childHolderSelector: ['pdp-accordion-container'],//div
+    childSelector: '',
+    $container: $(holder)
+  };
+
+  this.removeMainAccordion();
+
+  var settings = this.config.$container.data("init-params");
+
+  ($('body').is('.breakpoint-220') && !$('html').hasClass('lt-ie9')) ? $.extend(true, this.config, settings.breakpoint220 || {}) : $.extend(true, this.config, settings.breakpoint768 || {});
+
+  if (this.config.initAccordion) {
+    this.config.$container.addClass("pdp-accordion");
+    this.addStyle();
+    this.bindEvents();
+  }
+},
+
+addStyle: function() {
+  var that = this;
+
+  $(this.config.parentSelector, this.config.$container).each(function() {
+    if ($(this).next(that.config.childHolderSelector).html()) {
+      $(this).addClass('pdp-accordion-closed');
+  $(this).next(that.config.childHolderSelector).css({"display": "none"});
+}
+  });
+},
+
+bindEvents: function() {
+  var that = this;
+
+  this.config.$container
+    .on('click', that.config.parentSelector + '.pdp-accordion-closed', function (ev) {
+  ev.preventDefault();
+
+  that.openClose(this);
+})
+.on('click', that.config.parentSelector + '.pdp-accordion-opened', function (ev) {
+      ev.preventDefault();
+
+      that.openClose(this);
+    });
+},
+
+openClose: function(holder) {
+  $(holder).hasClass('pdp-accordion-closed') ? $(holder).removeClass('pdp-accordion-closed').addClass('pdp-accordion-opened') : $(holder).removeClass('pdp-accordion-opened').addClass('pdp-accordion-closed');
+  $(holder).next(this.config.childHolderSelector).slideToggle(500);
+},
+
+removeMainAccordion: function() {
+  var that = this;
+
+  this.config.$container.removeClass('pdp-accordion');
+  $(this.config.parentSelector, this.config.$container).each(function() {
+    if ($(this).next(that.config.childHolderSelector).html()) {
+      $(this).next(that.config.childHolderSelector).removeAttr('style');
+    }
+  });
+
+  this.config.$container.off('click');
+    }
+  }
+
+HAB.pdpAccordionModule = Object.create(HAB.pdpAccordionClass);
 
 HAB.mainProductsBundleClass = {
   init: function(holder) {
@@ -5160,11 +5522,13 @@ HAB.quantitySelectboxClass = {
 HAB.mobileHamburgerNavigationClass = {
 		init: function() {
 			this.config = {
-				$container: $("#mobile-navigation-header-logo-holder"),
+				$container: $(".mobile-navigation"),
 				mobileNavigationBtn: "#mobile-navigation-header-logo-btn",
 				mobileNavigationHeaderItemsList: "#mobile-navigation-header-items-list",
 				mobileHamburgerNavigationOverlay: "#mobile-hamburger-navigation-overlay",
 				mobileHamburgerNavigationOpenedClass: "mobile-menu-opened",
+				mobileSecondLevelShowClass: "mobile-navigation-level2-show",
+				mobileSecondLevelOpenedClass: "mobile-navigation-level2-opened",
 				openClassSelector: "open",
 				closeClassSelector: "close",
 				mobileMenu: ""
@@ -5178,11 +5542,9 @@ HAB.mobileHamburgerNavigationClass = {
 		remove: function() {
 			var that = this;
 			
+			$("html").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
+			$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 			$(that.config.mobileHamburgerNavigationOverlay).hide();
-			$('body').removeClass(that.config.mobileHamburgerNavigationOpenedClass);
-			setTimeout(function() {
-		    	$("html").css({"overflow-x": ""});
-			}, 600);
 			$(that.config.mobileNavigationBtn)
 				.removeClass(that.config.closeClassSelector)
 				.addClass(that.config.openClassSelector);
@@ -5192,18 +5554,24 @@ HAB.mobileHamburgerNavigationClass = {
 			var that = this,
 				div = document.createElement("div"),
 				menuItemHref = "",
-				menuItemText = "";
+				menuItemText = "",
+				menuItemRef = "",
+				menuItemId = "";
 
-		    $.each($(".main-nav.replete-nav [role=menubar] .main-nav-item a"), function() {
-		    	menuItemText = $.trim($(this).text());
-		    	menuItemHref = $(this).attr('href');
-
-	    		that.config.mobileMenu += "<li><a href ='" + menuItemHref + "'>" + menuItemText + "</a></li>";
+		    $.each($(".main-nav.replete-nav [role=menubar] .main-nav-item"), function() {
+		    	menuItemText = $.trim($(this).find('a').text());
+		    	menuItemHref = $(this).find('a').attr('href');
+	    		menuItemRef = $(this).find('.urlRef').attr('value');
+		    	menuItemId = $(this).find('.urlRef').attr('id');
+		    	if(menuItemRef) {
+                	that.config.mobileMenu += "<li><a class='mobile-nav-item' href ='" + menuItemHref + "' data-url-ref = '" + menuItemRef + "' data-url-id = '" + menuItemId + "'>" + menuItemText + "</a><div class='mobile-navigation-level2' id='mfly" + menuItemId + "'><a class='mobile-nav-item-back' href ='#'>" + menuItemText + "</a></div></li>";
+		    	} else {
+		    	    that.config.mobileMenu += "<li><a class='mobile-nav-item simple-nav-item' href ='" + menuItemHref + "'>" + menuItemText + "</a></li>";
+		    	}
 	    	});
 		    
-		    that.config.mobileMenu = "<ul id='" + that.config.mobileNavigationHeaderItemsList.substr(1) + "'>" + that.config.mobileMenu + "</ul><div id='" + that.config.mobileHamburgerNavigationOverlay.substr(1) + "'></div>";
+		    that.config.mobileMenu = "<div class='desktop-hidden' id='" + that.config.mobileNavigationHeaderItemsList.substr(1) + "'><ul class='mobile-navigation-list'>" + that.config.mobileMenu + "</ul></div><div id='" + that.config.mobileHamburgerNavigationOverlay.substr(1) + "'></div>";
 		    $("body").prepend(that.config.mobileMenu);
-
 		    this.preBindEvents();
 		},
 		
@@ -5225,7 +5593,7 @@ HAB.mobileHamburgerNavigationClass = {
 
 			that.config.$container
 				.on("click", that.config.mobileNavigationBtn+"."+that.config.openClassSelector, function (ev) {
-					$("html").css({"overflow-x": "hidden"});
+					$("html").addClass(that.config.mobileHamburgerNavigationOpenedClass);
 					$("body").addClass(that.config.mobileHamburgerNavigationOpenedClass);
 					$(that.config.mobileHamburgerNavigationOverlay).show();
 					$(that.config.mobileNavigationBtn)
@@ -5234,20 +5602,46 @@ HAB.mobileHamburgerNavigationClass = {
 
 				})
 				.on("click", that.config.mobileNavigationBtn+"."+that.config.closeClassSelector, function (ev) {
-					$(that.config.mobileHamburgerNavigationOverlay).hide();
+					$("html").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
 					$("body").removeClass(that.config.mobileHamburgerNavigationOpenedClass);
-					setTimeout(function() {
-						$("html").css({"overflow-x": ""});
-					}, 600);
+					$(that.config.mobileHamburgerNavigationOverlay).hide();
 					$(that.config.mobileNavigationBtn)
 						.removeClass(that.config.closeClassSelector)
 						.addClass(that.config.openClassSelector);
+	                $("."+that.config.mobileSecondLevelShowClass).removeClass(that.config.mobileSecondLevelShowClass);
+                    $("."+that.config.mobileSecondLevelOpenedClass).removeClass(that.config.mobileSecondLevelOpenedClass);
 				});
+			
+			$(that.config.mobileNavigationHeaderItemsList)
+            .on("click", "li .mobile-nav-item:not(.simple-nav-item):not(.loaded)", function (ev) {
+                ev.preventDefault();
+                var N = $(this).attr('data-url-ref');
+                var id = "mfly" + $(this).attr('data-url-id');
+                var item = $('#' + id).html();
+                loadMobileHeaderMenuItem(this, id, N, item);
+                $(that.config.mobileNavigationHeaderItemsList).addClass(that.config.mobileSecondLevelShowClass);
+                $(this).addClass(that.config.mobileSecondLevelOpenedClass);
+            });
+            
+            $(that.config.mobileNavigationHeaderItemsList)
+            .on("click", "li .mobile-nav-item:not(.simple-nav-item).loaded", function (ev) {
+                ev.preventDefault();
+                $(that.config.mobileNavigationHeaderItemsList).addClass(that.config.mobileSecondLevelShowClass);
+                $(this).addClass(that.config.mobileSecondLevelOpenedClass);
+            });
+            
+            $(that.config.mobileNavigationHeaderItemsList)
+            .on("click", ".mobile-nav-item-back", function (ev) {
+                ev.preventDefault();
+                $("."+that.config.mobileSecondLevelShowClass).removeClass(that.config.mobileSecondLevelShowClass);
+                setTimeout(function() {
+                    $("."+that.config.mobileSecondLevelOpenedClass).removeClass(that.config.mobileSecondLevelOpenedClass);
+                }, 200);
+            });
 
 			$("body")
 				.on("click vclick", that.config.mobileHamburgerNavigationOverlay, function (ev) {
 					ev.preventDefault();
-
 					$(that.config.mobileNavigationBtn+"."+that.config.closeClassSelector).trigger("click");
 				});
 		}
@@ -5336,7 +5730,7 @@ HAB.callTealium = function(fn, arg) {
 HAB.mobileCheckoutBtnPos = {
 	init: function() {
 		this.config = {
-			bthHolder: $(".f-basket .l-col.l-one-quarter").first(),
+			bthHolder: $(".f-basket .holder-for-p-fixed"),
 			checkoutBtn: $(".f-basket .checkoutBtn"),
 			flag: true
 		}
@@ -5492,6 +5886,82 @@ HAB.orderSummaryBlockClass = {
 
 HAB.orderSummaryBlockModule = Object.create(HAB.orderSummaryBlockClass);
 
+HAB.pageRefreshClass = {
+    init: function() {
+      this.config = {
+        inputSelector: '.page-refresh'
+      };
+
+      this.bindEvents();
+    },
+
+    bindEvents: function() {
+      var that = this;
+
+      $(this.config.inputSelector).on('click', function(ev){
+        ev.preventDefault();
+
+        location.reload();
+      })
+    }
+  };
+
+HAB.pageRefreshClass.init();
+
+HAB.storeTooltip = {
+	init: function() {
+		this.config = {
+			target: ".current-shop-price",
+			tooltipContent: ".tooltip-content"
+		}
+		if (this.config.tooltipContent.length > 0) {
+			this.tooltip();
+		}
+	},
+
+	tooltip: function() {
+		var self = this;
+		
+		$(document).tooltip({
+			items: this.config.target,
+			tooltipClass: "delivery-time-tooltip",
+			position: {
+				at: "right top",
+				my: "right top+30"
+			},
+			content: function(){
+				return $(this).find(self.config.tooltipContent).text();
+			}
+		});
+	}
+};
+HAB.storeTooltip = {
+	init: function() {
+		this.config = {
+			target: ".current-shop-price",
+			tooltipContent: ".tooltip-content"
+		}
+		if (this.config.tooltipContent.length > 0) {
+			this.tooltip();
+		}
+	},
+
+	tooltip: function() {
+		var self = this;
+		
+		$(document).tooltip({
+			items: this.config.target,
+			tooltipClass: "delivery-time-tooltip",
+			position: {
+				at: "right top",
+				my: "right top+30"
+			},
+			content: function(){
+				return $(this).find(self.config.tooltipContent).text();
+			}
+		});
+	}
+};
 HAB.termsAndConditionsTooltip = {
   init: function() {
     this.config = {
@@ -5550,3 +6020,494 @@ HAB.termsAndConditionsTooltip = {
     })
   }
 };
+
+HAB.confirmationOfRegistration = {
+  getCookieName: function() {return 'regOnPage';},
+
+  init: function() {
+    this.config = {
+      slideTime: 500,
+      delayTime: 5000,
+      popupBox: $('.boxRegistration'),
+      btnRegisterUser: $('#register-submit'),
+      btnConfirmRegisterUser: $('#confirm-register-submit'),
+      btnCheckoutRegisterUser: $('#checkout-about-you-submit'),
+      chbCheckoutNoAccount: $('#checkout_form_no_account'),
+      fldCheckoutFormPassword: $('#checkout_form_password'),
+      isPasswordSpecified: false,
+      registredOnPage: this.getCookieName()
+    };
+    
+    this.bindEvents();
+    
+    this.postRegisteredActions();
+  },
+
+  bindEvents: function() {
+      var that = this;
+      
+      this.config.btnRegisterUser.on('click', function() {
+          that.createCookie(that.config.registredOnPage, that.getCurrentURL());
+      });
+      
+      this.config.btnConfirmRegisterUser.on('click', function() {
+          that.createCookie(that.config.registredOnPage, that.getCurrentURL());
+      });
+      
+      this.config.fldCheckoutFormPassword.on('blur', function() {
+          if (that.config.fldCheckoutFormPassword.val()) {
+              that.config.isPasswordSpecified = true;
+          } else {
+              that.config.isPasswordSpecified = false;
+          }
+      });
+      
+      this.config.btnCheckoutRegisterUser.on('click', function() {
+          var isCreateAccountChecked = !that.config.chbCheckoutNoAccount.prop('checked');
+          if (isCreateAccountChecked && that.config.isPasswordSpecified) {
+              that.createCookie(that.config.registredOnPage, that.getCurrentURL());
+          }
+      });
+  },
+
+  createCookie : function(name, value, days) {
+      if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          var expires = '; expires=' + date.toGMTString();
+      } else {
+          var expires = '';
+      }
+      document.cookie = name + '=' + value + expires + '; path=/';
+  },
+
+  readCookie : function(name) {
+      var nameEQ = name + '=';
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1,c.length);
+          }
+          if (c.indexOf(nameEQ) == 0) {
+              return c.substring(nameEQ.length,c.length);
+          }
+      }
+      return null;
+  },
+
+  removeCookie : function(name) {
+      this.createCookie(name,'',-1);
+  },
+
+  getCurrentURL : function() {
+      return window.location.href.split('?')[0];
+  },
+
+  isRegistredOnPage : function() {
+      return this.readCookie(this.getCookieName());
+  },
+
+  postRegisteredActions : function() {
+      var that = this,
+          registredOnPage = this.isRegistredOnPage();
+      if (registredOnPage != null) {
+          if (this.getCurrentURL() != registredOnPage) {
+              this.config.popupBox.slideDown(this.config.slideTime, function() {that.removeCookie(that.config.registredOnPage);}).delay(this.config.delayTime).slideUp(this.config.slideTime);
+          } else {
+              this.removeCookie(this.config.registredOnPage);
+          }
+      }
+  }
+};
+
+HAB.address = {
+  config: {
+  },
+
+  init: function() {
+    $(document).on('click','#show-address-manual-input', this.showManualInput);
+    $(document).on('click','#show-address-selected-search', this.showSelectedSearch);
+    $('#editYourDetailsFormId, #rflFullActivationForm').submit(function () {
+        HAB.address.chooseCorrectAddressBeforeSubmit();
+    });
+
+    this.initAddressConfig();
+  },
+
+  initAddressConfig: function(){
+    if (window.addressConfig) {
+      $.extend(this.config, window.addressConfig);
+    }
+  },
+
+  chooseCorrectAddressBeforeSubmit: function(submitButton) {
+    var addrForm = getAddressForm(submitButton);
+    if(!addrForm.find('.selectedSearchSection').hasClass('hdn')){
+      addrForm.find('.js-address-house').val(addrForm.find('.selected-search-house').text());
+      addrForm.find('.js-address-addition').val(addrForm.find('.js-address-addition-alternative').val());
+      addrForm.find('.js-address-street').val(addrForm.find('.selected-search-street').text());
+      addrForm.find('.js-address-city').val(addrForm.find('.selected-search-city').text());
+      addrForm.find('.js-address-county').val(addrForm.find('.selected-search-county').text());
+      addrForm.find('.js-address-postcode').val(addrForm.find('.selected-search-postcode').text());
+      addrForm.find('#manual_addr_verified').val("false");
+    }
+    return true; // return false to cancel form action
+
+    function getAddressForm(submitButton) {
+      if(submitButton){
+        return addrForm = $(submitButton).closest('form');
+      }
+      return addrForm = $(document).find('.js-handle-address');
+    }
+  },
+  
+  showManualInput: function() {
+    HAB.address.switchAddressView($(this).closest('form'), true);
+  },
+  showSelectedSearch: function() {
+    HAB.address.switchAddressView($(this).closest('form'), false)
+  },
+  switchAddressView: function(addressForm, isManualInputView) {
+    var manualInputFields = addressForm.find(".js-address-manual-input");
+    var selectedSearchFields = addressForm.find(".js-address-selected-search:not(.isEmpty), .multiselect.postcode-lookup-field");
+    var countryISO = addressForm.find(':input[name="country"]').val();
+    var manualLabel = addressForm.find('.js-manual-label-address');
+
+    if (isManualInputView) {
+      manualInputFields.removeClass("hdn");
+      selectedSearchFields.addClass("hdn");
+      manualLabel.removeClass('hdn');
+
+    } else {
+      manualInputFields.addClass("hdn");
+      selectedSearchFields.removeClass("hdn");
+      manualLabel.addClass('hdn');
+      HAB.address.switchValidation(addressForm, countryISO);
+      HAB.address.switchSpecialFields(addressForm, countryISO);
+    }
+  },
+
+  checkRequiredPostCode: function(select) {
+    var countryCode =  select.value;
+    if(typeof String.prototype.trim !== 'function') {
+      String.prototype.trim = function() {
+        return this.replace(/^\s+|\s+$/g, '');
+      }
+    }
+    var $curForm = $($(select).parents('form:first')[0]);
+    var manualInputContainer = $curForm.find(".js-address-manual-container");
+
+    HAB.address.switchOptionalPostCode($curForm, countryCode);
+    HAB.address.switchValidation($curForm, countryCode);
+    HAB.address.switchSpecialFields($curForm, countryCode);
+
+    if(!manualInputContainer.hasClass('hdn')){
+      HAB.address.switchAddressView($curForm, true);
+    }
+    //switch between countries - red border and error message should dissapear
+    $curForm.find('span.error').removeClass('error').find('em').empty();
+    HAB.address.clearLookupFields($curForm);
+  },
+
+  switchOptionalPostCode: function ($curForm, countryCode) {
+    var optionalList = HAB.address.config.optionalPostCodeCountryList;
+    if (optionalList.indexOf(countryCode) > -1) {
+      $curForm.find('.postcode-lookup-field .optional').attr('style', 'display:block');
+      $curForm.find('.postcode-lookup-field input[name="registration-rfl_postcode-lookup"]').prop('required', false).removeInlineValidation();;
+    } else {
+      $curForm.find('.postcode-lookup-field .optional').attr('style', 'display:none');
+      $curForm.find('.postcode-lookup-field input[name="registration-rfl_postcode-lookup"]').prop('required', true).removeInlineValidation();
+      $curForm.find('.postcode-lookup-field input[name="registration-rfl_postcode-lookup"]').inlineValidation();
+    }
+  },
+
+  switchValidation: function(addressForm, countryCode){
+    var countryCodeAList = HAB.address.config.countryPostalCodeAList;
+    if(countryCode == "IRL"){
+      addressForm.find('.js-address-selected-search .house-lookup, .town-lookup, .street-lookup').prop('required', false).removeInlineValidation();
+      addressForm.find('.js-address-selected-search .street-lookup, .town-lookup').prop('required', true).inlineValidation();
+      var elements = addressForm.find('.house-lookup');
+      HAB.address.hidePlaceholder(elements, true)
+    } else if (countryCodeAList.indexOf(countryCode) > -1){
+      addressForm.find('.postCodeMandatory .optional').attr('style', 'display:none');
+      addressForm.find('.js-address-selected-search .house-lookup, .town-lookup, .street-lookup').prop('required', false).removeInlineValidation();
+      addressForm.find('.js-address-selected-search .house-lookup, .town-lookup, .street-lookup').prop('required', true).inlineValidation();
+      var elements = addressForm.find('.house-lookup, .postcode-lookup');
+      HAB.address.hidePlaceholder(elements, true)
+    } else {
+      var elements = addressForm.find('.house-lookup, .postcode-lookup');
+      addressForm.find('.js-address-selected-search .house-lookup, .town-lookup, .street-lookup').prop('required', false).removeInlineValidation();
+      HAB.address.hidePlaceholder(elements, false)
+    }
+  },
+
+  switchSpecialFields: function(addressForm, countryCode){
+    var countryCodeAList = HAB.address.config.countryPostalCodeAList;
+    var countryPostalCodeCoreList = HAB.address.config.countryPostalCodeCoreList;
+    if(countryPostalCodeCoreList.indexOf(countryCode) > -1){
+      if (countryCode == "IRL") {
+        addressForm.find('.postCodeMandatory').removeClass('hdn');
+
+        addressForm.find('.js-address-selected-search-city').removeClass('hdn');
+        addressForm.find('.js-address-selected-search-street').removeClass('hdn');
+        addressForm.find('.js-postcode-lookup-span').addClass('hdn').removeClass('js-postcode-lookup-span-view');
+
+        addressForm.find('.js-switch-label-houseNumName').removeClass('hdn');
+        addressForm.find('.js-switch-label-address').addClass('hdn');
+      } else {
+        addressForm.find('.postCodeMandatory').removeClass('hdn');
+
+        addressForm.find('.js-address-selected-search-city').addClass('hdn');
+        addressForm.find('.js-address-selected-search-street').addClass('hdn');
+        addressForm.find('.js-postcode-lookup-span').removeClass('hdn js-postcode-lookup-span-view');
+
+        addressForm.find('.js-postcode-label').addClass('hdn');
+
+        addressForm.find('.js-switch-label-houseNumName').addClass('hdn');
+        addressForm.find('.js-switch-label-address').removeClass('hdn');
+      }
+    }else if (countryCodeAList.indexOf(countryCode) > -1){
+      addressForm.find('.postCodeMandatory').removeClass('hdn');
+
+      addressForm.find('.js-address-selected-search-city').addClass('hdn');
+      addressForm.find('.js-address-selected-search-street').removeClass('hdn');
+      addressForm.find('.js-postcode-lookup-span').removeClass('hdn').addClass('js-postcode-lookup-span-view');
+
+      addressForm.find('.js-postcode-label').removeClass('hdn');
+
+      addressForm.find('.js-switch-label-houseNumName').removeClass('hdn');
+      addressForm.find('.js-switch-label-address').addClass('hdn');
+    } else {
+      HAB.address.switchAddressView(addressForm, true);
+      addressForm.find('.postCodeMandatory').addClass('hdn');
+    }
+  },
+
+  hidePlaceholder: function (elements, isHide){
+    elements.each(function(){
+      if (isHide) {
+        $(this).removeAttr('placeholder');
+        if($(this).val() == $(this).pVal()) // Specific logic for IE9
+        {
+          $(this).val('');
+        }
+      } else {
+        $(this).attr('placeholder', $(this).data('placeholdervalue'));
+        $(this).blur();// Specific logic for IE9
+      }
+    });
+  },
+
+  clearLookupFields: function(addressForm){
+    addressForm.find('.lookup_fields_holder input').each(function(){
+      $(this).val('');
+    });
+  },
+
+  handleAddition: function(select, additionCountryList){
+    var countryCode =  select.value ? select.value : select;
+
+    if(additionCountryList.indexOf(countryCode) <= -1){
+      $('.js-hide-addition-target').hide();
+      $('span.additional_address').removeClass('isAdditionActive');
+    } else {
+      $('.js-hide-addition-target').show();
+      $('span.additional_address').addClass('isAdditionActive');
+    }
+  }
+}
+
+HAB.collectRewardPointsClass = {
+  init: function(holder) {
+    this.config = {
+      init: true,
+      $container: $(holder),
+      collectRewardPointsHolder: '.collect-reward-points-holder',
+      disabledCheckoutButtonSelector: '.checkout-button-for-disabled-selector',
+      ajaxRewardPointsUrl: '/error.error',
+      ajaxErrorText: 'Cannot calculate points',
+      delay: 5000
+    };
+
+    var settings = this.config.$container.data('init-params');
+
+    ($('body').is('.breakpoint-220') && !$('html').hasClass('lt-ie9')) ? $.extend(true, this.config, settings.breakpoint220 || {}) : $.extend(true, this.config, settings.breakpoint768 || {});
+
+    if (this.config.init) {
+      this.bindEvents();
+    }
+  },
+
+  bindEvents: function() {
+    var that = this;
+
+    that.config.xhr = $.ajax({
+      url: that.config.ajaxRewardPointsUrl,
+      beforeSend: function() {
+        that.disabledCheckoutButton(true);
+      }
+    })
+    .success(function(data) {
+      that.disabledCheckoutButton(false);
+      that.pushText(data);
+    })
+    .error(function() {
+      that.pushText(that.config.ajaxErrorText);
+
+      that.disabledCheckoutButton(false);
+    });
+
+    window.setTimeout(function() {
+      if (that.config.xhr.status !== 200) {
+    	  that.config.xhr.abort();
+
+        that.pushText(that.config.ajaxErrorText);
+      }
+
+      that.disabledCheckoutButton(false);
+    }, that.config.delay);
+  },
+
+  pushText: function(text) {
+    var that = this;
+
+    $(that.config.collectRewardPointsHolder).each(function() {
+      $(this).html(text);
+    });
+  },
+
+  disabledCheckoutButton: function(booleanVar) {
+    var that = this;
+
+    if (booleanVar === true) {
+	  $(that.config.disabledCheckoutButtonSelector, that.config.$container)
+	  	.attr('disabled', booleanVar)
+	  	.prop('disabled', booleanVar);
+    } else {
+	  $(that.config.disabledCheckoutButtonSelector)
+	  	.removeAttr('disabled')
+	  	.prop('disabled', false);
+    }
+  }
+}
+
+HAB.collectRewardPointsModule = Object.create(HAB.collectRewardPointsClass);
+
+HAB.passwordStrengthMeter = {
+  config: {
+    targetInput: '.form-create-a-password',
+    confirmInput: '.form-confirm-your-password',
+    strengthLine: '.strength-progress-bar',
+    pasBlock: '.strength-password-block',
+    popUp: '#popup-with-tips',
+    strengthText: '#strength-password',
+    strength: {
+      veryWeak: {text: LocalizedInlineValidationPasswordStrength.strengthVeryWeak, color: 'red'},
+      weak: {text: LocalizedInlineValidationPasswordStrength.strengthWeak, color: 'red'},
+      medium: {text: LocalizedInlineValidationPasswordStrength.strengthMedium, color: 'orange'},
+      strong: {text: LocalizedInlineValidationPasswordStrength.strengthStrong, color: 'green'},
+    },
+    linkMasked: '.password-masked',
+    maskShow: LocalizedInlineValidationPasswordStrength.maskShow,
+    maskHide: LocalizedInlineValidationPasswordStrength.maskHide,
+    heightProgressBar: '10px',
+    mobileView: '767'
+  },
+
+  init: function() {
+    var that = this;
+    
+    $.get('/common/passwordStrengthMeter.jsp', function(data) {
+      $(that.config.pasBlock).append(data);
+      
+      if(!/Chrome/.test(window.navigator.userAgent)) {
+        $(that.config.targetInput).removeAttr('readonly');
+        $(that.config.confirmInput).removeAttr('readonly');
+      };
+      
+      that.initMask();
+      that.bindEvents();
+    });
+    
+    $(that.config.targetInput).complexify({
+      strengthScaleFactor: 0.35
+    }, function(valid, complexity) {
+      that.restylePasStrength(complexity);
+    });
+  },
+  
+  initMask: function() {
+    var config = HAB.passwordStrengthMeter.config;
+    var isMobile;
+    
+    // show password for mobile and hide for desktop by default 
+    if (window.matchMedia) {
+      isMobile = window.matchMedia('(max-width: ' + config.mobileView +'px)').matches;
+    } else {
+      isMobile = window.innerWidth <= config.mobileView;
+    }
+    this.switchPasswordMask(config.linkMasked, isMobile); 
+  },
+  
+  bindEvents: function() {
+    var config = HAB.passwordStrengthMeter.config;
+    var that = this;
+    
+    $(config.targetInput).on('focus', function() { 
+      $(config.popUp).show();
+      $(this).removeAttr('readonly');
+    });
+    $(config.confirmInput).on('focus', function() { 
+      $(this).removeAttr('readonly');
+    });
+    
+    $(config.targetInput).on('blur', function() { $(config.popUp).hide() });
+    $(config.linkMasked).on('click', function(e) {
+      var link = $(this);
+      that.switchPasswordMask(link, link.data('masked'));
+    });
+  },
+
+  restylePasStrength: function(complexity) {
+    var config = HAB.passwordStrengthMeter.config;
+    
+    if (complexity <= 0) {
+      $(config.strengthText).html('');
+      $(config.strengthLine).css('height', '0px');
+    } else {
+      var strength = config.strength.veryWeak;
+      
+      if (complexity <= 40) {
+        strength = config.strength.veryWeak;
+      } else if (complexity <= 65) {
+        strength = config.strength.weak;
+      } else if (complexity <= 90) {
+        strength = config.strength.medium;
+      } else {
+        strength = config.strength.strong;
+      }
+      
+      // change progress bar and text color
+      $(config.strengthText).html(strength.text)
+        .add(config.strengthLine)
+        .removeClass('red orange green').addClass(strength.color);
+      
+      // make progress bar longer
+      $(config.strengthLine).css( {'height': config.heightProgressBar, 'width': complexity + '%'} );
+    }
+  },
+  
+  switchPasswordMask: function(link, isMasked) {
+    var config = HAB.passwordStrengthMeter.config;
+    
+    // change visibility of password
+    $(config.targetInput + ',' + config.confirmInput).each(function(){
+      $(this)[0].type = isMasked ? 'text' : 'password';
+    });
+    
+    // change switch password mask link text
+    var linkText = isMasked ? config.maskHide : config.maskShow;
+    $(link).data('masked', !isMasked).html(linkText);
+  }
+}

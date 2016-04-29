@@ -10,6 +10,7 @@
  * @param string ariaAttr
  * @param string ariaValue
  * @param int mouseDelay
+ * @param string overlayClass
  * 
  */
  
@@ -26,7 +27,8 @@
       ariaAttr: 'aria-haspopup',
       ariaValue: 'true',
       fixPosition: false,
-      mouseDelay: 200
+      mouseDelay: 200,
+      overlayClass: ""
     },
 
     _create: function() {
@@ -62,14 +64,18 @@
       // listen for flyout events
       $(window).on('flyoutOpened', $.proxy(this._tabOff, this));
 
-      // Close the menu when we tap outside it
-      this._on('[role=banner],#content,[role=contentinfo]', { 'click': this._resetAll });    
+      // Close the menu when we tap outside it (header before menu and overlay)
+      this._on('.boxRegistration,.utility-nav,.branding,.mega-menu-overlay', { 'click': this._resetAll });    
 
       // Main click handler on top level items to prevent first click
       this._on(this._li, {'click': this._click });
 
       // add an orientationchange listener to clear tabs
       $(window).on('orientationchange', $.proxy(this._resetAll, this));
+
+      if (this.options.overlayClass && !$('.' + this.options.overlayClass + '.lightbox-container').length) {
+        $('<div class="' + this.options.overlayClass + ' lightbox-container"><div class="masq"></div></div>').appendTo($.root).hide().css({height: $.root.height(), width: $.root.width()});
+      }
     },
 
     _tabOn: function(e) {
@@ -104,12 +110,18 @@
 
       // add the class
       li.addClass(this.options.hoverClass);
+      if (this.options.overlayClass) {
+        $('.' + this.options.overlayClass + '.lightbox-container').fadeIn();
+      }
 
       // broadcast event
       $(window).trigger('flyoutOpened');
     },
 
     _tabOff: function(e) {
+      if (this.options.overlayClass && this._closestListItem(e.target).hasClass(this.options.hoverClass)) {
+        $('.' + this.options.overlayClass + '.lightbox-container').fadeOut();
+      }
       this._closestListItem(e.target).removeClass(this.options.hoverClass).find(this.options.menuClass).removeAttr('style');
     },
 
@@ -120,7 +132,10 @@
     },
 
     _resetAll: function(e) {
-      this._li.removeClass(this.options.hoverClass).find(this.options.menuClass).removeAttr('style');
+        if (this.options.overlayClass && this._li.hasClass(this.options.hoverClass)) {
+            $('.' + this.options.overlayClass + '.lightbox-container').fadeOut();
+          }
+        this._li.removeClass(this.options.hoverClass).find(this.options.menuClass).removeAttr('style');
     },
 
     _closestListItem: function(el) {
