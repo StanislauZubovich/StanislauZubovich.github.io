@@ -6800,7 +6800,7 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
     left: 0;
     bottom: 0;
     z-index: 100002;
-    overflow: hidden;
+	overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
