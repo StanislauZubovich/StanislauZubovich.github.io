@@ -6830,8 +6830,7 @@ body .main-carousel .l-col.l-one-fifth:nth-child(6n) { clear: none; }
 .mobile-menu-opened .mobile-navigation {
 	z-index: 100002;
 }
-.mobile-navigation-list {display: none;}
-.mobile-menu-opened .mobile-navigation-list {display: none;}
+.mobile-navigation-list {display: none;}.mobile-menu-opened .mobile-navigation-list {display: block;}
 .mobile-menu-opened #mobile-navigation-header-items-list {
 	-moz-transform: translate3d(0, 0, 0);
 	-webkit-transform: translate3d(0, 0, 0);
