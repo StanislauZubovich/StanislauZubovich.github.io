@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Forms & Widgets</title>
+	<link rel="stylesheet" href="styles/fonts.css">
+	<link rel="stylesheet" href="styles/reset_styles.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div class="calendar">
+		<form action="#" method="get" id="calendar">
+			<header class="month-and-year">
+				<a href="#" class="sprite sprite-left-button"></a>
+				<span class="month">May 2014</span>
+				<a href="#" class="sprite sprite-right-button"></a>
+			</header>
+			<table>
+				<thead>
+					<tr>
+						<td>Sun</td>
+						<td>Mon</td> 
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>29</td>
+						<td>30</td> 
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>7</td> 
+						<td>8</td>
+						<td>9</td>
+						<td>10</td>
+						<td>11</td>
+						<td>12</td>	
+					</tr>
+					<tr>
+						<td>13</td>
+						<td>14</td> 
+						<td>15</td>
+						<td>16</td>
+						<td>17</td>
+						<td>18</td>
+						<td>19</td>
+					</tr>
+					<tr>
+						<td>20</td>
+						<td>21</td> 
+						<td>22</td>
+						<td>23</td>
+						<td>24</td>
+						<td>25</td>
+						<td>26</td>
+					</tr>
+					<tr>
+						<td>27</td>
+						<td>28</td> 
+						<td>29</td>
+						<td>30</td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+					</tr>
+				</tbody>
+			</table>
+			<button class="submit-button" type="submit" form="calendar" value="Submit">ADD EVENT</button>	
+		</form>
+	</div>
+	<div class="booking">
+		<header class="booking-header">
+			<img src="img/booking-picture.png" alt="booking-picture">
+			<span class="heading">
+				Hotel Relais
+			</span>
+			<a class="geolocation" href="#">
+				<div class="sprite sprite-geolocation"></div>
+				<span>Paris, France</span>
+			</a>
+		</header>
+		<form action="#" method="get" id="booking">
+			<fieldset>
+				<dl>
+					<dt><label for="check-in">Check in</label></dt>
+					<dd class="date-input-container">
+						<input type="text" id="check-in" placeholder="9 July, 2016"/>
+						<a href="#" class="sprite sprite-calendar"></a>
+					</dd>
+					<dt><label for="check-out">Check out</label></dt>
+					<dd class="date-input-container">
+						<input type="text" id="check-out" placeholder="16 July, 2016"/>
+						<a href="#" class="sprite sprite-calendar"></a>
+					</dd>
+					<dt></dt>
+					<dd><input type="checkbox" id="flexible-dates" /><label for="flexible-dates"><span class="sprite"></span>Flexible dates</label></dd>
+					<div class="clear"></div>
+					<div class="adults-container">
+						<dt><label for="adults">Adults</label></dt>
+						<dd class="amount-input-container">
+							<select id="adults">
+								<option value="1">1</option>
+								<option value="2" selected="">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+							<div class="sprite sprite-arrow"></div>
+						</dd>
+					</div>
+					<div class="children-container">
+						<dt><label for="children">Children</label></dt>
+						<dd class="amount-input-container">
+							<select id="children">
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+							<div class="sprite sprite-arrow"></div>
+						</dd>
+					</div>
+					<div class="clear"></div>
+				</dl>
+				<button class="submit-button" type="submit" form="booking" value="Submit">
+					<div class="sprite sprite-search"></div>
+					<span>SEARCH ROOMS</span>
+				</button>
+			</fieldset>
+		</form>
+	</div>
+	<div class="destination">
+		<nav class="left-navigation">
+			<ul>
+				<a href="#"><li>
+					<div class="sprite"></div>
+				</li></a>
+				<a href="#"><li>
+					<div class="sprite"></div>
+				</li></a>
+				<a href="#"><li>
+					<div class="sprite"></div>
+				</li></a>
+			</ul>
+		</nav>
+		<section class="info">
+			<h1>My most favourite place in the world</h1>
+			<p class="reviews"><span class="emphasized">154</span> Reviews</p>
+			<p>
+				Lorem ipsum dolor sit amet,
+				consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin.
+			</p>
+			<a href="#" class="read-more">Read more</a>
+		</section>
+		<aside class="graphic-info">
+			<img src="img/destination-picture.png" alt="destination-picture">
+			<div class="comments"><a class="sprite" href="#"></a>752</div>
+			<div class="likes"><a  class="sprite" href="#"></a>2709</div>
+		</aside>
+	</div>
+	<div class="bar-graph">
+		<ul class="line-chart">
+			<li>40</li>
+			<li>30</li>
+			<li>20</li>
+			<li>0</li>
+		</ul>
+		<dl class="graph-list">
+			<dd style="height: 49px;"><div class="tooltip">17</div></dd>
+			<dt>Mon</dt>
+			<dd style="height: 62px;" ><div class="tooltip">19</div></dd>
+			<dt>Tues</dt>
+			<dd style="height: 119px;" ><div class="tooltip">27</div></dd>
+			<dt>Wed</dt>
+			<dd style="height: 158px;" ><div class="tooltip">33</div></dd>
+			<dt>Thu</dt>
+			<dd style="height: 129px;"><div  class="tooltip">28</div></dd>
+			<dt>Fri</dt>
+			<dd style="height: 169px;"><div  class="tooltip">34</div></dd>
+			<dt>Sat</dt>
+			<dd style="height: 143px;" ><div class="tooltip">31</div></dd>
+			<dt>Sun</dt>
+		</dl>
+	</div>
+	<div class="email">
+		<form action="#" method="get" id="email">
+			<fieldset>
+				<dl>
+					<dt></dt>
+					<dd class="email-input-container">
+						<div class="tag">
+							rick.james@mail.com
+							<a href="#" class="sprite sprite-delete"></a>
+						</div>
+						<a href="#" class="sprite sprite-add"></a>
+					</dd>
+					<dt><label for="subject-input"></label></dt>
+					<dd class="subject-input-container">
+						<input type="text" id="subject-input" placeholder="Subject"/>
+						<a href="#" class="sprite sprite-subject"></a>
+					</dd>
+					<dt><label for="check-out"></label></dt>
+					<dd><textarea id="message" placeholder="Message"></textarea></dd>
+				</dl>
+				<button class="submit-button" type="submit" form="booking" value="Submit">SEND</button>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>

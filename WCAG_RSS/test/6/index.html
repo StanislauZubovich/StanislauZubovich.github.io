@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<title>Пример веб-страницы</title>
+	</head>
+	<body>
+		<form class = "calendar" name="calendar">
+			<div class = "container calendar-container">
+				<div class = "table-navigation">
+					<div class = "navigation-content">
+						<a class = " arrow left-arrow" href="">
+							<img src="images/previous.png"/>
+						</a>
+						<span class = "date">May 2014</span>
+						<a class = "arrow right-arrow" href="">
+							<img src="images/next.png"/>
+						</a>
+					</div>
+				</div>
+				<table class = "table">
+					<thead class = "week-days">
+						<tr>
+							<td>Sun</td>
+							<td>Mon</td>
+							<td>Tue</td>
+							<td>Wed</td>
+							<td>Thu</td>
+							<td>Fri</td>
+							<td>Sat</td>
+						</tr> 
+					</thead>
+					<tbody class = "days">
+						<tr> 
+							<td><a href=""><span class = "last-month-day">29</span></a></td>
+							<td><a href=""><span class = "last-month-day">30</span></a></td>
+							<td><a href=""><span>1</span></a></td>
+							<td><a href=""><span>2</span></a></td>
+							<td><a class = "current-day" href=""><span>3</span></a></td>
+							<td><a href=""><span>4</span></a></td>
+							<td><a href=""><span>5</span></a></td>
+						</tr>
+						<tr>
+							<td><a href=""><span>6</span></a></td>
+							<td><a href=""><span class = "celebration">7</span></a></td>
+							<td><a href=""><span>8</span></a></td>
+							<td><a href=""><span>9</span></a></td>
+							<td><a href=""><span>10</span></a></td>
+							<td><a href=""><span>11</span></a></td>
+							<td><a href=""><span>12</span></a></td>
+						</tr>
+						<tr>
+							<td><a href=""><span>13</span></a></td>
+							<td><a href=""><span>14</span></a></td>
+							<td><a href=""><span>15</span></a></td>
+							<td><a href=""><span>16</span></a></td>
+							<td><a href=""><span>17</span></a></td>
+							<td><a href=""><span>18</span></a></td>
+							<td><a href=""><span>19</span></a></td>
+						</tr>
+						<tr>
+							<td><a href=""><span>20</span></a></td>
+							<td><a href=""><span>21</span></a></td>
+							<td><a href=""><span>22</span></a></td>
+							<td><a href=""><span class = "celebration">23</span></a></td>
+							<td><a href=""><span>24</span></a></td>
+							<td><a href=""><span>25</span></a></td>
+							<td><a href=""><span>26</span></a></td>
+						</tr>
+						<tr>
+							<td><a href=""><span>27</span></a></td>
+							<td><a href=""><span>28</span></a></td>
+							<td><a href=""><span>29</span></a></td>
+							<td><a href=""><span>30</span></a></td>
+							<td><a href=""><span  class = "last-month-day">1</span></a></td>
+							<td><a href=""><span  class = "last-month-day">2</span></a></td>
+							<td><a href=""><span  class = "last-month-day">3</span></a></td>
+						</tr> 
+					</tbody>
+				</table>
+				<button class = "button calendar-button" type = "submit">ADD EVENT</button>
+			</div>
+		</form>
+		<form class = "hotel-registration" name = "hotel-regestration">	
+			<div class = "container hotel-registration-container">
+				<div class = "hotel-overview">
+					<div class = "caption">
+						<div class = "hotel-name">Hotel Relais</div>
+						<div class = "hotel-location">
+							<span class= "sprite sprite-booking-indicator"></span>
+							<a href="">
+								<span class = "hotel-location-description">Paris, France</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class = "hotel-functional-container">
+					<dl>
+						<dt><label class = "check check-in">Check in</label></dt>
+							<dd>
+								<div class = "check-area">
+									<input class = "check-in-input" type = "text" size = "25" value = "9, July, 2016" disabled="disabled">
+									<a href="">
+										<span class = "calendar-image-block">
+											<span class = "sprite sprite-calendar"></span>
+										</span>
+									</a>
+								</div>
+							</dd>
+						<dt><label class = "check check-out">Check out</label></dt>
+							<dd>
+								<div class = "check-area">
+									<input class = "check-out-input" type = "text" size = "25" value = "16, July, 2016" disabled="disabled">
+									<a href="">
+										<span class = "calendar-image-block">
+											<span class = "sprite sprite-calendar"></span>
+										</span>
+									</a>
+								</div>
+							</dd>
+						<dt class = "checkbox"><label class = "flexible-dates" for="checkbox">Flexible dates</label></dt>
+							<dd><input class = "flexible-dates-checkbox" type="checkbox" id="checkbox" /></dd>
+					</dl>
+					<div class = "adults-block">
+						<dl>
+							<dt class = "adults"><label class = "adults-label">Adults</label></dt>
+								<dd>
+									<div class = "dropdown adults-dropdown">
+										<input class = "quantity adults-quantity" type="text" value = "2" disabled="disabled" />
+										<a href="">
+										<span class = "dropdown-image-block">
+											<span class = "sprite sprite-drop-down"></span>
+										</span>
+									</a>
+									</div>
+								</dd>
+						</dl>
+					</div>
+					<div class = "children-block">
+						<dl>
+							<dt class = "children"><label class = "children-label">Children</label></dt>
+								<dd>
+									<div class = "dropdown children-dropdown">
+										<input class = "quantity children-quantity" type="text" value = "1" disabled="disabled" />
+										<a href="">
+											<span class = "dropdown-image-block">
+												<span class = "sprite sprite-drop-down"></span>
+											</span>
+										</a>
+									</div>
+								</dd>
+						</dl>
+					</div>	
+					
+				</div>
+				<div class = "search-block">
+					<button class = "button hotel-registration-button" type = "submit">SEARCH ROOMS</button>
+					<span class = "sprite sprite-search"></span>
+				</div>
+			</div>
+		</form>
+		<form class = "email-sender" name = "email-sender">
+			<div class = "container email-sender-container">
+				<div class = "text-input email-area" type = "text" value = "email">
+					<div class = "email">
+						<p>rick.james@mail.com</p>
+						<a href="">
+							<img src="images/cross.png">
+						</a>
+					</div>
+					<input class = "plus-image"  type="image" src="images/plus.png" name="plus-image">
+				</div>
+				<div class = "subject">
+					<input class = "text-input subject-area" type = "text" value = "Subject">
+					<input type="file" name="file-to-upload" id="file-to-upload">
+					<label class = "clip-image" for="file-to-upload">
+      					<img src="images/clip.png"/>
+    				</label>
+				</div>
+				<textarea class = "text-input message-area" name="message" rows = "10" cols = "45"></textarea>
+				<button class = "button email-send-button" type = "submit">SEND</button>
+			</div>
+		</form>
+		<form class = "place-viewer" name = "place-viewer">
+			<div class = "container place-viewer-container">
+				<div class = "view-mode-area">
+					<ul class = "view-mode-selector">
+						<li>
+							<a id = "pressed" class = " place-overview" href = "">
+								<span class = "sprite place-image sprite-eye"></span>
+							</a>
+						</li>
+						<li>
+							<a class = "place-location" href = "">
+								<span class = "sprite place-image sprite-indicator"></span>
+							</a>
+						</li>
+						<li>
+							<a class = "place-favorites" href = "">
+								<span class = "sprite sprite place-image sprite-star"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class = "place-description">
+					<h1>My most favourite place in the world</h1>
+					<a class = "reviews" href=""><strong>154</strong> Reviews</a>
+					<p class = "article">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet elit eleifend erat hendrerit blandit.
+					</p>
+					<a class = "read-more" href="">Read more</a>
+				</div>
+				<div class = "view">
+					<div class = "social">
+						<div class = "comments" href="">
+							<div class = "comments-image">
+								<img src="images/review.png"/>
+							</div>
+							<div class = "comments-value">
+								<a href = "">752</a>
+							</div>
+						</div>
+						<div class = "likes" href="">
+							<div class = "likes-image">
+								<img src="images/like.png"/>
+							</div>
+							<a class = "likes-value" href = "">2709</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<form class = "graphic" name = "graphic">
+			<div class = "container graphic-container">
+				<div class = "line">
+					<span>40</span>
+				</div>
+				<div class = "line">
+					<span>30</span>
+				</div>
+				<div class = "line">
+					<span>20</span>
+				</div>
+				<div class = "line">
+					<span>0</span>
+				</div>
+				<dl>
+					<div class = "week-day mon">
+						<dt class = "day-name mon-dt">Mon</dt>
+						<dd class = "day-graphic mon-dd">
+							<a href="" style = "height: 49px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day tues">
+						<dt class = "day-name tues-dt">Tues</dt>
+						<dd class = "day-graphic tues-dd">
+							<a href="" style = "height: 61px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day wed">
+						<dt class = "day-name wed-dt">Wed</dt>
+						<dd class = "day-graphic wed-dd">
+							<a href="" style = "height: 119px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day thu">
+						<dt class = "day-name thu-dt">Thu</dt>
+						<dd class = "day-graphic thu-dd">
+							<a href="" style = "height: 158px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day fri">
+						<dt class = "day-name fri-dt">Fri</dt>
+						<dd class = "day-graphic fri-dd">
+							<a href="" style = "height: 129px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day sat">
+						<dt class = "day-name sat-dt">Sat</dt>
+						<dd class = "day-graphic sat-dd">
+							<a href="" style = "height: 169px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+					<div class = "week-day sun">
+						<dt class = "day-name sun-dt">Sun</dt>
+						<dd class = "day-graphic sun-dd">
+							<a href="" style = "height: 143px;">
+								<div class = "value">
+									<div class = "triangle"></div>
+								</div>
+							</a>
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</form>
+	</body>
+</html>

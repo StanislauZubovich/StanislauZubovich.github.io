@@ -1,0 +1,530 @@
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body{
+	width: 100%;
+	background-color: #d9d9d9;
+}
+@font-face{
+	 font-family: GothamBook; 
+     src: url(../fonts/GothamSSm-Book.ttf); 
+}
+@font-face{
+	 font-family: GothamLight; 
+     src: url(../fonts/GothamSSm-Light.ttf); 
+}
+@font-face{
+	 font-family: GothamMedium; 
+     src: url(../fonts/GothamSSm-Medium.ttf); 
+}
+.calendar,.booking, .form,.place,.grafic_wrapper{
+	display: inline-block;
+	margin: 20px 50px 0 20px;
+	vertical-align: top;
+
+}
+.icon{
+		background-image: url(../img/sprite1.png);
+	display: inline-block;
+	margin-right: 3px;
+}
+.calendar,.booking{
+	font-family: GothamBook;
+	width: 346px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.44);
+	background-color: #ffffff;
+	border-radius: 3px;
+	overflow: hidden;	
+}
+.head_calendar{
+	background-color: #404a58;
+	padding:20px 37px 23px 37px;
+}
+.calendar h3{
+	color: #ffffff;
+	font-family: GothamBook;
+	text-align: center;
+	font-size: 16.96px;
+	font-weight: normal;
+}
+.calendar .prev_button{
+background-position:0 0;
+width:8px; 
+height:12px;
+float: left;
+}
+.calendar .next_button{
+	background-position: 0 -16px;
+	width: 8px;
+	height: 12px;
+	float: right;
+
+}
+.table_with_button,.form_booking{
+	padding: 24px;
+}
+table{
+	font-size: 13.96px;
+	width: 100%;
+	margin-bottom: 26px;
+	border-spacing: 3px 3px;
+}
+.button_submit{
+	background-color: #fb6362;
+    width: 100%;
+	box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.55);
+	border:0;
+	border-radius: 3px;
+	padding:22px 0px 20px 0;
+	color: white;
+	font-size: 15px;
+	font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+    font-family: GothamMedium; 
+
+}
+th{
+	text-align: center;
+	font-family: GothamMedium; 
+	padding-bottom: 10px;
+}
+td{
+	padding: 10px 5px;
+	text-align: center;
+
+}
+.other_month{
+	color: #e8e8e8;
+}
+.event{
+	color: #fda1a1;
+	font-weight: bold;
+}
+.current_day{
+	background-color: #fda1a1;
+	color: white;
+	border-radius: 50%;
+}
+/* 2 форма*/
+.header_booking{
+	width: 100%;
+	min-height: 185px;
+	position: relative;
+}
+.location{
+	color:white;
+	position: absolute;
+	bottom: 17px;
+	left: 13px;
+	text-align: top;
+	font-size: 14px;
+	 font-family: GothamLight;
+	 width: 100%;
+}
+.location h2{
+	font-size: 25px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+.paris{
+	background-position: 0 -30px;
+	width: 15px;
+	height: 17px;
+}
+.form_booking *{
+	border-radius: 3px;
+
+}
+.form_booking{
+	width: 100%;
+}
+.enter_text{
+min-height: 45px;
+	width: 100%;
+	background-color: #f4f4f4;
+	margin-top: 8px;
+	border-radius: 3px;
+}
+.input_button{
+border-radius: 2px;
+background-color:  #414b59;
+width: 37px;
+height: 37px;
+border: 0;
+position: absolute;
+bottom: 3px;
+right: 2px;
+}
+ .icon_table{
+background-position: 8px -56px;
+background-repeat: no-repeat;
+width: 20px;
+height: 10px;
+position: absolute;
+padding: 18px 20px 18px 18px;
+top: 30px;
+}
+.arrow{
+	background-position: 10px -82px;
+    background-repeat: no-repeat;
+}
+.input_wrapper{
+	position: relative;
+	margin-top: -3px;
+	margin-bottom: 23px;
+}
+.adult,.children{
+	width:135px;
+	display: inline-block;
+
+}
+.adult{
+	margin-right: 20px;
+}
+.children{
+		display: inline-block;
+}
+
+.choice_people{
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 14px;
+}
+.checkbox{
+	margin-top: -8px;
+	margin-bottom: 25px;
+
+
+}
+.checkbox label{
+	font-family: GothamBook;
+	font-size: 14px;
+	font-weight: bold;
+}
+ .checkbox_button{
+ vertical-align: middle;
+  margin: 0 3px 0 0;
+  width: 25px;
+  height: 23px;
+  background-color:#f4f4f4; 
+  font-weight: lighter;
+}
+.search{
+	background-position: 3px -339px;
+	width: 35px;
+	height: 30px;
+}
+.location span{
+	margin-left: 10px;
+}
+.form_booking label{
+	font-size:14px;
+}
+.form_booking .button_submit{
+	padding: 3px 0 20px 0;
+	font-size: 16px;
+}
+/* 3 форма*/
+.form .enter_text{
+	margin:0;
+}
+.form{
+	font-family: GothamLight;
+	width: 383px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.44);
+	background-color: #ffffff;
+	border-radius: 3px;
+
+}
+.wapper_form{
+	padding: 25px;
+	position: relative;
+}
+.enter_message{
+	width: 100%;
+	background-color: #f4f4f4;
+	min-height: 223px;
+	border-radius: 3px;
+
+}
+.position_text{
+font-size: 14px;
+font-family: GothamLight;
+}
+.input_wrap{
+	position: relative;
+}
+.form .enter_text{
+	margin-bottom: 25px;
+}
+.send{
+	width: 128px;
+	float: right;
+}
+.wapper_forma:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+.email{
+	background-color: #404a58;
+	color: white;
+	padding: 11px 15px 8px 10px;
+	display: inline-block;
+	letter-spacing: -1px;
+	margin-left: 5px;
+	margin-top: 5px;}
+.without_border{
+  box-shadow: 0 1px 2px #575555 inset;  
+}
+.email:after{
+	content: "";
+	display: inline-block;
+	width: 11px;
+	height: 15px;
+	background-image:url(../img/sprite1.png );
+	background-position: 1px -274px;
+	margin-left: 3px;
+
+}
+.form .icon {
+	background-color: #f4f4f4;
+	background-image: url(../img/sprite1.png);
+	display: inline-block;
+}
+.plus{
+	background-position: -2px -285px;
+	width: 30px;
+	height: 33px;
+
+}
+.clip{
+	background-position: -5px -310px;
+	width: 30px;
+	height: 33px;
+	margin-bottom: 25px;
+}
+.form .button_submit{
+	padding: 14px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.place{
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.44);
+	background-color: #ffffff;
+	border-radius: 3px;
+	width:792px;
+	height: 100%;
+}
+.panel{
+	width: 72px;
+	float: left;
+}
+.panel .active{
+	background-color: #fb6362;
+}
+.panel a{
+	height: 113px;
+	display: block;
+	background-color: #404a58;
+	border-bottom: 1px solid black;
+}
+.link:hover{
+	background-color:#fb6362;
+
+}
+ .panel li:last-child a{
+	border-bottom:none;
+}
+.picture_place{
+	float: right;
+	position: relative;
+}
+.picture_place img{
+	height: 100%;
+}
+.place:after,.favourite_place:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.about_place{
+	padding: 30px 390px 0 107px;
+	color:  #999999;
+	font-size: 14px;
+	font-family: GothamMedium; 
+
+}
+.about_place h3{
+	margin-top: -1px;
+		font-family: GothamMedium; 
+		font-weight: 500;
+		font-size: 21px;
+		text-align: left;
+		letter-spacing: -1px;
+		line-height: 1.3;
+		color: black;
+		margin-bottom: 12px;
+		padding-right:55px;
+}
+.about_place span{
+	font-family: GothamLight; 
+	line-height: 1.8;
+}
+.about_place a{
+	text-decoration: none;
+	color: #fb6362;
+	display: block;
+	margin-top: 12px;
+}
+.about_place p{
+		font-family: GothamLight; 
+		font-weight: bold;
+		margin-bottom: 30px;
+}
+.about_place b{
+	color: black;
+
+}
+.picture_place:before{
+	content: "";
+	display: block;
+	height: 1px;
+	width: 1px;
+	border: 25px solid transparent;
+	border-left: 25px solid white;
+	position: absolute;
+	top:35px;
+	left: 0;
+	box-sizing: content-box;
+}
+ul{
+	font-size: 0;
+}
+.picture_place{
+	position: relative;
+}
+.like{
+	position: absolute;
+	bottom: 26px;
+	right: 25px;
+}
+.like span{
+	color: white;
+	font-family: GothamBook;
+	font-size: 17px;
+	vertical-align: middle;
+}
+.panel li{
+	position: relative;
+}
+.icons{
+	display: inline-block;
+	background-image: url(../img/sprite1.png);
+	position:absolute;
+}
+.view{
+	background-position: 0 -165px;
+	width: 30px;
+	height: 23px;
+	top: 42px;
+	left: 22px;
+}
+.loc{
+	background-position: 0 -376px;
+	width: 30px;
+	height: 28px;
+	left: 23px;
+	top: 40px;
+}
+.feedback{
+	background-position: 0 -193px;
+	width: 25px;
+	height: 22px;
+	top: 43px;
+	left: 21px;
+}
+.comment{
+	position: static;
+	background-position: 0 -220px;
+	width: 27px;
+	height: 24px;
+	margin-right: 5px;
+
+}
+ .heart{
+	position: static;
+	background-position: 0 -251px;
+	width: 27px;
+	height: 22px;
+}
+.like a{
+	margin-left: 13px;
+}
+.grafic_wrapper{
+	width: 792px; 
+	padding: 35px;
+	height: 340px;
+	background-color: #ffffff;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.44);
+	position: relative;
+
+}
+.grafic ul{
+	list-style: none;
+	position: absolute;
+	bottom: 0;
+	left: 35px;
+
+
+}
+.grafic li{
+	width: 650px;
+	border-top: 1px solid #eaeaea;
+	height: 70px;
+	color:  #666666;
+	font-family: GothamMedium; 
+	font-size: 12px;
+
+}
+.grafic li:first-child{
+	border-top: 1px solid #eaeaea;
+}
+.grafic_wrapper:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+.grafic:after{
+	clear: both;
+	content: "";
+	display: block;
+}
+.main_ul li{
+	display: inline-block;
+	width: 55px;
+	height: 100px;
+	font-family: GothamMedium; 
+	font-size: 12px;
+	text-align: center;
+}
+.main_ul{
+	bottom:20px;
+	left: 60px;
+	position: absolute;
+
+}
+.column{
+	width: 57px;
+	background-color:#fb6362;
+	height: 100px;
+	border-radius: 2px;
+
+}
+.main_ul li{
+	margin-left: 35px;
+}

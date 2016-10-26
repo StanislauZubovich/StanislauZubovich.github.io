@@ -1,0 +1,758 @@
+@font-face {
+  font-family: 'GothamSSm-Light';
+  src: url("fonts/gotham/GothamSSm-Light.eot?#iefix") format("embedded-opentype"),
+    url("fonts/gotham/GothamSSm-Light.woff") format("woff"),
+    url("fonts/gotham/GothamSSm-Light.ttf") format("truetype");
+
+}
+
+@font-face {
+  font-family: 'GothamSSm-Book';
+  src: url("fonts/gotham/GothamSSm-Book.eot?#iefix") format("embedded-opentype"),
+    url("fonts/gotham/GothamSSm-Book.woff") format("woff"),
+    url("fonts/gotham/GothamSSm-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'GothamSSm-Medium';
+  src: url("fonts/gotham/GothamSSm-Medium.eot?#iefix") format("embedded-opentype"),
+    url("fonts/gotham/GothamSSm-Medium.woff") format("woff"),
+    url("fonts/gotham/GothamSSm-Medium.ttf") format("truetype");
+}
+
+body {
+  font-family: GothamSSm-Book, sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  background-color: #d7d7d7;
+}
+
+.widget-container {
+  position: relative;
+  border-radius: 4px;
+  background-color:  #ffffff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.44);
+  overflow: hidden;
+  display: inline-block;
+}
+
+.calendar-widget {
+  display: inline-block;
+}
+
+.calendar-widget, .hotel-widget{
+  margin: 20px;
+  width: 346px;
+}
+
+.calendar-caption {
+  background-color: #404a58;
+  padding: 20px 0 23px 0;
+  text-align: center;
+  color: #FFF;
+  font-size: 17px;
+  font-family: GothamSSm-Book, sans-serif;
+}
+
+.previous-link, .next-link {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  top: 24px;
+}
+
+.previous-link {
+  left: 38px;
+}
+
+.next-link {
+  right: 38px;
+}
+
+.red-button {
+  color: #FFF;
+  border: none;
+  border-radius: 3px;
+  background-color:  #fb6362;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: GothamSSm-Book;
+}
+
+.shadow-button {
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.55);
+}
+
+.calendar-body-wrapper {
+  padding: 12px 24px 26px 24px;
+  text-align: center;
+}
+
+.days-table {
+  margin: 0 0 19px 5px;
+  color: #666666;
+}
+
+.days-table td, th {
+  width: 37px;
+  height: 37px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.days-table th {
+  font-family: GothamSSm-Medium;
+}
+
+.days-table td {
+  font-family: GothamSSm-Book;
+}
+
+.days-table .another-month {
+  color: #c5c5c5;
+}
+
+.days-table .current-day {
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: #fb6362;
+  border-radius: 50%;
+}
+
+.days-table .current-day {
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: #fb6362;
+  border-radius: 50%;
+}
+
+.days-table .event-day {
+  color: #fb6362;
+  font-weight: bold;
+  /* if event-day && current-day*/
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.days-table .chosen-day {
+  color: #55FF7F;
+}
+
+.days-table td:not(.another-month):hover {
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.calendar-button {
+  width: 100%;
+  height: 59px;
+}
+
+
+/*Styles for hotel widget*/
+.hotel-form {
+  padding: 21px 25px 25px 25px;;
+}
+
+.hotel-figure {
+  position: relative;
+  margin: 0;
+}
+
+.hotel-figure img {
+  width: 100%;
+  height: 185px;
+
+}
+
+.hotel-figure figcaption {
+  position: absolute;
+  bottom: 19px;
+  left: 23px;
+}
+
+.hotel-name {
+  margin-bottom: 2px;
+  color: #FFF;
+  display: block;
+  font-family: GothamSSm-Book;
+  font-size: 2.5em;
+  letter-spacing: -0.3px;
+}
+
+.hotel-address {
+  display: block;
+  padding-left: 3px;
+  color: #FFF;
+  font-family: GothamSSm-Light;
+  font-size: 1.4em;
+  text-decoration: none;
+}
+
+.hotel-address:hover {
+  text-decoration: underline;
+}
+
+.input-caption {
+  display: block;
+  margin-bottom: 10px;
+  color:  #666666;
+  font-family: GothamSSm-Book;
+  font-size: 14px;
+}
+
+.checkbox {
+  margin-right: 16px;
+}
+
+.date-input {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.date-input [type="text"] {
+  height: 44px;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px 1px #dddddd;
+  padding: 0 0 0 13px;
+  width: 100%;
+  position: relative;
+  font-family: GothamSSm-Light, sans-serif;
+  font-size: 14px;
+}
+
+.date-input button {
+  position: absolute;
+  padding: 0;
+  height: 37px;
+  width: 37px;
+  background-color: #414b59;
+  border: none;
+  right: 4px;
+  bottom: 3px;
+  border-radius: 2px;
+}
+
+.date-input:nth-child(4) {
+  margin-bottom: 15px;
+}
+
+.flexible-dates-input {
+  margin-bottom: 27px;
+}
+
+.persons-input-block {
+  margin-bottom: 38px;
+}
+
+.person-input {
+  display: inline-block;
+  width: 139px;
+  position: relative;
+}
+
+.person-input:nth-child(1) {
+  margin-right: 18px;
+}
+
+.person-number {
+  height: 46px;
+  position: relative;
+  color:  #414b59;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.persons-count {
+  display: inline-block;
+  color:  #414b59;
+  font-size: 16px;
+  margin: 14px 0;
+}
+
+.person-number-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: #414b59;
+  width: 37px;
+  height: 37px;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+}
+
+.search-button {
+  position: relative;
+}
+
+.hotel-button {
+  padding: 0;
+  height: 59px;
+  width: 299px;
+}
+
+/* Places widget styles */
+
+.place-widget {
+  width: 792px;
+  height: 340px;
+  margin: 20px;
+  position: relative;
+  font-size: 0;
+}
+
+.places-navigation {
+  display: inline-block;
+  width: 72px;
+  height: 100%;
+  position: relative;
+}
+
+.favourite-place {
+
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 289px;
+  padding: 15px 34px;
+}
+
+.place-image {
+  display: inline-block;
+  position: relative;
+  width: 363px;
+  margin: 0;
+  height: 340px;
+}
+
+.place-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.places-navigation-list {
+  list-style: none;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.places-navigation-list li {
+  position: relative;
+  height: 33.33%;
+}
+
+.places-navigation-list a {
+  height: 100%;
+  display: block;
+  background-color: #404a58;
+}
+
+.places-navigation-list li:nth-child(2) {
+  border-bottom: 1px solid #242931;
+}
+
+.places-navigation-list .active-item,
+.places-navigation-list a:hover {
+  background-color: #fb6362;
+}
+
+.favourite-place h3 {
+  max-height: 65px;
+  overflow: hidden;
+  font-family: GothamSSm-Medium, sans-serif;
+  font-size: 21px;
+  font-weight: 300;
+  width: 70%;
+  color: #4d4d4d;
+  margin: 10px 0;
+  line-height: 30px;
+  letter-spacing: -0.6px;
+}
+
+.reviews-link {
+  font-family: GothamSSm-Light, sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  color: #999999;
+  letter-spacing: -0.6px;
+}
+
+.reviews-count {
+  color: #4d4d4d;
+  font-weight: bold;
+}
+
+.reviews-link:hover, .read-more-link:hover {
+  text-decoration: underline;
+}
+
+.favourite-place p {
+  max-height: 165px;
+  overflow: hidden;
+  font-family: GothamSSm-Light, sans-serif;
+  font-size: 14px;
+  color:  #999999;
+  line-height: 24px;
+  letter-spacing: -0.35px;
+  margin: 28px 0 16px 0;
+}
+
+.read-more-link {
+  text-decoration: none;
+  font-family: GothamSSm-Book, sans-serif;
+  font-size: 14px;
+  color: #fb6362;
+}
+
+.favourite-place:after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  right: -44px;
+  z-index: 1;
+  border: 23px solid;
+  border-color: transparent;
+  border-left-color: #FFF;
+}
+
+.social-stats {
+  position: absolute;
+  right: 10px;
+  bottom: 17px;
+}
+
+.social-stats a {
+  display: inline-block;
+  margin-right: 17px;
+  font-family: GothamSSm-Book, sans-serif;
+  font-size: 17px;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.social-stats a:hover {
+  color: #aaa;
+}
+
+.sociat-count {
+  vertical-align: top;
+  margin-left: 3px;
+}
+
+/* Mail widget styles */
+
+.mail-widget {
+  width: 329px;
+  margin: 20px;
+  padding: 25px;
+}
+
+.mail-field {
+  width: 100%;
+  min-height: 46px;
+  margin-bottom: 23px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.recipient-field {
+  padding: 2px;
+}
+
+.subject-field {
+  padding: 2px;
+}
+
+.message-field {
+  overflow: auto;
+  padding: 13px 10px;
+  height: 222px;
+  margin-bottom: 26px;
+}
+
+.clip-button, .add-button {
+  position: relative;
+  margin-top: 12px;
+  padding-right: 8px;
+  float: right;
+  background-color: transparent;
+  border: none;
+}
+
+.mail-button {
+  width: 127px;
+  height: 49px;
+  padding: 0;
+  float: right;
+}
+
+.recipient {
+  display: inline-block;
+  position: relative;
+  font-family: GothamSSm-Light;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #404a58;
+  padding: 10px 4px 10px 10px;
+  margin: 2px;
+}
+
+.delete-recipient-button {
+  border: none;
+  background-color: transparent;
+  color: #FFF;
+  padding: 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.subject-input, .recipient-input {
+  width: 80%;
+  padding: 13px 9px;
+  border: none;
+  background-color: #f4f4f4;
+  font-family: GothamSSm-Light, sans-serif;
+  font-size: 14px;
+  color:  #999999;
+}
+
+.clip-button {
+  padding: 0 11px;
+}
+
+.attach-file-input {
+  position: absolute;
+  opacity: 0;
+  height: 19px;
+  width: 23px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Ploy widgets styles*/
+
+.plot-widget {
+  height: 340px;
+  width: 791px;
+}
+
+.y-axis-list {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  bottom: 63px;
+  left: 42px;
+  width: 703px;
+  list-style: none;
+}
+
+.y-axis-list li {
+  display: block;
+  height: 69px;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+}
+
+.bottom-text {
+  position: absolute;
+  bottom: 2px;
+  left: -2px;
+}
+
+.x-axis-list li, .y-axis-list li, .tip {
+  font-family: GothamSSm-Medium;
+  color: #666666;
+  font-size: 12px;
+}
+
+.x-axis-list {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  bottom: 40px;
+  left: 111px;
+}
+
+.x-axis-list li {
+  display: inline-block;
+  min-width: 40px;
+  margin: 0 47px 0 0;
+  text-align: center;
+}
+
+.column-list {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  bottom: 63px;
+  left: 104px;
+}
+
+.column-list li {
+  vertical-align: bottom;
+  display: inline-block;
+  width: 55px;
+  margin: 0 32px 0 0;
+}
+
+.column {
+  animation: plot-grow 1s 1 ease-in;
+  border-radius: 2px;
+  background-color:  #fb6362;
+  max-height: 230px;
+}
+
+.tip {
+  display: none;
+  background-color: #404a58;
+  border-radius: 2px;
+  margin-bottom: 15px;
+  padding: 8px 0;
+  text-align: center;
+  color: #FFF;
+  position: relative;
+}
+
+.tip:after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: -14px;
+  border: 7px solid;
+  border-color: transparent;
+  border-top-color: #404a58;
+}
+
+.selected-column .tip, .column-list li:hover .tip {
+  display: block;
+}
+
+/* Sprite icons*/
+
+.icon {
+  background-image: url('img/spritesheet.png');
+  background-repeat: no-repeat;
+}
+
+.icon-eye {
+  background-position: -116px -4px;
+  width: 27px;
+  height: 17px;
+}
+
+.icon-pin {
+  background-position: -94px -4px;
+  width: 18px;
+  height: 26px;
+}
+
+.icon-star {
+  background-position: -69px -4px;
+  width: 21px;
+  height: 20px;
+}
+
+.icon-comments {
+  background-position: -147px -4px;
+  width: 25px;
+  height: 21px;
+  display: inline-block;
+}
+
+.icon-likes {
+  background-position: -176px -4px;
+  width: 25px;
+  height: 22px;
+  display: inline-block;
+}
+
+.icon-clip {
+  background-position: -44px -4px;
+  width: 21px;
+  height: 19px;
+}
+
+.icon-plus {
+  background-position: -4px -4px;
+  width: 16px;
+  height: 16px;
+}
+
+.icon-small-pin {
+  background-position: -219px -4px;
+  width: 12px;
+  height: 17px;
+  display: inline-block;
+  position: relative;
+  top: 1px;
+}
+
+.icon-search {
+  background-position: -235px -4px;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+}
+
+.icon-previous {
+  background-position: -275px -2px;
+  width: 8px;
+  height: 12px;
+}
+
+.icon-next {
+  background-position: -263px -2px;
+  width: 8px;
+  height: 12px;
+}
+
+.icon-remove {
+  background-position: -287px -2px;
+  width: 8px;
+  height: 8px;
+}
+
+.icon-arrow {
+  background-position: -205px -4px;
+  width: 10px;
+  height: 7px;
+  display: inline-block;
+}
+
+/* Common styles */
+
+.text-input {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px 1px #DDD inset;
+  font-family: GothamSSm-Light, sans-serif;
+  font-size: 14px;
+  color:  #999999;
+  background-color: #F4F4F4;
+  resize: none;
+}
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+@keyframes plot-grow {
+  0%   { height: 0; }
+}

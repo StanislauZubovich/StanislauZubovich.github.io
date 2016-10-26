@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>widgets</title>
+    <link rel="stylesheet" href="./style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+      <div class="calendar">
+        <header class="calendar-header">
+            <div class="month-transition">
+                <div class="sprite central sprite-prev"></div>
+            </div>
+            <div class="date-section">
+                  <span>May</span>
+                  <span>2014</span>
+            </div>
+            <div class="month-transition">
+              <div class="sprite central sprite-next"></div>
+            </div>
+        </header>
+        <main class="calendar-main-section">
+          <table>
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td class="day-another-month">29</td>
+                <td class="day-another-month">30</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td class="holiday">7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td class="holiday">23</td>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td class="day-another-month">1</td>
+                <td class="day-another-month">2</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+          <form class="" action="index.html" method="post">
+            <input type="submit" name="" value="ADD EVENT">
+          </form>
+        </main>
+
+      </div>
+
+      <div class="book-form">
+          <div class="place-photo">
+            <img src="./images/paris.png" alt="paris hotel" />
+            <div class="hotel-describtion">
+                  <h2>Hotel Relais</h2>
+                  <div class="sprite sprite-map"></div>
+                  <span>Paris, France</span>
+            </div>
+          </div>
+          <div class="check-form-wrapper">
+
+            <form  class="check-form" action="index.html" method="post" id="check_form">
+              <div class="input-wrapper">
+                <label for="check_in">Check in</label>
+                <input type="text" name="check_in" id="check_in" placeholder="9 July, 2016">
+                <div class="form-button">
+                  <span class="sprite central sprite-calendar"></span>
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="check_out">Check out</label>
+                <input type="text" name="check_out" id="check_out" placeholder="16 July, 2016">
+                <div class="form-button">
+                  <span class="sprite central sprite-calendar"></span>
+                </div>
+              </div>
+
+              <div class="custom-checkbox">
+                <input type="checkbox" id="check" name="name" value="">
+                <label class="lab"for="check">Flexible dates</label>
+              </div>
+
+              <div class="select-wrapper">
+                  <div class="select-inline">
+                    <div class="select-absolute">
+                      <label for="adults">Adults</label>
+                      <select id="adults">
+                        <option>1</option>
+                        <option>2</option>
+                      </select>
+                      <div class="form-button">
+                        <span class="sprite central sprite-collection"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="select-inline">
+                    <div class="select-absolute">
+                      <label for="children">Children</label>
+                      <select id="children">
+                        <option>1</option>
+                        <option>2</option>
+                      </select>
+                      <div class="form-button">
+                        <span class="sprite central sprite-collection"></span>
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+
+              <div class="sprite sprite-search"></div>
+              <input type="submit" name="search" class="lower-right-but" value="SEARCH ROOMS">
+            </form>
+          </div>
+      </div>
+
+      <div class="place-wrapper">
+          <nav class="place-nav-bar">
+            <ul>
+              <li>
+                <a href="#">
+                  <div class="sprite central sprite-eye">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="sprite central sprite-place">
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="sprite central sprite-star">
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <article class="place-describtion">
+              <h4>My most favourite</h4>
+              <h4>place in the world</h4>
+              <p>
+                <span> <b>154</b> Reviews</span>
+              </p>
+              <p>
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor.
+                  Vivamus sed diam sollicitudin.
+                </span>
+              </p>
+              <p>
+                <span><a href="#">Read more</a></span>
+              </p>
+          </article>
+          <div class="place-photo favorite-photo">
+            <img src="./images/favorite_place.png" alt="favorite place in the world" />
+
+            <div class="user-activity">
+                <div class="sprite sprite-comment">
+                </div>
+                <span>752</span>
+
+                <div class="sprite sprite-like">
+                </div>
+                <span>2709</span>
+            </div>
+          </div>
+      </div>
+
+      <div class="diagram-wrapper">
+        <div class="diagram">
+          <div data-count="0" class="line amount-0"></div>
+          <div data-count="20" class="line amount-20"></div>
+          <div data-count="30" class="line amount-30"></div>
+          <div data-count="40" class="line amount-40"></div>
+
+
+          <div class="tooltip mon">
+            <div data-day="Mon" class="diagram-elem" style="height: 49px">
+                <span class=tooltiptext>17</span>
+            </div>
+          </div>
+          <div class="tooltip tue">
+            <div data-day="Tue" class="diagram-elem" style="height: 62px">
+              <span class=tooltiptext>19</span>
+            </div>
+
+          </div>
+          <div class="tooltip wed">
+            <div data-day="Wed" class="diagram-elem" style="height: 119px">
+              <span class=tooltiptext>27</span>
+            </div>
+          </div>
+          <div class="tooltip thu">
+            <div data-day="Thu" class="diagram-elem" style="height: 158px">
+                <span class=tooltiptext>33</span>
+            </div>
+          </div>
+          <div class="tooltip fri">
+            <div data-day="Fri" class="diagram-elem" style="height: 129px">
+                <span class=tooltiptext>28</span>
+            </div>
+          </div>
+          <div class="tooltip sat">
+            <div data-day="Sat" class="diagram-elem" style="height: 169px">
+                <span class=tooltiptext>34</span>
+            </div>
+          </div>
+          <div class="tooltip sun">
+            <div data-day="Sun" class="diagram-elem" style="height: 143px">
+                <span class=tooltiptext>33</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mail-wrapper">
+        <form class="mail-form" action="index.html" method="post">
+          <div class="input-wrapper">
+            <input type="text" name="emails" value="">
+            <div class="client-email">
+                <span>rick.james@mail.com</span>
+                <div class="sprite sprite-remowe"></div>
+            </div>
+            <div class="sprite sprite-add-copy"></div>
+          </div>
+          <div class="input-wrapper">
+            <input type="text" name="subject" value="" placeholder="Subject">
+            <div class="sprite sprite-pin-info"></div>
+          </div>
+          <textarea name="message" rows="14" cols="39" placeholder="Message"></textarea>
+          <input type="submit" name="send_email" class="lower-right-but" value="SEND">
+        </form>
+      </div>
+  </body>
+</html>

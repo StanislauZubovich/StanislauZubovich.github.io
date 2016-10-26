@@ -1,0 +1,764 @@
+html {
+	background-color: #d9d9d9;
+}
+
+.sprite {
+    background-image: url("../img/sprite-sheet.png");
+}
+
+.calendar,
+.booking,
+.destination,
+.bar-graph,
+.email {
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 0px 20px -3px rgb( 0, 0, 0 );
+	-moz-box-shadow: 0px 0px 20px -3px rgb( 0, 0, 0 );
+	box-shadow: 0px 0px 20px -3px rgb( 0, 0, 0 );
+	background-color: #fff;
+}
+
+.submit-button {
+	display: block;
+	height: 58px;
+	width: 298px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 2px 5px -1px rgb( 0, 0, 0 );
+	-moz-box-shadow: 0px 2px 5px -1px rgb( 0, 0, 0 );
+	box-shadow: 0px 2px 5px -1px rgb( 0, 0, 0 );
+	font: normal 15px "GothamSSm-Book", sans-serif;
+	text-decoration: none;
+	background-color: #fb6362;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.booking #check-in,
+.booking #check-out,
+.email .email-input-container,
+.email #subject-input,
+.email #message {
+	height: 45px;
+	margin-left: 25px;
+	padding: 2px 0 0 13px;
+	border: none;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-webkit-box-shadow: inset 0px 1px 10px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 1px 10px -4px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 1px 1px -1px rgba(0,0,0,0.75);
+	font: bold 14px "GothamSSm-Light", sans-serif;
+	background-color: #f4f4f4;
+}
+
+.clear {
+	clear: both;
+}
+
+.submit-button:hover {
+	background-color: #fb4;
+}
+
+.calendar {
+	width: 346px;
+	height: 427px;
+	margin: 50px auto 0 auto;
+}
+
+.calendar table {
+	width: 300px;
+	height: 280px;
+	position: relative;
+	margin: 0 37px;
+}
+
+.calendar .month-and-year {
+	height: 63px;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+	font: normal 17px "GothamSSm-Book", sans-serif;
+	font-kerning: none;
+	text-align: center;
+	line-height: 63px;
+	color: #fff;
+	background-color: #404a58;
+}
+
+.calendar .month-and-year a {
+	width: 7px;
+	height: 12px;
+}
+
+.month-and-year .sprite-left-button {
+	float: left;
+    width: 7px;
+    height: 12px;
+    margin: 25px 0 0 38px;
+    background-position: -38px 0;
+}
+
+.month-and-year .sprite-right-button {
+	float: right;
+    width: 7px;
+    height: 12px;
+    margin: 25px 38px 0 0;
+    background-position: -45px 0;
+}
+
+tr {
+	display: block;
+}
+
+td {
+	display: inline-block;
+	width: 26px;
+	box-sizing: border-box;
+	font: normal 14px "GothamSSm-Medium", sans-serif;
+	line-height: 30px;
+	text-align: center;
+	color: #666;
+}
+
+tbody td {
+	font: normal 14px "GothamSSm-Book", sans-serif;
+}
+
+thead td {
+	font: normal 14px "GothamSSm-Medium", sans-serif;
+}
+
+thead td:not(:last-child) {
+	margin: 25px 11px 23px 0;
+}
+
+tbody td:not(:last-child) {
+	margin: 0 11px 23px 0px;
+}
+
+tbody td:hover {
+	height: 37px;
+	width: 37px;
+	margin: -10px 6px 0px -6px;
+	padding: 10px;
+	border-radius: 18px;
+	box-sizing: border-box;
+	font: bold 14px "GothamSSm-Book", sans-serif;
+	color: #fff;
+	background-color: #fb6362;
+	cursor: pointer;
+}
+
+tbody tr:nth-child(2) td:hover:nth-child(2),
+tbody tr:nth-child(4) td:hover:nth-child(4) {
+	color: #fff;
+	background-color: #fb6362;
+}
+
+tbody tr:nth-child(1) td:nth-child(1),
+tbody tr:nth-child(1) td:nth-child(2),
+tbody tr:nth-child(5) td:nth-child(5),
+tbody tr:nth-child(5) td:nth-child(6),
+tbody tr:nth-child(5) td:nth-child(7) {
+	color: #d4d4d4;
+}
+
+tbody tr:nth-child(2) td:nth-child(2),
+tbody tr:nth-child(4) td:nth-child(4) {
+	font: bold 14px "GothamSSm-Book", sans-serif;
+	color: #fb6362;
+}
+
+.booking {
+	height: 626px;
+	width: 346px;
+	margin: 50px auto 20px auto;
+}
+
+.booking-header {
+	position: relative;
+}
+
+.booking-header img {
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.booking-header .heading {
+	position: absolute;
+	bottom: 42px;
+	left: 22px;
+	font: normal 25px "GothamSSm-Book", sans-serif;
+	color: #fff;
+}
+
+.booking-header .geolocation .sprite-geolocation {
+    position: absolute;
+    left: 26px;
+	bottom: 22px;
+ 	width: 12px;
+    height: 17px;
+    background-position: -61px 0;
+}
+
+.booking-header .geolocation span {
+	position: absolute;
+	left: 44px;
+	bottom: 22px;
+	font: normal 14px "GothamSSm-Light", sans-serif;
+	color: #fff;
+	text-decoration: none;
+}
+
+.booking label {
+	display: block;
+	font: bold 14px "GothamSSm-Book", sans-serif;
+	color: #666;
+}
+
+.booking label[for="check-in"] {
+	margin: 20px 0 10px 24px;
+}
+
+.booking label[for="check-out"] {
+	margin: 21px 0 10px 24px;
+}
+
+.booking #check-in,
+.booking #check-out {
+	width: 296px;
+}
+
+.date-input-container,
+.amount-input-container {
+	position: relative;
+}
+
+.booking .sprite-calendar {
+	position: absolute;
+	top: 3px;
+	right: 29px;
+	width: 37px;
+	height: 37px;
+	background-position: 0 -19px;
+}
+
+.booking input[type="checkbox"] {
+    display:none;
+}
+
+.booking input[type="checkbox"] + label {
+	width: 170px;
+	margin-top: 17px;
+}
+
+.booking input[type="checkbox"] + label span {
+    display:inline-block;
+    width: 23px;
+    height: 22px;
+    margin: -5px 11px 0 25px;
+    box-sizing: border-box;
+    vertical-align:middle;
+    background-position: 0px -56px;
+    cursor:pointer;
+}
+.booking input[type="checkbox"]:checked + label span{
+	background-position: -24px -56px;
+}
+
+.booking .adults-container,
+.booking .children-container {
+	float: left;
+}
+
+.booking #adults,
+.booking #children {
+	width: 138px;
+	height: 45px;
+	padding: 1px 0 0 14px;
+	border-radius: 2px;
+	border: none;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-webkit-box-shadow: inset -0px 1px 10px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset -0px 1px 10px -4px rgba(0,0,0,0.75);
+	box-shadow: inset -0px 1px 10px -4px rgba(0,0,0,0.75);
+	font: bold 16px "GothamSSm-Light", sans-serif;
+	color: #414b59;
+	background-color: #f4f4f4;
+	cursor: pointer;
+
+	/* for FF */
+	-moz-appearance: none;
+	text-indent: 0.01px; 
+	text-overflow: '';
+	/* for IE */
+	-ms-appearance: none;
+	appearance: none!important;
+}
+
+#adults::-ms-expand,
+#children::-ms-expand {
+  display: none;
+}
+
+.booking #adults {
+	margin: 9px 0 0 25px;
+}
+
+.booking #children {
+	margin: 9px 0 0 20px;
+}
+
+.booking .sprite-arrow {
+	position: absolute;
+	top: 0px;
+	width: 37px;
+	height: 37px;
+	background-position: -37px -19px;
+	pointer-events: none;
+}
+
+.booking label[for="adults"] {
+	margin: 26px 0 0 24px;
+}
+
+.booking label[for="children"] {
+	margin: 26px 0 0 19px;
+}
+
+.booking #adults + .sprite-arrow {
+	top: 13px;
+	left: 122px;
+}
+
+.booking #children + .sprite-arrow {
+	top: 13px;
+	left: 117px;
+}
+
+.sprite-search {
+    position: absolute;
+	top: 20px;
+	left: 59px;
+    width: 21px;
+    height: 20px;
+    background-position: -46px -62px;
+}
+
+.booking .submit-button {
+	position: relative;
+	margin-top: 39px;
+}
+
+.booking .submit-button span {
+	margin-left: 21px;
+}
+
+.destination,
+.bar-graph {
+	width: 792px;
+	height: 340px;
+	margin: 50px auto 20px auto;
+}
+
+.destination .left-navigation {
+	float: left;
+	width: 72px;
+	height: 340px;
+}
+
+.left-navigation ul {
+	padding: 0;
+}
+
+.left-navigation ul a li {
+	width: 72px;
+	height: 113px;
+	margin: 0;
+	border-bottom: 1px #242931 solid;
+	box-sizing: border-box;
+	list-style: none;
+	background-color: #404a58;
+}
+
+.left-navigation ul a:nth-child(1) li {
+	padding-top: 49px;
+}
+
+.left-navigation ul a:nth-child(2) li {
+	padding: 44px 0 0 2px;
+}
+
+.left-navigation ul a:nth-child(3) li {
+	padding-top: 49px; 
+	border: none;
+}
+
+.left-navigation div {
+	margin: auto;
+}
+
+.left-navigation ul a:nth-child(1) div {
+	width: 27px;
+	height: 17px;
+	background-position: -74px 0;
+}
+
+.left-navigation ul a:nth-child(2) div {
+	width: 27px;
+	height: 25px;
+	background-position: -75px -17px;
+}
+
+.left-navigation ul a:nth-child(3) div {
+	width: 27px;
+	height: 20px;
+	background-position: -75px -42px;
+}
+
+.left-navigation ul li:hover {
+	border: none;
+	background-color: #fb6362;
+}
+
+.left-navigation ul a:first-child li {
+	border-top-left-radius: 3px;
+}
+
+.left-navigation ul a:last-child li {
+	height: 114px;
+	border: none;
+	border-bottom-left-radius: 3px;
+}
+
+.destination .info {
+	position: relative;
+	float: left;
+	width: 357px;
+	height: 340px;
+	background: #fff;
+}
+
+.destination .info:after {
+	left: 100%;
+	top: 60px;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-left-color: #fff;
+	border-width: 22px;
+	margin-top: -22px;
+	z-index: 2;
+}
+
+.info h1 {
+	width: 200px;
+	margin: 28px 0 0 34px;
+	font: bold 21px "GothamSSm-Medium", sans-serif;
+	line-height: 30px;
+	word-spacing: -3px;
+	color: #4d4d4d;
+}
+
+.info .reviews,
+.info p {
+	font: 14px "GothamSSm-Light", sans-serif;
+	color: #999;
+}
+
+.info .reviews {
+	margin: 9px 0 0 35px;
+}
+
+.info p {
+	width: 290px;
+	margin: 30px 0 0 33px;
+	line-height: 24px;
+}
+
+.info .emphasized {
+	font-weight: bold;
+	color: #4d4d4d;
+}
+
+.info .read-more {
+	display: block;
+	margin: 16px 0 0 34px;
+	font: bold 14px "GothamSSm-Light", sans-serif;
+	text-decoration: none;
+	color: #fb6362;
+}
+
+.info .read-more:hover {
+	text-decoration: underline;
+}
+
+.destination .graphic-info {
+	position: relative;
+	float: right;
+	width: 363px;
+	height: 340px;
+}
+
+.graphic-info img {
+	z-index: 1;
+}
+
+.graphic-info .comments,
+.graphic-info .likes {
+	position: absolute;
+	font: normal 17px "GothamSSm-Book", sans-serif;
+	color: #fff;
+}
+
+.graphic-info .comments {
+	bottom: 22px;
+	right: 125px;
+}
+
+.graphic-info .likes {
+	bottom: 22px;
+	right: 27px;
+}
+
+.sprite-view-sprite {
+    width: 51px;
+    height: 22px;
+    background-position: -67px -62px;
+}
+
+.comments a,
+.likes a {
+	display: block;
+	width: 25px;
+	height: 22px;
+}
+
+.comments a {
+	position: absolute;
+	right: 39px;
+	background-position: -67px -62px;
+}
+
+.likes a {
+	position: absolute;
+	right: 55px;
+	background-position: -93px -62px;
+}
+
+.bar-graph {
+	position: relative;
+}
+
+.bar-graph .line-chart {
+	position: absolute;
+	width: 703px;
+	margin: 49px 0 0 42px;
+	padding: 0;
+	font: normal 12px "GothamSSm-Medium", sans-serif;
+	color: #666;
+}
+
+.line-chart li {
+	height: 17px;
+	margin-bottom: 52px;
+	list-style: none;
+	border-bottom: 1px #eaeaea solid;
+}
+
+.bar-graph .graph-list {
+	position: absolute;
+	bottom: 63px;
+	left: 105px;
+	height: 169px;
+	width: 700px;
+	padding: 0;
+	margin: 0;
+}
+
+.graph-list dt {
+	display: inline-block;
+	width: 20px;
+	margin: 0 52px 0 -45px;
+	font: normal 12px "GothamSSm-Medium", sans-serif;
+	color: #666;
+}
+
+.graph-list dt:last-child {
+	margin-right: 0;
+}
+
+.graph-list dd {
+	position: relative;
+	width: 55px;
+	margin-bottom: 20px;
+	border-radius: 2px;
+	display: inline-block;
+	list-style: none;
+	background-color: #fb6362;
+	cursor: pointer;
+}
+
+.graph-list dd .tooltip {
+	position: absolute;
+	top: -40px;
+	width: 55px;
+	height: 30px;
+	border-radius: 2px;
+	font: normal 12px "GothamSSm-Medium", sans-serif;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #404a58;
+	opacity: 0;
+}
+
+.graph-list dd .tooltip:after {
+	content: " ";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -3px;
+	border-width: 7px;
+	border: solid transparent;
+	pointer-events: none;
+	border-top-color: #404a58;
+}
+
+.graph-list dd:hover .tooltip {
+	opacity: 1;
+}
+
+.graph-list dd {
+    animation-name: pullUp;
+    -webkit-animation-name: pullUp; 
+ 
+    animation-duration: 1s; 
+    -webkit-animation-duration: 1s;
+ 
+    transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -webkit-transform-origin: 50% 100%;      
+}
+ 
+@keyframes pullUp {
+    0% {
+        transform: scaleY(0.1);
+	}
+    100% {
+        transform: scaleY(1);
+    }                           
+}
+ 
+@-webkit-keyframes pullUp {
+    0% {
+        -webkit-transform: scaleY(0.1);
+    }
+    100% {
+        -webkit-transform: scaleY(1);
+    }       
+}
+
+.email {
+	width: 380px;
+	height: 487px;
+	margin: 50px auto 20px auto;
+}
+
+.email-input-container,
+.email #subject-input,
+.email #message {
+	width: 330px;
+	margin-top: 25px;
+}
+
+.email-input-container,
+.email #subject-input {
+	height: 45px;
+	margin-top: 26px;
+	padding-right: 10px;
+}
+
+.email #message {
+	width: 330px;
+	height: 223px;
+	margin-top: 25px;
+	padding: 13px 0 0 11px;
+	overflow: auto;
+	box-sizing: border-box;
+	resize: none;
+}
+
+.email .submit-button {
+	float: right;
+	width: 127px;
+	margin: 20px 25px 0 0; 
+	height: 48px;
+	line-height: 48px;
+}
+
+.email .subject-input-container,
+.email .email-input-container {
+	position: relative;
+}
+
+.email-input-container .add-email-icon,
+.subject-input-container .add-subject-icon {
+	display: block;
+	background: url("../img/add-sprite.png");
+}
+
+.email .email-input-container {
+	overflow: auto;
+	height: 45px;
+	padding: 4px 0 0 4px;
+}
+
+.email-input-container .tag {
+	position: relative;
+	float: left;
+	width: 188px;
+	height: 37px;
+	margin: 0 5px 3px 0;
+	padding: 11px 0 0 10px;
+	box-sizing: border-box;
+	font: normal 14px "GothamSSm-Light", sans-serif;
+	background-color: #404a58;
+	color: #fff; 
+}
+
+.email-input-container .tag .sprite-delete {
+	position: absolute;
+	display: block;
+	top: 16px;
+	right: 10px;
+	width: 8px;
+	height: 8px;
+	background-position: -52px 0;
+}
+
+.email-input-container .sprite-add {
+	position: absolute;
+	top: 14px;
+	right: 13px;
+	width: 16px;
+	height: 19px; 
+	background-position: 0 0;
+}
+
+.subject-input-container .sprite-subject {
+	position: absolute;
+	top: 39px;
+	right: 38px;
+	width: 22px;
+	height: 19px; 
+	background-position: -16px 0;
+}
+

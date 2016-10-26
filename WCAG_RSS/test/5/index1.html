@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>forms_and_widgets</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style1.css">
+</head>
+<body>
+	<div class="calendar">
+		<header class="head_calendar">
+			<a href="#" class="prev_button icon"></a><a href="#" class="next_button icon"></a><h3>May 2014</h3>
+		</header>
+		<div class="table_with_button">
+		<table>
+			<tr>
+				<th> Sun</th>
+				<th> Mon</th>
+				<th> Tue</th>
+				<th> Wed</th>
+				<th> Thu</th>
+				<th> Fri</th>
+				<th>Sat</th>
+			</tr>
+			<tr>
+				<td class="other_month">29</td>
+				<td class="other_month">30</td>
+				<td>1</td>
+				<td>2</td>
+				<td class="current_day">3</td>
+				<td>4</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td class="event">7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+				<td>16</td>
+				<td>17</td>
+				<td>18</td>
+				<td>19</td>
+			</tr>
+			<tr>
+				<td>20</td>
+				<td>21</td>
+				<td>22</td>
+				<td class="event">23</td>
+				<td>24</td>
+				<td>25</td>
+				<td>26</td>
+			</tr>
+			<tr>
+				<td>27</td>
+				<td>28</td>
+				<td>29</td>
+				<td>30</td>
+				<td class="other_month">1</td>
+				<td class="other_month">2</td>
+				<td class="other_month">3</td>
+			</tr>
+		</table>
+		<button  class="button_submit"><span>ADD EVENT</span></button>
+		</div>	
+	</div>
+	<div class="booking">
+		<header class="header_booking">
+		<img src="img/papis.png">
+			<div class="location">
+					<h2> Hotel Relais</h2>
+					<span class="icon paris"></span><span class="paris_text">Paris,Franch</span>
+			</div>
+		</header>
+		<div class="form_booking">
+			<form action="#">
+				<div class="input_wrapper">
+					<label>Check in</label>
+					<input placeholder="9 July,2016" class="enter_text .position_text"><input type="button" class="input_button icon icon_table">
+				</div>
+				<div class="input_wrapper">
+					<label>Check out</label>
+					<input placeholder="16 July,2016" class="enter_text .position_text"><input type="button" class="input_button icon icon_table">
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" class="checkbox_button"></input>
+					<label>Flexibility dates</label>
+				</div>
+				<div class="choice_people">
+				<div class="adult input_wrapper">
+					<label>Adults</label>
+					<input placeholder="2" class="enter_text .position_text "><input type="button" class="input_button icon arrow  ">
+				</div>
+				<div class="children input_wrapper">
+					<label>Children</label>
+					<input placeholder="1" class="enter_text .position_text"><input type="button" class="input_button icon arrow">
+					
+				</div>
+				</div>
+				<button type="submit" class="button_submit "><span class="icon search"></span><span>SEARCH ROOMS</span></button>
+			</form>
+		</div>
+	</div>
+	<div class="form">
+		<div class="wapper_form">
+			<forma>
+				<div class="input_wrap">
+				<div class="enter_text without_border"> <input type="button" class="input_button icon plus ">
+				<span class="email">rick.james@mail.com</span></div></div>
+				<div class="input_wrap form_input ">
+				<input placeholder="Subject" class="enter_text position_text"><input type="button" class="input_button icon clip "></div>
+				<input class="enter_message position_text" placeholder="Message">
+				<button type="submit" class="button_submit send"><span>SEND</span></button>
+			</forma>
+		</div>
+	</div>
+	<div class="place">
+		<div class="panel">
+		<ul>
+			<li><a href="#" class="link active"></a><span class="icons view"></span></li>
+			<li><a href="#" class="link"><span class="icons loc"></span></a></li>
+			<li><a href="#" class="link"><span class="icons feedback"></span></a></li>
+		</ul>
+		</div>
+		<div class="favourite_place">
+		<div class="picture_place">
+				<img src="img/place.png">
+				<div class="like">
+				<a href=""><span class="icon comment"></span><span>752</span></a>
+				<a href=""><span class="icon heart"></span><span >2709</span></a></div>
+			</div>
+			<div class="about_place">
+				<h3>My most favourite place in the world</h3>
+				<p><b>154</b> Reviews</p>
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin. </span>
+				<a href="#">Read more</a>
+			</div>
+			
+		</div>
+	</div>
+	<div class="grafic_wrapper">
+		<div class="grafic">
+			<ul>
+				<li><p>40</p></li>
+				<li>30</li>
+				<li>20</li>
+				<li>0</li>
+
+			</ul>
+			</div>
+			<ul class="main_ul">
+				<li><div class="column" style="height: 50px;"> </div><span>Mon</span></li>
+				<li><div class="column" style="height: 65px;"></div><span>Tues</span></li>
+				<li><div class="column" style="height: 120px;"></div><span>Wed</span></li>
+				<li><div class="column" style="height: 160px;"></div><span>Thu</span></li>
+				<li><div class="column" style="height: 130px;"></div><span>Fri</span></li>
+				<li><div class="column" style="height: 170px;"></div><span>Sat</span></li>
+				<li><div class="column" style="height: 145px;"></div><span>Sun</span></li>
+			</ul>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Widgets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="widget-container calendar-widget">
+      <header class="calendar-caption">
+        <a href="#" class="previous-link">
+          <div class="icon-previous icon"></div>
+        </a>
+        <span>May </span><span>2014</span>
+        <a href="#" class="next-link">
+          <div class="icon-next icon"></div>
+        </a>
+      </header>
+
+    <div class="calendar-body-wrapper">
+      <table class="days-table">
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+        <tr>
+          <td class="another-month">29</td>
+          <td class="another-month">30</td>
+          <td>1</td>
+          <td>2</td>
+          <td class="current-day">3</td>
+          <td>4</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="event-day">7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td class="event-day">23</td>
+          <td>24</td>
+          <td>25</td>
+          <td>26</td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td class="chosen-day">30</td>
+          <td class="another-month">1</td>
+          <td class="another-month">2</td>
+          <td class="another-month">3</td>
+        </tr>
+      </table>
+      <button class="red-button shadow-button calendar-button">ADD EVENT</button>
+    </div>
+  </div>
+
+
+  <div class="widget-container hotel-widget">
+    <figure class="hotel-figure">
+      <img src="img/hotel.jpg" alt="hotel image" />
+      <figcaption>
+        <span class="hotel-name">Hotel Relais</span>
+        <a href="#" class="hotel-address">
+          <div class="icon-small-pin icon"></div>
+        Paris, France
+        </a>
+      </figcaption>
+    </figure>
+
+    <form action="dummy_action" class="hotel-form">
+      <label class="input-caption">Check in</label>
+      <div class="date-input">
+        <input type="text" placeholder="9 July, 2016">
+        <button type="button">
+          <img src="img/calendar.png" alt="calendar" />
+        </button>
+      </div>
+
+      <label class="input-caption">Check out</label>
+      <div class="date-input">
+        <input type="text" placeholder="16 July, 2016">
+        <button type="button">
+          <img src="img/calendar.png" alt="calendar" />
+        </button>
+      </div>
+
+      <label class="input-caption flexible-dates-input"><input type="checkbox" class="checkbox" />Flexible dates</label>
+
+
+      <div class="persons-input-block">
+        <div class="person-input">
+            <label class="input-caption">Adults</label>
+            <div class="text-input person-number">
+              <p class="persons-count">2</p>
+              <button type="button" class="person-number-button">
+                <div class="icon-arrow icon"></div>
+              </button>
+            </div>
+        </div><!--
+
+        --><div class="person-input">
+            <label class="input-caption">Children</label>
+            <div class="text-input person-number">
+              <p class="persons-count">1</p>
+              <button type="button" class="person-number-button">
+                <div class="icon-arrow icon"></div>
+              </button>
+            </div>
+        </div>
+
+      </div>
+
+      <button class="red-button shadow-button hotel-button">
+        <div class="icon-search icon"></div>
+        SEARCH ROOMS
+      </button>
+    </form>
+  </div>
+
+  <div class="widget-container place-widget">
+    <nav class="places-navigation">
+      <ul class="places-navigation-list">
+        <li><a href="#" class="active-item"><div class="icon-eye icon center"></div></a></li>
+        <li><a href="#"><div class="icon-pin icon center"></div></a></li>
+        <li><a href="#"><div class="icon-star icon center"></div></a></li>
+      </ul>
+    </nav>
+
+    <article class="favourite-place">
+      <h3>My most favourite place in the world</h3>
+      <a href="#" class="reviews-link"><span class="reviews-count">154</span> Reviews</a>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin.</p>
+      <a href="#" class="read-more-link">Read more</a>
+    </article>
+
+    <figure class="place-image">
+      <img src="img/favourite-place.jpg" alt="favourite place image" />
+      <figcaption class="social-stats">
+        <a href="#">
+          <div class="icon-comments icon"></div>
+          <span class="sociat-count">752</span>
+        </a>
+        <a href="#">
+          <div class="icon-likes icon"></div>
+          <span class="sociat-count">2709</span>
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="widget-container mail-widget">
+    <form action="dummy_action">
+
+      <div class="recipient-field mail-field text-input">
+
+        <button type="button" class="add-button">
+          <div class="icon-plus icon"></div>
+        </button>
+
+        <div class="recipient">
+          <span>rick.james@mail.com</span>
+          <button type="button" class="delete-recipient-button">
+            <div class="icon-remove icon"></div>
+          </button>
+        </div>
+
+        <!-- Test cases -->
+<!--
+          <div class="recipient">
+            <span>rick.james@mail.com</span>
+            <button type="button" class="delete-recipient-button">
+              <div class="icon-remove icon"></div>
+            </button>
+          </div>
+
+          <div class="recipient">
+            <span>rick@mail.com</span>
+            <button type="button" class="delete-recipient-button">
+              <div class="icon-remove icon"></div>
+            </button>
+          </div>
+
+          <div class="recipient">
+            <span>james@mail.com</span>
+            <button type="button" class="delete-recipient-button">
+              <div class="icon-remove icon"></div>
+            </button>
+          </div>
+
+        <input type="text" placeholder="Recipient" class="recipient-input">
+ -->
+      </div>
+
+      <div class="subject-field mail-field text-input">
+
+        <div class="clip-button">
+          <input type="file" class="attach-file-input">
+          <div class="icon-clip icon"></div>
+        </div>
+
+
+        <input type="text" placeholder="Subject" class="subject-input">
+
+      </div>
+
+      <textarea placeholder="Message" class="text-input mail-field message-field"></textarea>
+
+      <input type="submit" value="SEND" class="red-button shadow-button mail-button">
+
+    </form>
+  </div>
+
+  <div class="widget-container plot-widget">
+    <ul class="y-axis-list">
+      <li><span class="bottom-text">40</span></li>
+      <li><span class="bottom-text">30</span></li>
+      <li><span class="bottom-text">20</span></li>
+      <li><span class="bottom-text">0</span></li>
+    </ul>
+
+    <ul class="x-axis-list">
+      <li>Mon</li>
+      <li>Tues</li>
+      <li>Wed</li>
+      <li>Thu</li>
+      <li>Fri</li>
+      <li>Sat</li>
+      <li>Sun</li>
+    </ul>
+
+    <ul class="column-list">
+    <!-- tip_value = height < 70? height / 3.5 : (height - 70) / 7 + 20; -->
+      <li class="selected-column">
+        <div class="tip">17</div>
+        <div class="column" style="height: 49px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">18</div>
+        <div class="column" style="height: 62px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">27</div>
+        <div class="column" style="height: 119px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">33</div>
+        <div class="column" style="height: 158px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">28</div>
+        <div class="column" style="height: 129px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">34</div>
+        <div class="column" style="height: 169px;"></div>
+      </li>
+
+      <li>
+        <div class="tip">30</div>
+        <div class="column" style="height: 143px;"></div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

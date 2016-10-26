@@ -16,7 +16,11 @@
 	</header>
 	<section class="slide cover shout" id="Cover"><div>
 		<img src="pictures/accessibility.jpg" alt="">
-		</div></section>
+      </div></section>
+
+  <section class="slide shout"><div>
+    <h2 style="font-size: 90px">Что такое доступность?</h2>
+    </div></section>
 
 	<section class="slide"><div>
 		<h2>Доступность</h2>
@@ -43,6 +47,10 @@
         <img src="pictures/different_ways.jpg" alt="">
         </div></section>
 
+  <section class="slide shout"><div>
+    <h2 style="font-size: 70px">Каким пользователям мы помогаем?</h2>
+    </div></section>
+
       <section class="slide cover shout"><div>
         <h2 style="font-size: 70px; top: 120px;">Веб доступность <br>не только для слепых пользавателей</h2>
         <img src="pictures/blind_spot.png" alt="">
@@ -67,10 +75,6 @@
 		<h2>~20% активных пользователей</h2>
       </div></section>
 
-  <section class="slide shout cover"><div>
-    <img src="pictures/voffka.png" alt="">
-    </div></section>
-
   <section class="slide shout"><div>
     <h2 style="font-size:80px;">Соблюдение требований<br>vs<br>Обеспечение доступности</h2>
     </div></section>
@@ -81,6 +85,10 @@
 
   <section class="slide shout"><div>
     <h2 style="font-size:80px;">Cайт может быть<br>полностью правильным<br> и технически доступным,<br> но быть недоступным для пользователей</h2>
+    </div></section>
+
+  <section class="slide shout cover"><div>
+    <img src="pictures/voffka.png" alt="">
     </div></section>
 
   <section class="slide cover shout"><div>
@@ -106,6 +114,10 @@
 
   <section class="slide cover"><div>
     <img src="pictures/fail3.png" alt="">
+    </div></section>
+
+  <section class="slide shout cover"><div>
+    <img src="pictures/voffka.png" alt="">
     </div></section>
 
   <section class="slide cover shout"><div>
@@ -288,10 +300,22 @@
 		<ul>
 			<li>Очевидные focus состояния <b>(Оставьте outline в покое)</b></li>
 			<li class="next">Фолбэк для :hover &amp; click - <span class="next">:focus &amp; keydown</span></li>
-			<li class="next">Добавьте нулевой или отрицательный tabIndex и key events для non-focusable элементов</li>
-			<li class="next">Избегайте клавиатурных ловушек и бесполезной траты времени пользователя</li>
 		</ul>
-		</div></section>
+      </div></section>
+
+  <section class="slide shout"><div>
+    <h2 style="font-size: 70px">tabindex</h2>
+    </div></section>
+
+  <section class="slide"><div>
+    <h2>Доступ с клавиатуры. План:</h2>
+    <ul>
+      <li>Очевидные focus состояния <b>(Оставьте outline в покое)</b></li>
+      <li>Фолбэк для :hover &amp; click - <span>:focus &amp; keydown</span></li>
+      <li class="next">Добавьте нулевой или отрицательный tabIndex и key events для non-focusable элементов</li>
+      <li class="next">Избегайте клавиатурных ловушек и бесполезной траты времени пользователя</li>
+    </ul>
+    </div></section>
 
 	<section class="slide"><div>
 		<h2>Клавиатурные ловушки</h2>
@@ -332,31 +356,11 @@
 			<li class="next">Не изобретайте велосипеды!</li>
 			<li class="next">HTML много чего умеет! И абсолютно бесплатно!</li>
 		</ul>
-		</div></section>
+      </div></section>
 
-	<section class="slide code_88"><div>
-		<h2>Wanted: Free Events!</h2>
-		<ul>
-			<li><code>&lt;span class="btn"&gt;Click me&lt;/span&gt;</code></li>
-		</ul>
-		</div></section>
-
-	<section class="slide code_88"><div>
-		<h2>Wanted: Free Events!</h2>
-		<ul>
-			<li><s><code>&lt;span class="btn"&gt;Click me&lt;/span&gt;</code></s></li>
-			<li class="next"><code>&lt;a href="#" class="btn"&gt;Click me&lt;/a&gt;</code></li>
-		</ul>
-		</div></section>
-
-	<section class="slide code_88"><div>
-		<h2>Wanted: Free Events!</h2>
-		<ul>
-			<li><s><code>&lt;span class="btn"&gt;Click me&lt;/span&gt;</code></s></li>
-			<li><s><code>&lt;a href="#" class="btn"&gt;Click me&lt;/a&gt;</code></s></li>
-			<li class="next"><code>&lt;button class="toggle"&gt;Click me&lt;/ button&gt;</code></li>
-		</ul>
-		</div></section>
+  <section class="slide cover shout"><div>
+    <img src="pictures/dragon_see.png" alt="">
+    </div></section>
 
 	<section class="slide"><div>
 		<h2>Формы</h2>
@@ -405,32 +409,34 @@
 		<h2>Визуальная часть</h2>
 		<ul>
 			<li>
-				Начнем с хороших размеров шрифтов и адекватного контраста (<b>4.5+</b>)
+              Начнем с хороших размеров шрифтов и адекватного контраста
 				<ul style="font-size:75%">
 					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
 				</ul>
-			</li>
-			<li class="next">И не забывайте про экранные лупы и зум в браузере. <span class="next">Почему?</span></li>
+          </li>
+          <li><b>AA - 4.5+</b>, <b>AAA - 7.5+</b></li>
+			<li class="next">И не забывайте про экранные лупы и зум в браузере.</li>
 		</ul>
-		</div></section>
+      </div></section>
 
-	<section class="slide cover" style="background: #fff;"><div>
-		<img src="pictures/magnifier.png" alt="">
-		</div></section>
+  <section class="slide shout"><div>
+    <h2 style="font-size: 100px">Почему?</h2>
+    </div></section>
 
 	<section class="slide"><div>
 		<h2>Визуальная часть</h2>
 		<ul>
 			<li>
-				Начнем с хороших размеров шрифтов и адекватного контраста (<b>4.5+</b>)
+              Начнем с хороших размеров шрифтов и адекватного контраста
 				<ul style="font-size:75%">
 					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
 				</ul>
-			</li>
+          </li>
+          <li><b>AA - 4.5+</b>, <b>AAA - 7.5+</b></li>
 			<li>И не забывайте про экранные лупы и зум в браузере</li>
 			<li class="next">Не полагайтесь только на цвет</li>
 			<li class="next">Добавьте легенду, текстуру или символы</li>
@@ -455,13 +461,14 @@
 		<h2>Визуальная часть</h2>
 		<ul>
 			<li>
-				Начнем с хороших размеров шрифтов и адекватного контраста (<b>4.5+</b>)
+              Начнем с хороших размеров шрифтов и адекватного контраста
 				<ul style="font-size:75%">
 					<li><a href="http://mzl.la/1eeYiyf">WCAG Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1eeYZYh">Contrast Checker</a></li>
 					<li><a href="http://bit.ly/1QyZ2GW">Contrast Ratio by Lea Verou</a></li>
 				</ul>
 			</li>
+          <li><b>AA - 4.5+</b>, <b>AAA - 7.5+</b></li>
 			<li>И не забывайте про экранные лупы и зум в браузере</li>
 			<li>Не полагайтесь только на цвет</li>
 			<li>Добавьте легенду и текстуру или символы</li>
@@ -490,20 +497,11 @@
 	<section class="slide cover"><div>
 		<h2>Как работают скрин-ридеры?</h2>
 		<ul>
-			<li>Забирает исходник</li>
-			<li class="next">Получаем приятный сгенерированный HTML "как в исходнике". <br>Ну почти</li>
+			<li>Забирают код нашей страницы</li>
+			<li class="next">И преобразуют блочное представление контента в линейное</li>
 		</ul>
 		<img src="pictures/blank.jpg" alt="">
 		<img src="pictures/reader_html.jpg" alt="" class="next">
-		</div></section>
-
-	<section class="slide"><div>
-		<h2>Скрин-ридеры</h2>
-		<ul>
-			<li>Для навигации и поиска по контенту используется клавиатура</li>
-			<li>Простая и функциональная система шорткатов</li>
-			<li>98,6% пользователей скрин-ридеров не выключают JS!</li>
-		</ul>
 		</div></section>
 
 	<section class="slide"><div>
@@ -814,13 +812,14 @@
 			<li><a href="http://www.w3.org/TR/WCAG20-TECHS/">Техники</a></li>
 			<li><a href="http://www.w3.org/WAI/WCAG20/quickref/">Quick Reference</a></li>
 			<li><a href="http://www.w3.org/WAI/WCAG20/wcag2faq.html">WCAG 2.0 FAQ</a></li>
-			<li><a href="http://a11yproject.com/checklist.html">Chechlist Community</a></li>
+			<li><a href="http://www.w3.org/TR/wai-aria/">WAI-ARIA</a></li>
+			<li><a href="http://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a></li>
 			<li><a href="http://www.w3.org/TR/WCAG10/full-checklist.html">W3C Checklist</a></li>
 		</ul>
 		<ul>
-			<li><a href="http://www.w3.org/TR/wai-aria/">WAI-ARIA</a></li>
-			<li><a href="http://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a></li>
-			<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">WAI-ARIA by mozilla</a></li>
+			<li><a href="http://a11yproject.com/checklist.html">A11Y Project Checklist</a></li>
+			<li><a href="http://a11yproject.com/patterns/">Patterns by A11Y Project</a></li>
+			<li><a href="http://a11yproject.com/resources.html">Resources by A11Y Project</a></li>
 			<li><a href="http://www.html5accessibility.com/">General HTML5 Accessibility</a></li>
 			<li><a href="http://webaim.org/resources/evalquickref/">Quick Reference (WEBAIM)</a></li>
 			<li><a href="http://webaim.org/articles/screenreader_testing/">Testing with Screen Readers</a></li>
