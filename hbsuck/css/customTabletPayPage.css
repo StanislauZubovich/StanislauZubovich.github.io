@@ -1,7 +1,0 @@
-@import url("tabletPayPage.css");
-
-/* Add custom styles below here */
-@import url("customPayPage.css");
-.tooltip, #cscToolTip, #issueToolTip, #cardToolTip, #cardholderNameToolTip{
-	left: 260px;
-}
