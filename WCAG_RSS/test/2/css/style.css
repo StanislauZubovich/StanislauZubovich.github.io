@@ -1,0 +1,850 @@
+@font-face {
+    font-family: GothamRoundedBook;
+    src: url(../fonts/gotham-rounded-book.ttf);
+}
+@font-face {
+    font-family: GothamRoundedMedium;
+    src: url(../fonts/gotham-rounded-medium.ttf);
+}
+@font-face {
+    font-family: GothamRoundedBold;
+    src: url(../fonts/gotham-rounded-bold.ttf);
+}
+body {
+    background-color: #efefef;
+}
+a {
+    text-decoration: none;
+}
+button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+input {
+    border: none;
+}
+.clear::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+/*    currency converter   */
+/*=========================*/
+
+.currency-converter {
+    width: 307px;
+    margin: 30px auto 71px;
+    background-color: #fff;
+    font-family: GothamRoundedMedium;
+}
+.currency-converter li {
+    padding: 28px 0 27px 0;
+}
+.currency-converter li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+.currency-converter li.active {
+    padding: 29px 0 33px 0;
+}
+.currency-converter label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 102px;
+    height: 54px;
+    border-right: 1px solid #d7d7d7;
+    text-align: center;
+    font-size: 18.11px;
+    line-height: 54px;
+    color: #b2b2b2;
+    text-transform: uppercase;
+}
+.currency-converter li div {
+    float: right;
+}
+.currency-converter input {
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    width: 205px;
+    height: 54px;
+    border: none;
+    font-family: GothamRoundedBook;
+    font-size: 40.75px;
+    line-height: 54px;
+    color: #dcdbdb;
+    text-align: right;
+    padding: 0 22px 0 0;
+}
+.currency-converter li.active input {
+    color: #b2b2b2;
+}
+.currency-converter input:focus {
+    color: #b2b2b2;
+}
+.currency-converter-buttons {
+    background-color: #526e82;
+    font-size: 0;
+}
+.currency-converter-button {
+    display: inline-block;
+    height: 64px;
+    border: none;
+    padding: 0;
+}
+.currency-converter-button.button-convert {
+    width: 102px;
+    margin: 0 55px 0 0;
+    background: #ff8989 url(../img/sprite-controls-buttons.png) 35px 23px;
+}
+.currency-converter-button.button-add-currency {
+    width: 81px;
+    background: url(../img/sprite-controls-buttons.png) 1027px 18px;
+}
+.currency-converter-button.button-menu {
+    width: 69px;
+    background: url(../img/sprite-controls-buttons.png) 919px 16px;
+}
+.currency-converter-button.button-convert:hover {
+    background-color: #d27171;
+}
+.currency-converter-button.button-add-currency:hover {
+    background-position: 1027px 118px;
+}
+.currency-converter-button.button-menu:hover {
+    background-position: 919px 116px;
+}
+
+/*       calendar          */
+/*=========================*/
+
+.calendar {
+    width: 307px;
+    margin: 0 auto 38px;
+    background-color: #fff;
+    font-family: GothamRoundedMedium;
+}
+.calendar a {
+    float: right;
+    width: 45px;
+    height: 85px;
+}
+.calendar a:first-child {
+    float: left;
+}
+.calendar .previous-month-button {
+    background: url(../img/sprite-controls-buttons.png) 214px 29px;
+}
+.calendar .next-month-button {
+    background: url(../img/sprite-controls-buttons.png) 115px 29px;
+}
+.calendar .previous-month-button:hover {
+    background-position: 214px 129px;
+}
+.calendar .next-month-button:hover {
+    background-position: 115px 129px;
+}
+.calendar header {
+    box-sizing: border-box;
+    height: 85px;
+    background-color: #526e82;
+}
+.calendar-month-and-year {
+    padding: 0 45px 0 45px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18.11px;
+    line-height: 28px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.calendar-month-and-year span {
+    display: block;
+}
+.calendar-month-and-year span:first-child {
+    font-family: GothamRoundedBook;
+    font-size: 17.21px;
+    color: #e6e6e6;
+    padding: 10px 0 0;
+}
+.calendar table {
+    width: 100%;
+    table-layout: fixed;
+}
+.calendar thead {
+    height: 56px;
+    background-color: #4cd9c0;
+    color: #3dad99;
+    font-size: 17.21px;
+    line-height: 56px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+.calendar td {
+    width: 100%;
+    text-align: center;
+}
+.calendar td span {
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+.calendar tbody tr {
+    height: 44px;
+    font-size: 17.21px;
+    line-height: 38px;
+    font-family: GothamRoundedBook;
+    color: #526982;
+}
+.calendar tbody tr:first-child {
+    height: 57px;
+    line-height: 57px;
+}
+.calendar tbody .today {
+    border-radius: 50%;
+    background-color: #ff8989;
+}
+
+/*      weather widget     */
+/*=========================*/
+
+.weather-widget {
+    width: 307px;
+    margin: 0 auto 38px;
+    background-color: #fff;
+    font-family: GothamRoundedMedium;
+}
+.weather-widget-slider {
+    position: relative;
+    overflow: hidden;
+    width: 307px;
+    height: 248px;
+}
+.weather-widget-slider ul {
+    width: 9999px;
+}
+.weather-widget-slider li {
+    float: left;
+    width: 307px;
+    height: 248px;
+}
+.slider-nav {
+    position: absolute;
+    right: 12px;
+    bottom: 11px;
+}
+.slider-nav span {
+    float: left;
+    width: 7px;
+    height: 7px;
+    margin: 0 9px 0 0;
+    border-radius: 50%;
+    background-color: #05aeb3;
+    cursor: pointer;
+}
+.slider-nav span:last-child {
+    margin: 0;
+}
+.slider-nav span.active {
+    background-color: #076164;
+}
+.slider-text {
+    position: absolute;
+    left: 12px;
+    top: 150px;
+    font-family: GothamRoundedMedium;
+    font-size: 16.75px;
+    line-height: 19px;
+    color: #fff;
+}
+.slider-text span {
+    display: block;
+}
+.slider-text span:first-child {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: GothamRoundedBook;
+}
+.weather-widget-buttons {
+    font-size: 0;
+}
+.weather-widget-button {
+    display: inline-block;
+    width: 79px;
+    height: 64px;
+    border: none;
+    background-color: #fff;
+    padding: 0;
+}
+.weather-widget-button:hover {
+    background: #e3dfdf;
+}
+.weather-widget-button.button-fahrenheit {
+    background: #ff8989 url(../img/sprite-controls-buttons.png) 828px 18px;
+}
+.weather-widget-button.button-fahrenheit:hover {
+    background-color: #d27171;
+}
+.weather-widget-button.button-celsius {
+    background: url(../img/sprite-controls-buttons.png) 724px 18px;
+}
+.weather-widget-button.button-add {
+    background: url(../img/sprite-controls-buttons.png) 626px 18px;
+}
+.weather-widget-button.button-menu {
+    width: 70px;
+    background: url(../img/sprite-controls-buttons.png) 512px 20px;
+}
+.weather-widget-button.button-celsius:hover {
+    background-position: 724px 118px;
+}
+.weather-widget-button.button-add:hover {
+    background-position: 626px 118px;
+}
+.weather-widget-button.button-menu:hover {
+    background-position: 512px 120px;
+}
+
+/*      audio player       */
+/*=========================*/
+
+.audio-player {
+    width: 728px;
+    margin: 0 auto 38px;
+    background-color: #fff;
+    font-size: 0;
+}
+.audio-player .left-block {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 142px;
+    padding: 7px 8px 15px 8px;
+    font-size: 14px;
+    vertical-align: top;
+}
+.audio-player .left-block img {
+    display: block;
+    margin: 0 0 12px 0;
+}
+.audio-player .left-block .button-follow {
+    display: block;
+    box-sizing: border-box;
+    width: 125px;
+    height: 40px;
+    padding: 0 10px 0 45px;
+    background-color: #526e82;
+    font-family: GothamRoundedBold;
+    font-size: 13.58px;
+    line-height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.audio-player .left-block .button-follow:hover {
+    background-color: #42596a;
+}
+.audio-player .right-block {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 586px;
+    padding: 7px 13px 7px 22px;
+    font-family: GothamRoundedBook;
+    font-size: 22.64px;
+    line-height: 32px;
+    vertical-align: top;
+}
+.audio-player .right-block h2 {
+    margin: 10px 0 0;
+    color: #a8a8a8;
+}
+.audio-player .right-block h3 {
+    margin: 6px 0 0;
+    color: #d6d6d6;
+}
+.audio-player .progress-bar {
+    position: relative;
+    width: 488px;
+    height: 9px;
+    margin: 13px 0 32px;
+    border-radius: 4px;
+    background-color: #efefef;
+}
+.audio-player .load-progress,
+.audio-player .play-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 9px;
+    border-radius: 4px;
+}
+.audio-player .load-progress {
+    background-color: #bbfdf1;
+}
+.audio-player .play-progress {
+    background-color: #4cd9c0;
+}
+.audio-player .time-display {
+    position: absolute;
+    top: -5px;
+    left: 515px;
+    font-size: 15.85px;
+    line-height: 18px;
+    color: #c6c6c6;
+}
+.audio-player .controls {
+    font-size: 0;
+    margin: 0 0 0 -3px;
+}
+.audio-player .controls button {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+}
+.audio-player .controls .play-button {
+    margin: 0 37px 0 0;
+    border-radius: 50%;
+    background: #4cd9c0 url(../img/sprite-player-buttons.png) 18px 15px;
+}
+.audio-player .controls .pause-button {
+    margin: 0 37px 0 0;
+    border-radius: 50%;
+    background: #4cd9c0 url(../img/sprite-player-buttons.png) 17px 65px;
+}
+.audio-player .controls .previous-button {
+    margin: 0 7px 0 0;
+    background: url(../img/sprite-player-buttons.png) 361px 13px;
+}
+.audio-player .controls .next-button {
+    margin: 0 25px 0 0;
+    background: url(../img/sprite-player-buttons.png) 313px 13px;
+}
+.audio-player .controls .shuffle-button {
+    margin: 0 25px 0 0;
+    background: url(../img/sprite-player-buttons.png) 259px 13px;
+}
+.audio-player .controls .queue-button {
+    margin: 0 36px 0 0;
+    background: url(../img/sprite-player-buttons.png) 213px 13px;
+}
+.audio-player .controls .like-button {
+    margin: 0 34px 0 0;
+    background: url(../img/sprite-player-buttons.png) 162px 13px;
+}
+.audio-player .controls .add-button {
+    margin: 0 29px 0 0;
+    background: url(../img/sprite-player-buttons.png) 111px 11px;
+}
+.audio-player .controls .share-button {
+    background: url(../img/sprite-player-buttons.png) 69px 13px;
+}
+
+
+.audio-player .controls .play-button:hover,
+.audio-player .controls .pause-button:hover {
+    background-color: #40b29e;
+}
+.audio-player .controls .previous-button:hover {
+    background-position: 361px 63px;
+}
+.audio-player .controls .next-button:hover {
+    background-position: 313px 63px;
+}
+.audio-player .controls .queue-button:hover {
+    background-position: 213px 63px;
+}
+.audio-player .controls .shuffle-button:hover {
+    background-position: 259px 63px;
+}
+.audio-player .controls .like-button:hover,
+.audio-player .controls .like-button.active {
+    background-position: 162px 63px;
+}
+.audio-player .controls .add-button:hover {
+    background-position: 111px 61px;
+}
+.audio-player .controls .share-button:hover {
+    background-position: 69px 63px;
+}
+
+/*       chat widget       */
+/*=========================*/
+
+.chat-widget {
+    width: 307px;
+    margin: 0 auto 63px;
+    background-color: #fff;
+}
+.chat-widget header {
+    height: 64px;
+    background-color: #4cd9c0;
+}
+.chat-widget header button {
+    height: 64px;
+}
+.chat-widget header .button-menu {
+    float: left;
+    width: 75px;
+    background: #41c0a9 url(../img/sprite-controls-buttons.png) 417px 17px;
+}
+.chat-widget header .button-menu:hover {
+    background-color: #3bae99;
+}
+.chat-widget header .button-add {
+    float: right;
+    width: 55px;
+    background: url(../img/sprite-controls-buttons.png) 314px 18px;
+}
+.chat-widget header .button-add:hover {
+    background-position: 314px 118px;
+}
+.chat-widget li {
+    position: relative;
+    padding: 16px 28px 16px 16px;
+}
+.chat-widget li:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+.chat-widget li img {
+    float: left;
+    margin: 0 18px 0 0;
+    cursor: pointer;
+}
+.chat-widget .info {
+    box-sizing: border-box;
+    padding: 0 0 0 68px;
+}
+.chat-widget .info h2 {
+    font-family: GothamRoundedMedium;
+    font-size: 18.11px;
+    line-height: 25px;
+    color: #bac2c7;
+}
+.chat-widget .info a {
+    color: #bac2c7;
+}
+.chat-widget .info p {
+    font-family: GothamRoundedBook;
+    font-size: 13.58px;
+    line-height: 25px;
+    color: #c8d2d9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.chat-widget .info p.sent,
+.chat-widget .info p.not-delivered {
+    padding: 0 0 0 20px;
+    position: relative;
+}
+.chat-widget .info p.sent::before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(../img/sprite-pseudo.png) 140px 0;
+}
+.chat-widget .info p.not-delivered::before {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: url(../img/sprite-pseudo.png) 70px 0;
+}
+.chat-widget .status {
+    position: absolute;
+    top: 35px;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.chat-widget .status-online {
+    background-color: #4cd9c0;
+}
+.chat-widget .status-offline {
+    background-color: #ec747d;
+}
+.chat-widget .status-away {
+    background-color: #56e5f6;
+}
+
+/*      sign in widget     */
+/*=========================*/
+
+.sign-in-widget {
+    width: 307px;
+    margin: 0 auto 63px;
+    background-color: #fff;
+}
+.sign-in-widget li {
+    position: relative;
+    padding: 21px 0 18px;
+}
+.sign-in-widget li:not(:last-child){
+    padding: 23px 0 18px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.sign-in-widget li label {
+    font-size: 20.38px;
+    line-height: 30px;
+}
+.sign-in-widget li input {
+    font-family: GothamRoundedBook;
+    font-size: 20.38px;
+    line-height: 30px;
+    color: #bebebe;
+    margin: 0 0 0 67px;
+    width: 200px;
+}
+.sign-in-widget li .email::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 26px;
+    left: 25px;
+    background: url(../img/sprite-pseudo.png) 0 0;
+    width: 30px;
+    height: 30px;
+}
+.sign-in-widget li .active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    background-color: #ff8989;
+    width: 4px;
+    height: 73px;
+}
+.sign-in-widget li .password.active::after {
+    height: 71px;
+}
+.sign-in-widget li .password::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 21px;
+    left: 27px;
+    background: url(../img/sprite-pseudo.png) 280px 0;
+    width: 30px;
+    height: 30px;
+}
+.sign-in-widget .controls {
+    height: 64px;
+    font-size: 0;
+}
+.sign-in-widget .sign-up-button {
+    width: 156px;
+    height: 64px;
+    display: inline-block;
+    font-size: 18.11px;
+    line-height: 64px;
+    background-color: #7191a8;
+    font-family: GothamRoundedBold;
+    text-transform: uppercase;
+    color: #627d90;
+    text-align: center;
+    vertical-align: top;
+}
+.sign-in-widget .sign-up-button:hover {
+    background-color: #6e8ca1;
+    color: #546a79;
+}
+.sign-in-widget .sign-in-button {
+    width: 151px;
+    height: 64px;
+    display: inline-block;
+    font-size: 18.11px;
+    line-height: 64px;
+    color: #fff;
+    background: #526e82;
+    font-family: GothamRoundedBold;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.sign-in-widget .sign-in-button:hover {
+    background-color: #42596a;
+}
+
+/*       form elements     */
+/*=========================*/
+
+.form-elements {
+    box-sizing: border-box;
+    position: relative;
+    width: 307px;
+    padding: 14px 14px 10px 13px;
+    margin: 0 auto 63px;
+    background-color: #fff;
+}
+.form-elements .input {
+    box-sizing: border-box;
+    border-radius: 11px;
+    width: 216px;
+    height: 51px;
+    padding: 0 13px;
+    font-size: 20.38px;
+    line-height: 30px;
+    font-family: GothamRoundedBook;
+    color: #64dec9;
+}
+.form-elements .input:valid {
+    border: 2px solid #4cd9c0;
+}
+.form-elements .input:invalid {
+    border: 2px solid #ff8989;
+    color: #ffa0a0;
+}
+.range {
+    box-sizing: border-box;
+    width: 213px;
+    margin: 32px 0 28px 3px;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    height: 8px;
+    border: none;
+    background-color: #99b5c9;
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #526e82;
+    border: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.range::-moz-range-track {
+    border-radius: 4px;
+    height: 6px;
+    border: none;
+    background-color: #99b5c9;
+}
+.range::-moz-range-thumb {
+    background: #526e82;
+    border: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.form-elements .checkbox-block {
+    position: absolute;
+    width: 51px;
+    top: 12px;
+    right: 11px;
+}
+.checkbox + label {
+
+}
+.checkbox {
+    vertical-align: top;
+    visibility: hidden;
+    margin: 3px 0 35px;
+    width: 17px;
+    height: 17px;
+}
+.checkbox + label {
+    margin: 0 0 0 -17px;
+    cursor: pointer;
+    position: relative;
+}
+.checkbox + label:before {
+    position: absolute;
+    box-sizing: border-box;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 51px;
+    height: 52px;
+    border: 2px solid #ff8989;
+    border-radius: 11px;
+}
+.checkbox:checked + label:after {
+    position: absolute;
+    box-sizing: border-box;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 51px;
+    height: 52px;
+    background: url(../img/sprite-pseudo.png) 222px 18px;
+}
+.form-elements .radio-buttons-block {
+    position: absolute;
+    /*width: 42px;*/
+    width: 46px;
+    top: 82px;
+    right: 13px;
+}
+.radio {
+    vertical-align: top;
+    visibility: hidden;
+    margin: 3px 0 40px;
+    padding: 0;
+    width: 17px;
+    height: 17px;
+}
+.radio + label {
+    margin: 0 42px 0 -17px;
+    cursor: pointer;
+    position: relative;
+}
+.radio + label:before {
+    position: absolute;
+    box-sizing: border-box;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #dedede;
+    border-radius: 50%;
+}
+.radio:checked + label:before {
+    border: 2px solid #4cd9c0;
+}
+.radio + label:after {
+    position: absolute;
+    box-sizing: border-box;
+    content: '';
+    top: 7px;
+    left: 7px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+.radio:checked + label:after {
+    background-color: #4cd9c0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    currency converter   */
+/*=========================*/

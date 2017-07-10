@@ -1,0 +1,1019 @@
+@font-face {
+    font-family: 'Gotham Rounded Medium';
+    src: url('fonts/Gotham Rounded Medium.otf');
+}
+
+@font-face {
+    font-family: 'Gotham Rounded Book';
+    src: url('fonts/Gotham Rounded Book.otf');
+}
+
+@font-face {
+    font-family: 'Gotham Rounded Bold';
+    src: url('fonts/Gotham Rounded Bold.otf');
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background: #efefef;
+    height: 1200px;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.icon,
+.temperature .icon,
+.calendar .arrow,
+.email-icon,
+.password-icon {
+    background: url(../images/sprite.png) no-repeat;
+}
+
+.block {
+    background: #ffffff;
+    margin: 25px auto;
+}
+
+.block.money,
+.block.calendar,
+.block.temperature,
+.block.sign-in,
+.block.message {
+    width: 307px;
+}
+
+.block.money {
+    height: 290px;
+}
+
+.block.calendar {
+    position: relative;
+    height: 375px;
+}
+
+.block.temperature {
+    height: 312px;
+}
+
+.block.player {
+    width: 728px;
+}
+
+.block.player,
+.block.valid {
+    position: relative;
+    height: 200px;
+}
+
+.block.valid {
+    width: 305px;
+}
+
+.block.sign-in {
+    height: 209px;
+}
+
+.block.message {
+    height: 564px;
+}
+
+.converter {
+    font-size: 0;
+}
+
+.input-block,
+.input-block .input {
+    height: 116px;
+}
+
+.output-block {
+    border-top: 1px solid #e2e2e2;
+    position: relative;
+}
+
+.input-block {
+    position: relative;
+}
+
+.output-block,
+.output-block .input {
+    height: 109px;
+}
+
+.converter .text {
+    color: #b2b2b2;
+    font-size: 1.8rem;
+    width: 102px;
+    text-align: center;
+    font-family: 'Gotham Rounded Medium';
+}
+
+.input-block .text {
+    line-height: 116px;
+    position: absolute;
+}
+
+.input-block .input {
+    height: 116px;
+    position: absolute;
+    left: 102px;
+}
+
+.input-block .money {
+    font-family: 'Gotham Rounded Book';
+    color: red;
+    font-size: 2.7rem;
+    position: absolute;
+    color: #b2b2b2;
+    top: 45px;
+    left:156px;
+}
+
+.output-block .text {
+    line-height: 109px;
+    position: absolute;
+}
+
+.output-block .input {
+    height: 109px;
+    position: absolute;
+    left: 102px;
+    background: #ffffff;
+}
+
+.output-block .money {
+    font-family: 'Gotham Rounded Book';
+    color: red;
+    font-size: 2.7rem;
+    position: absolute;
+    color: #dcdbdb;
+    top: 44px;
+    left:164px;
+}
+
+.converter .input {
+    width: 183px;
+    padding-right: 22px
+}
+
+.converter .input[placeholder] {
+    font-size: 4.1rem;
+    text-align: right;
+    font-family: 'Gotham Rounded Book';
+}
+
+.input-block .input[placeholder]::first-line {
+    color: #b2b2b2;
+}
+
+.output-block .input[placeholder]::first-line {
+    color: #dcdbdb;
+}
+
+.input-block::after, .output-block::after {
+    content: '';
+    display: block;
+    background: #d7d7d7;
+    width: 1px;
+    height: 54px;
+    position: absolute;
+    left: 102px;
+    top: 29px;
+}
+
+.converter .buttons {
+    position: relative;
+}
+
+.converter .buttons .red {
+    position: absolute;
+    height: 64px;
+    width: 102px;
+    background: #ff8989;
+}
+
+.converter .buttons .red:hover {
+    cursor: pointer;
+    background: #d57171;
+}
+
+.converter .buttons .grey {
+    position: absolute;
+    height: 64px;
+    left: 102px;
+    width: 205px;
+    background: #526e82;
+}
+
+.buttons .red .icon {
+    position: absolute;
+    top: 26px;
+    left: 35px;
+    background-position: 0 0;
+    height: 12px;
+    width: 32px;
+}
+
+.icon.plus {
+    position: absolute;
+    top: 18px;
+    left: 82px;
+    background-position: -32px 0;
+    height: 26px;
+    width: 26px;
+}
+
+.icon.plus:hover {
+    cursor: pointer;
+}
+
+.icon.numbers {
+    position: absolute;
+    top: 16px;
+    left: 155px;
+    background-position: -59px 0;
+    height: 30px;
+    width: 31px;
+}
+
+.icon.numbers:hover {
+    cursor: move;
+}
+
+.slider {
+    height: 248px;
+    width: 307px;
+    overflow: hidden;
+    position: relative;
+}
+
+.place.time,
+.place.name,
+.place.temperature {
+    position: absolute;
+    color: #ffffff;
+}
+
+.place.time,
+.place.name {
+    left: 12px;
+    font-size: 1.7rem;
+    font-family: 'Gotham Rounded Medium';
+}
+
+.place.time {
+    top: 219px;
+}
+
+.place.name {
+    top: 197px;
+}
+
+.place.temperature {
+    font-size: 5rem;
+    left: 9px;
+    top: 144px;
+    font-family: 'Gotham Rounded Book';
+}
+
+.place.temperature::after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 4px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    top: 2px;
+    left: 62px;
+}
+
+.point {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #05aeb3;
+    top: 230px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.point.active {
+    background: #076164;
+}
+
+.points {
+    font-size: 0;
+    height: 7px;
+    width: 45px;
+    position: absolute;
+    top: 230px;
+    left: 253px;
+}
+
+.point:hover {
+    cursor: pointer;
+}
+
+.temperature .buttons {
+    font-size: 0;
+    height: 64px;
+    width: 307px;
+}
+
+.temperature .buttons div {
+    display: inline-block;
+}
+
+.fahrenheit {
+    background: #ff8989;
+}
+
+.fahrenheit:hover {
+    background: #d57171;
+}
+
+.fahrenheit .icon {
+    display: block;
+    height: 64px;
+    width: 79px;
+    background-position: -90px 0;
+}
+
+.celsius .icon {
+    display: block;
+    height: 64px;
+    width: 76px;
+    background-position: -324px 0;
+}
+
+.plus .icon {
+    display: block;
+    height: 64px;
+    width: 87px;
+    background-position: -400px 0;
+}
+
+.list .icon {
+    display: block;
+    height: 64px;
+    width: 65px;
+    background-position: -487px 0;
+}
+
+.year.month {
+    width: 307px;
+    height: 85px;
+    background: #526e82;
+    font-size: 0;
+    position: relative;
+}
+
+.year.month div {
+    height: 85px;
+}
+
+.calendar .arrow {
+    width: 44px;
+}
+
+.calendar .arrow:hover {
+    cursor: pointer;
+}
+
+.calendar .date {
+    position: absolute;
+    top: 0;
+    left: 44px;
+    width: 219px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.calendar .arrow.left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: 0 -30px;
+}
+
+.calendar .arrow.right {
+    position: absolute;
+    top: 0;
+    left: 263px;
+    background-position: -44px -30px;
+}
+
+.calendar .date .year {
+    font-family: 'Gotham Rounded Book';
+    font-size: 1.7rem;
+    display: block;
+    margin-top: 13px;
+}
+
+.calendar .date .month {
+    font-family: 'Gotham Rounded Medium';
+    font-size: 1.8rem;
+    display: block;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+
+.calendar table {
+    font-size: 1.7rem;
+    position: absolute;
+    top: 85px;
+    width: 302px;
+    border: none;
+    border-collapse: collapse;
+}
+
+.week {
+    position: absolute;
+    top: 85px;
+    height: 56px;
+    width: 307px;
+    background: #4cd9c0;
+}
+
+.calendar thead {
+    color: #3dad99;
+}
+
+.calendar thead tr {
+    font-family: 'Gotham Rounded Medium';
+    height: 56px;
+}
+
+.calendar th {
+    width: 50px;
+}
+
+.calendar span:hover {
+    color: #e7e7e7;
+}
+
+.calendar tbody tr {
+    height: 46px;
+}
+
+.calendar td {
+    text-align: center;
+    font-family: 'Gotham Rounded Book';
+}
+
+.calendar .number {
+    display: block;
+    color: #9d9d9d;
+}
+
+.calendar .number.active {
+    margin: auto;
+    height: 30px;
+    width: 30px;
+    background:#ff8989;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.calendar .number:hover {
+    cursor: pointer;
+}
+
+.sign-in .email,
+.sign-in .password {
+    width: 235px;
+    font-family: 'Gotham Rounded Book';
+    font-size: 2rem;
+    color: #bebebe;
+}
+
+.sign-in .email {
+    border-left: 3px solid #ff8989;
+    border-bottom: 1px solid #e2e2e2;
+    padding-left: 65px;
+    height: 73px;
+}
+
+.sign-in .password {
+    padding-left: 68px;
+    height: 71px;
+}
+
+form.sign-in {
+    position: relative;
+    font-size: 0;
+}
+
+.email-icon,
+.password-icon {
+    position: absolute;
+}
+
+.email-icon {
+    background-position: -552px -24px;
+    top: 26px;
+    left: 25px;
+    width: 21px;
+    height: 22px;
+}
+
+.password-icon {
+    top: 95px;
+    left: 27px;
+    background-position: -552px 0;
+    width: 18px;
+    height: 24px;
+}
+
+.sign-up.button {
+    display: block;
+    text-decoration: none;
+    width: 156px;
+    text-align: center;
+    line-height: 64px;
+    background: #7191a8;
+    color: #627d90;
+}
+
+.sign-up.button:hover {
+    background: #627d90;
+    color: #4a5d6a;
+}
+
+.sign-in .button {
+    display: inline-block;
+    height: 64px;
+    font-family: 'Gotham Rounded Bold';
+    font-size: 1.8rem;
+}
+
+.sign-in.button {
+    background: #526e82;
+    color: #ffffff;
+    position: absolute;
+    left: 156px;
+    top: 145px;
+    width: 151px;
+}
+
+.sign-in.button:hover {
+    cursor: pointer;
+    background: #364956;
+}
+
+.valid-input,
+.invalid-input {
+    border-radius: 10px;
+    height: 47px;
+    width: 200px;
+    background: #ffffff;
+    font-family: 'Gotham Rounded Book';
+    font-size: 2rem;
+    padding-left: 12px;
+    position: absolute;
+    left: 12px;
+}
+
+.valid-input {
+    border: 2px solid #4cd9c0;
+    color: #4cd9c0;
+    top: 14px;
+}
+
+.invalid-input {
+    border: 2px solid #ff8989;
+    color: #ff8989;
+    top: 138px;
+}
+
+.dark-line,
+.light-line {
+    position: absolute;
+    height: 8px;
+    border-radius: 3px;
+    left: 14px;
+    top: 98px;
+}
+
+.dark-line {
+    width: 137px;
+    background: #526e82;
+}
+
+.light-line {
+    width: 213px;
+    background: #99b5c9;
+}
+
+.dark-point {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #526e82;
+    border-radius: 50%;
+    top: 93px;
+    left: 148px;
+}
+
+.dark-point:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label span {
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    left: 244px;
+    width: 47px;
+    height: 49px;
+    border: 2px solid #ff8989;
+    border-radius: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    background-position: -700px -700px;
+}
+
+input[type="checkbox"]:checked + label span {
+    background: url(../images/sprite.png) no-repeat -90px -65px;
+}
+
+.radio {
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    border: 2px solid #dddddd;
+    top: 82px;
+    left: 250px;
+}
+
+.radio::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background: #dddddd;
+}
+
+.radio.checked {
+    border: 2px solid #4cd9c0;
+    top: 143px;
+    left: 250px;
+}
+
+.radio.checked::after {
+    background: #4cd9c0;
+}
+
+.message .header {
+    font-size: 0;
+    position: relative;
+    width: 307px;
+    height: 64px;
+    background: #4cd9c0;
+}
+
+.header .menu-button {
+    display: inline-block;
+    height: 64px;
+    width: 75px;
+    background: #41c0a9;
+}
+
+.header .menu-button:hover {
+    background: #319a87;
+    cursor: pointer;
+}
+
+.header .plus-button {
+    position: absolute;
+    left: 252px;
+    display: inline-block;
+    height: 64px;
+    width: 232px;
+    background: url(../images/sprite.png) no-repeat -573px 0;
+}
+
+.header .plus-button {
+    cursor: pointer;
+}
+
+.header .menu-button .icon {
+    position: absolute;
+    height: 25px;
+    width: 36px;
+    margin-top: 17px;
+    margin-left: 17px;
+    background: url(../images/sprite.png) no-repeat -138px -64px;
+}
+
+.message {
+    background: #ffffff;
+}
+
+.message:first-child {
+    height: 67px;
+}
+
+.message:not(:first-child) {
+    height: 69px;
+}
+
+div.message:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.messages .message:first-child {
+    padding: 5px;
+}
+
+.messages .message:not(:first-child) {
+    padding: 7px;
+}
+
+.messages .message {
+    position: relative;
+}
+
+.messages .message:hover {
+    cursor: pointer;
+}
+
+.message img {
+    width: 68px;
+    height: 68px;
+}
+
+.message .name {
+    position: absolute;
+    top: 18px;
+    left: 84px;
+    font-family: 'Gotham Rounded Medium';
+    font-size: 1.8rem;
+    color: #bac2c7;
+}
+
+.message.online::after,
+.message.off::after {
+    display: block;
+    position: absolute;
+    top: 36px;
+    left: 283px;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.message.online::after {
+    background: #4cd9c0;
+}
+
+.message.off::after {
+    background: #ec747d;
+}
+
+.textm {
+    position: absolute;
+    top: 43px;
+    left: 84px;
+    font-family: 'Gotham Rounded Book';
+    font-size: 1.4rem;
+    color: #bac2c7;
+}
+
+.typing .textm {
+    font-style: italic;
+}
+
+.sent .textm, .not .textm {
+    left: 103px;
+}
+
+.sent .textm::after,
+.not .textm::after {
+    position: absolute;
+    left: -19px;
+    top: 5px;
+    display: block;
+    content: '';
+    width: 14px;
+    height: 9px;
+}
+
+.sent .textm::after {
+    background: url(../images/sprite.png) no-repeat -174px -64px;
+}
+
+.not .textm::after {
+    background: url(../images/sprite.png) no-repeat -188px -64px;
+}
+
+.picture {
+    position: absolute;
+    top: 7px;
+    left: 8px;
+}
+
+.follow {
+    text-align: center;
+    line-height: 35px;
+    position: absolute;
+    width: 103px;
+    height: 40px;
+    padding-left: 22px;
+    background: #526e82;
+    top: 145px;
+    left: 8px;
+    color: #ffffff;
+    font-family: 'Gotham Rounded Bold';
+    font-size: 1.4rem;
+}
+
+.follow:hover {
+    background: #3d5261;
+    cursor: pointer;
+}
+
+.follow span {
+    background: url(../images/sprite.png) no-repeat -197px -64px;
+    top: 11px;
+    left: 18px;
+    height: 13px;
+    width: 13px;
+    display: block;
+    position: absolute;
+}
+
+.song,
+.arsist {
+    position: absolute;
+    font-family: 'Gotham Rounded Book';
+    font-size: 2.2rem;
+}
+
+.song {
+    top: 20px;
+    left: 165px;
+    color: #a8a8a8;
+}
+
+.artist {
+    top: 56px;
+    left: 164px;
+    color: #d6d6d6;
+}
+
+.progress,
+.loaded,
+.played {
+    position: absolute;
+    top: 100px;
+    left: 164px;
+    height: 9px;
+    border-radius: 4px;
+}
+
+.progress {
+    background: #efefef;
+    width: 488px;
+}
+
+.loaded {
+    background: #bbfdf1;
+    width: 388px;
+}
+
+.played {
+    background: #4cd9c0;
+    width: 300px;
+}
+
+.time {
+    position: absolute;
+    font-family: 'Gotham Rounded Book';
+    font-size: 1.6rem;
+    color: #c6c6c6;
+    top: 94px;
+    left: 679px;
+}
+
+.play {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #4cd9c0;
+    top: 141px;
+    left: 160px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.play:hover {
+    cursor: pointer;
+    background: #319a87;
+}
+
+.play .icon {
+    background: url(../images/sprite.png) no-repeat -210px -64px;
+    width: 13px;
+    height: 15px;
+    left: 18px;
+    top: 15px;
+}
+
+.play .icon,
+.previous,
+.next,
+.shuffle,
+.repeat,
+.heart,
+.add,
+.share {
+    display: block;
+    position: absolute;
+}
+
+.previous,
+.next {
+    width: 22px;
+    height: 17px;
+    top: 155px;
+}
+
+.previous {
+    background: url(../images/sprite.png) no-repeat -223px -64px;
+    left: 253px;
+}
+
+.next {
+    background: url(../images/sprite.png) no-repeat -245px -64px;
+    left: 306px;
+}
+
+.shuffle {
+    width: 22px;
+    height: 18px;
+    top: 155px;
+    background: url(../images/sprite.png) no-repeat -267px -64px;
+    left: 372px;
+}
+
+.repeat {
+    width: 24px;
+    height: 17px;
+    top: 156px;
+    background: url(../images/sprite.png) no-repeat -289px -64px;
+    left: 446px;
+}
+
+.heart {
+    width: 21px;
+    height: 18px;
+    top: 156px;
+    background: url(../images/sprite.png) no-repeat -313px -64px;
+    left: 526px;
+}
+
+.add {
+    width: 23px;
+    height: 23px;
+    top: 154px;
+    background: url(../images/sprite.png) no-repeat -334px -64px;
+    left: 604px;
+}
+
+.share {
+    width: 21px;
+    height: 18px;
+    top: 156px;
+    background: url(../images/sprite.png) no-repeat -357px -64px;
+    left: 687px;
+}
+
+.previous:hover,
+.next:hover,
+.shuffle:hover,
+.repeat:hover,
+.heart:hover,
+.add:hover,
+.share:hover {
+    cursor: pointer;
+}

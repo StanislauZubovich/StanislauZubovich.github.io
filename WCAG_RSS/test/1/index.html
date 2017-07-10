@@ -1,229 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<link rel="stylesheet" href="css/stylesheet.css">
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<div class="calendar widget inline-block"> 
-			<h4 class="stretch"><a href="#"><i class="sprite sprite-prev"></i></a><span>May 2014</span><a href="#"><i class="sprite sprite-next"></i></a></h4>
-		<form action="">
-		<!-- <div> -->
-			<table class="calendar-table">
-				<tr>
-					<th>Sun</th>
-					<th>Mon</th>
-					<th>Tue</th>
-					<th>Wed</th>
-					<th>Thu</th>
-					<th>Fri</th>
-					<th>Sat</th>
-				</tr>
-				<tr>
-					<td><a href="">29</a></td>
-					<td><a href="">30</a></td>
-					<td class="current"><a href="">1</a></td>
-					<td class="current"><a href="">2</a></td>
-					<td class="current selected"><a href="">3</a></td>
-					<td class="current"><a href="">4</a></td>
-					<td class="current"><a href="">5</a></td>
-				</tr>
-				<tr>
-					<td class="current"><a href="">6</a></td>
-					<td class="current gala"><a href="">7</a></td>
-					<td class="current"><a href="">8</a></td>
-					<td class="current"><a href="">9</a></td>
-					<td class="current"><a href="">10</a></td>
-					<td class="current"><a href="">11</a></td>
-					<td class="current"><a href="">12</a></td>
-				</tr>
-				<tr>
-					<td class="current"><a href="">13</a></td>
-					<td class="current"><a href="">14</a></td>
-					<td class="current"><a href="">15</a></td>
-					<td class="current"><a href="">16</a></td>
-					<td class="current"><a href="">17</a></td>
-					<td class="current"><a href="">18</a></td>
-					<td class="current"><a href="">19</a></td>
-				</tr>
-				<tr>
-					<td class="current"><a href="">20</a></td>
-					<td class="current"><a href="">21</a></td>
-					<td class="current"><a href="">22</a></td>
-					<td class="current gala"><a href="">23</a></td>
-					<td class="current"><a href="">24</a></td>
-					<td class="current"><a href="">25</a></td>
-					<td class="current"><a href="">26</a></td>
-				</tr>
-				<tr>
-					<td class="current"><a href="">27</a></td>
-					<td class="current"><a href="">28</a></td>
-					<td class="current"><a href="">29</a></td>
-					<td class="current"><a href="">30</a></td>
-					<td><a href="">1</a></td>
-					<td><a href="">2</a></td>
-					<td><a href="">3</a></td>
-				</tr>
-			</table>
-			<!-- <button class="outline-button block">ADD EVENT</button> -->
-			<input type="submit" class="outline-button block" value="ADD EVENT">
-		</form>
-	</div>
+<html>
+    <head>
+        <title>Forms and Widgets</title>
+        <link type="text/css" rel="stylesheet" href="styles/style.css" />
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="money block">
+            <div class="converter">
+                <div class="input-block">
+                    <label class="text">USD</label>
+                    <input class="input" placeholder="356.3" name="count" type="text" />
+                    <span class="money">$</span>
+                </div>
+                <div class="output-block">
+                    <label class="text">GBP</label>
+                    <input class="input" placeholder="156.3" name="result" type="text" disabled />
+                    <span class="money">&#163;</span>
+                </div>
+                <div class="buttons">
+                    <div class="red">
+                        <div class="icon"></div>
+                    </div>
+                    <div class="grey">
+                        <div class="icon plus"></div>
+                        <div class="icon numbers"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<div class="booking widget inline-block">
-		<figure class="stretch">
-			<img class="stretch" src="img/eiphel.jpg" alt="eiphel's tower">
-			<figcaption>
-				<h2><a href="">Hotel Relais</a></h2>
-				<p class="location"><a href=""><i class="sprite sprite-navi"></i><span>Paris, France</span></a></p>
-			</figcaption>
-		</figure>
-		<form action="" class="booking-form">
-			<div>
-				<label for="check-in">Check in</label>
-				<input id="check-in" class="calendar-field stretch text" type="text"  value="9 July, 2016"><button class="calendar-button"><i class="sprite sprite-calendar"></i></button>
-			</div>
+        <div class="calendar block">
+            <div class="year month">
+                <div class="arrow left"></div>
+                <div class="date">
+                    <span class="year">2012</span>
+                    <span class="month">July</span>
+                </div>
+                <div class="arrow right"></div>
+            </div>
+            <div class="week"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="number">1</span></td>
+                        <td><span class="number">2</span></td>
+                        <td><span class="number">3</span></td>
+                        <td><span class="number">4</span></td>
+                        <td><span class="number">5</span></td>
+                        <td><span class="number active">6</span></td>
+                        <td><span class="number">7</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="number">8</span></td>
+                        <td><span class="number">9</span></td>
+                        <td><span class="number">10</span></td>
+                        <td><span class="number">11</span></td>
+                        <td><span class="number">12</span></td>
+                        <td><span class="number">13</span></td>
+                        <td><span class="number">14</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="number">15</span></td>
+                        <td><span class="number">16</span></td>
+                        <td><span class="number">17</span></td>
+                        <td><span class="number">18</span></td>
+                        <td><span class="number">19</span></td>
+                        <td><span class="number">20</span></td>
+                        <td><span class="number">21</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="number">22</span></td>
+                        <td><span class="number">23</span></td>
+                        <td><span class="number">24</span></td>
+                        <td><span class="number">25</span></td>
+                        <td><span class="number">26</span></td>
+                        <td><span class="number">27</span></td>
+                        <td><span class="number">28</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="number">29</span></td>
+                        <td><span class="number">30</span></td>
+                        <td><span class="number">31</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-			<div>	
-				<label for="check-out">Check out</label>
-				<input id="check-out" class="calendar-field stretch text" type="text"  value="16 July, 2016"><button class="calendar-button"><i class="sprite sprite-calendar"></i></button>
-			</div>
-			
-			<div class="checkbox-block">
-				<input id="flexible-dates" type="checkbox" checked>
-				<label for="flexible-dates" class="checkboxer">Flexible dates</label>
-			</div>
-			<div class="stretch">
-				<div class="inline-block select-block">
-					<label for="adults" class="block">Adults</label>
-					<!-- <select id="adults" class="text inline-block input-border">
-						<option value="1">1</option>
-					</select> -->
-					<ul id="adults" class="text inline-block input-border pseudo-select">
-						<li>1</li>
-						<li class="select">2</li>
-					</ul>
-					<div class="button-imitator inline-block"><i class="sprite sprite-drop-down"></i></div>
-				</div>
-				
-				<div class="float-right select-block">
-					<label for="children" class="block">Children</label>
-					<!-- 
-					<select id="children" class="text inline-block input-border">
-						<option value="1">1</option>
-					</select> -->
+        <div class="temperature block">
+            <div class="slider">
+                <span class="place temperature">73</span>
+                <span class="place name">Zagora, Greece</span>
+                <span class="place time">8:34 am</span>
+                <div class="images">
+                    <img src="images/slider.jpg" alt="Zagora, Greece" title="Zagora, Greece" />
+                    <img src="images/slider.jpg" alt="Zagora, Greece" title="Zagora, Greece" />
+                    <img src="images/slider.jpg" alt="Zagora, Greece" title="Zagora, Greece" />
+                </div>
+                <div class="points">
+                    <div class="point active"></div>
+                    <div class="point"></div>
+                    <div class="point"></div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="fahrenheit"><a href="#" class="icon"></a></div>
+                <div class="celsius"><a href="#" class="icon"></a></div>
+                <div class="plus"><a href="#" class="icon"></a></div>
+                <div class="list"><a href="#" class="icon"></a></div>
+            </div>
+        </div>
 
-					<ul id="children" class="text inline-block input-border pseudo-select">
-						<li class="select">1</li>
-						<li>2</li>
-					</ul>
-					<div class="button-imitator inline-block"><i class="sprite sprite-drop-down"></i></div>
-				</div>
-			</div>
-			
-			<button type="submit" class="outline-button stretch"><i class="sprite sprite-search"></i><span>SEARCH ROOMS</span></button>
-		</form>		
-	</div>
+        <div class="player block">
+            <img class="picture" alt="Album" title="Album" src="images/album.jpg" />
+            <div class="follow"><span></span>FOLLOW</div>
+            <span class="song">Faded Paper Figures</span>
+            <div class="progress"></div>
+            <div class="loaded"></div>
+            <div class="played"></div>
+            <span class="time">-1:57</span>
+            <div class="play"><span class="icon"></span></div>
+            <div class="previous"></div>
+            <div class="next"></div>
+            <div class="shuffle"></div>
+            <div class="repeat"></div>
+            <div class="heart"></div>
+            <div class="add"></div>
+            <div class="share"></div>
+        </div>
 
-	<div class="destination widget inline-block">
-		<ul class="stretch-vertical side-nav float-left">
-			<li><a href="#" class="stretch stretch-vertical"><i class="sprite sprite-eye center"></i></a></li>
-			<li><a href="#" class="stretch stretch-vertical"><i class="sprite sprite-big-navi center"></i></a></li>
-			<li><a href="#" class="stretch stretch-vertical"><i class="sprite sprite-star center"></i></a></li>
-		</ul>
-		<div class="content stretch-vertical inline-block">
-			<h3>My most favourite place in the world</h3>
-			<p class="reviews dark-gray"><span class="black">154</span> Reviews</p>
-			<p class="gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin. </p>
-			<p><a class="red" href="">Read more</a></p>
-		</div>
-		<figure class="float-right">
-			<img src="img/boat.jpg" alt="boat">
-			<figcaption class="destination-caption"><i class="sprite sprite-comment"></i> <span>752</span>   <a href=""><i class="sprite sprite-heart"></i> <span>2709</span></a></figcaption>
-		</figure>
-	</div>
+        <div class="valid block">
+            <input type="text" value="Valid input" class="valid-input" disabled />
+            <input type="text" value="Invalid input" class="invalid-input" disabled />
+            <div class="light-line"></div>
+            <div class="dark-line"></div>
+            <div class="dark-point"></div>
+            <input type="checkbox" id="check" checked />
+            <label for="check"><span></span></label>
+            <div class="radio"></div>
+            <div class="radio checked"></div>
+        </div>
 
-	<div class="bar-graph widget inline-block">
-		<div class="graph">
-			<ul class="lines">
-				<li>40</li>
-				<li>30</li>
-				<li>20</li>
-				<li>0</li>
-			</ul>
-			<ul class="chart stretch">
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 49px"></div>
-					<div class="message"><span class="center">17</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 62px"></div>
-					<div class="message"><span class="center">18</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 119px"></div>
-					<div class="message"><span class="center">26</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 158px"></div>
-					<div class="message"><span class="center">30</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 129px"></div>
-					<div class="message"><span class="center">42</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 169px"></div>
-					<div class="message"><span class="center">34</span></div>
-				</li>
-				<li class="reverse-order horizontal-list">
-					<div class="chart-block" style="height: 143px"></div>
-					<div class="message"><span class="center">20</span></div>
-				</li>
-			</ul>
-		</div>
-		<ul class="labels">
-			<li class="horizontal-list">
-				<span>Mon</span>
-			</li>
-			<li class="horizontal-list">
-				<span>Tues</span>
-			</li>
-			<li class="horizontal-list">
-				<span>Wed</span>
-			</li>
-			<li class="horizontal-list">
-					<span>Thu</span>
-			</li>
-			<li class="horizontal-list">
-				<span>Fri</span>
-			</li>
-			<li class="horizontal-list">
-				<span>Sat</span>
-			</li>
-			<li class="horizontal-list">
-				<span>Sun</span>
-			</li>
-		</ul>
-	</div>
+        <div class="sign-in block">
+            <form class="sign-in" action="">
+                <input type="text" name="email" class="email" placeholder="Email Address..." />
+                <div class="email-icon"></div>
+                <input type="password" name="password" class="password" placeholder="Password..." />
+                <div class="password-icon"></div>
+                <a href="#" class="sign-up button" title="Sign up">SIGN UP</a>
+                <input type="submit" class="sign-in button" value="SIGN IN" />
+            </form>
+        </div>
 
-	<div class="email widget inline-block">
-		<form action="">
-			<div class="email-input-block text input-border">
-				<a href="" class="float-right"><i class="sprite sprite-add"></i></a>
-				<div class="email-added inline-block"><span>rick.james@mail.com</span><a href="">&#215;</a></div>
-				<!-- <div class="email-added inline-block"><span>rick.james@mail.com</span><a href="">&#215;</a></div> -->
-				<input type="text" class="email-input text" placeholder="Email">
-			</div>
-			<div>
-				<input type="text" class="subject input-border text stretch" placeholder="Subject"><a href=""><i class="sprite sprite-clip"></i></a>
-			</div>
-
-			<textarea class="message-text text input-border stretch" placeholder="Message"></textarea>
-
-			<input type="submit" class="outline-button float-right" value="SEND">	
-		</form>
-	</div>
-</body>
+        <div class="message block">
+            <header class="header">
+                <div class="menu-button">
+                    <div class="icon"></div>
+                </div>
+                <div class="plus-button"></div>
+            </header>
+            <div class="messages">
+                <div class="message got online">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo1.png"  /></a>
+                    <span class="name">Yaroslav Lozhkin</span>
+                    <span class="textm">Alright got it!</span>
+                </div>
+                <div class="message sent off">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo2.png"  /></a>
+                    <span class="name">Michael Zenaty</span>
+                    <span class="textm">Sent</span>
+                </div>
+                <div class="message typing">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo3.png"  /></a>
+                    <span class="name">Wells Riley</span>
+                    <span class="textm">Typing...</span>
+                </div>
+                <div class="message not">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo4.png"  /></a>
+                    <span class="name">Matt Vickers</span>
+                    <span class="textm">Not delivered</span>
+                </div>
+                <div class="message text online">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo5.png"  /></a>
+                    <span class="name">Divya Manian</span>
+                    <span class="textm">You can download it on git...</span>
+                </div>
+                <div class="message text">
+                    <a href="#"><img alt="Photo" title="Photo" src="images/photo6.png"  /></a>
+                    <span class="name">Vin Thomas</span>
+                    <span class="textm">Thank you!</span>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

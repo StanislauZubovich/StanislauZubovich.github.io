@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Вся боль доступного Веба</title>
+	<title>Web Accessibility</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,9 +10,9 @@
 </head>
 <body class="shower list">
 	<header class="caption">
-		<h1>Вся боль доступного Веба</h1>
+		<h1>Web Accessibility</h1>
 		<h1 style="font-size: 35px"> или WCAG 2.0 для людей</h1>
-		<p>Станислав Зубович, EPAM</p>
+		<p>Александра Реут, Станислав Зубович</p>
 	</header>
 	<section class="slide cover shout" id="Cover"><div>
 		<img src="pictures/accessibility.jpg" alt="">
@@ -220,6 +220,14 @@
 		</div></section>
 
 	<section class="slide shout"><div>
+		<h2><a href="http://www.bbc.com/">www.bbc.com</a></h2>
+		</div></section>
+
+	<section class="slide shout"><div>
+		<h2><a href="http://bit.ly/WCAG_RSS_1">bit.ly/WCAG_RSS_1</a></h2>
+		</div></section>
+
+	<section class="slide shout"><div>
 		<h2>Начнем-с</h2>
 		<h2 class="shout_h2_small">Первые шаги</h2>
 		</div></section>
@@ -227,6 +235,7 @@
 	<section class="slide"><div>
 		<h2>План такой:</h2>
 		<ul>
+			<li class="next">Семантическая верстка</li>
 			<li class="next">Наш сайт должнен быть доступен только с клавиатуры</li>
 			<li class="next">Формы должны работать идеально</li>
 			<li class="next">Оставьте фолбэк для визуальной информации</li>
@@ -238,7 +247,38 @@
 		</div></section>
 
 	<section class="slide"><div>
-		<h2>Доступ с клавиатеры. План:</h2>
+		<h2>Семантика!</h2>
+		<ul>
+			<li>Однозначный смысл для содержимого</li>
+			<li class="next">Поиск и глобализация</li>
+			<li class="next">Совместимость</li>
+			<li class="next">Семантика в значительной степени полезна всем</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Структурная семантика</h2>
+		<ul>
+			<li>&lt;header&gt;</li>
+			<li class="next">&lt;nav&gt;</li>
+			<li class="next">&lt;article&gt;</li>
+			<li class="next">&lt;section&gt;</li>
+			<li class="next">и т.д.</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Текстовая семантика</h2>
+		<ul>
+			<li>Важное значение:<br>&lt;strong&gt;Внимание:&lt;/strong&gt; падающие камни.</li>
+			<li class="next">Сильное выделение:<br>Я &lt;em&gt;люблю&lt;/em&gt; Минск!</li>
+			<li class="next">Аббревиатуры:<br>&lt;abbr title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;</li>
+			<li class="next">и т.д.</li>
+		</ul>
+		</div></section>
+
+	<section class="slide"><div>
+		<h2>Доступ с клавиатуры. План:</h2>
 		<ul>
 			<li>Очевидные focus состояния</li>
 		</ul>

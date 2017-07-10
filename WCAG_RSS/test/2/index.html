@@ -1,282 +1,251 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>widgets</title>
-    <link rel="stylesheet" href="./style.css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body>
-      <div class="calendar">
-        <header class="calendar-header">
-            <div class="month-transition">
-                <div class="sprite central sprite-prev"></div>
-            </div>
-            <div class="date-section">
-                  <span>May</span>
-                  <span>2014</span>
-            </div>
-            <div class="month-transition">
-              <div class="sprite central sprite-next"></div>
-            </div>
-        </header>
-        <main class="calendar-main-section">
-          <table>
-            <thead>
-              <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="day-another-month">29</td>
-                <td class="day-another-month">30</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td class="holiday">7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-              </tr>
-              <tr>
-                <td>13</td>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-              </tr>
-              <tr>
-                <td>20</td>
-                <td>21</td>
-                <td>22</td>
-                <td class="holiday">23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>26</td>
-              </tr>
-              <tr>
-                <td>27</td>
-                <td>28</td>
-                <td>29</td>
-                <td>30</td>
-                <td>31</td>
-                <td class="day-another-month">1</td>
-                <td class="day-another-month">2</td>
-              </tr>
-
-            </tbody>
-
-          </table>
-          <form class="" action="index.html" method="post">
-            <input type="submit" name="" value="ADD EVENT">
-          </form>
-        </main>
-
-      </div>
-
-      <div class="book-form">
-          <div class="place-photo">
-            <img src="./images/paris.png" alt="paris hotel" />
-            <div class="hotel-describtion">
-                  <h2>Hotel Relais</h2>
-                  <div class="sprite sprite-map"></div>
-                  <span>Paris, France</span>
-            </div>
-          </div>
-          <div class="check-form-wrapper">
-
-            <form  class="check-form" action="index.html" method="post" id="check_form">
-              <div class="input-wrapper">
-                <label for="check_in">Check in</label>
-                <input type="text" name="check_in" id="check_in" placeholder="9 July, 2016">
-                <div class="form-button">
-                  <span class="sprite central sprite-calendar"></span>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script src="https://use.fontawesome.com/9abb7708ad.js"></script>
+        <title>Forms and widgets</title>
+    </head>
+    <body>
+        <div class="currency-converter">
+            <form action="">
+                <fieldset>
+                    <ul>
+                        <li class="active">
+                            <label for="usd">usd</label>
+                            <input type="text" value="356" id="usd"/>
+                        </li>
+                        <li>
+                            <label for="gbp">gbp</label>
+                            <input type="text" id="gbp" size="4" value="125"/>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div class="currency-converter-buttons">
+                    <button class="currency-converter-button button-convert"></button>
+                    <button class="currency-converter-button button-add-currency"></button>
+                    <button class="currency-converter-button button-menu"></button>
                 </div>
-              </div>
-
-              <div class="input-wrapper">
-                <label for="check_out">Check out</label>
-                <input type="text" name="check_out" id="check_out" placeholder="16 July, 2016">
-                <div class="form-button">
-                  <span class="sprite central sprite-calendar"></span>
-                </div>
-              </div>
-
-              <div class="custom-checkbox">
-                <input type="checkbox" id="check" name="name" value="">
-                <label class="lab"for="check">Flexible dates</label>
-              </div>
-
-              <div class="select-wrapper">
-                  <div class="select-inline">
-                    <div class="select-absolute">
-                      <label for="adults">Adults</label>
-                      <select id="adults">
-                        <option>1</option>
-                        <option>2</option>
-                      </select>
-                      <div class="form-button">
-                        <span class="sprite central sprite-collection"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="select-inline">
-                    <div class="select-absolute">
-                      <label for="children">Children</label>
-                      <select id="children">
-                        <option>1</option>
-                        <option>2</option>
-                      </select>
-                      <div class="form-button">
-                        <span class="sprite central sprite-collection"></span>
-                      </div>
-                    </div>
-
-                  </div>
-              </div>
-
-              <div class="sprite sprite-search"></div>
-              <input type="submit" name="search" class="lower-right-but" value="SEARCH ROOMS">
             </form>
-          </div>
-      </div>
-
-      <div class="place-wrapper">
-          <nav class="place-nav-bar">
-            <ul>
-              <li>
-                <a href="#">
-                  <div class="sprite central sprite-eye">
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="sprite central sprite-place">
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="sprite central sprite-star">
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <article class="place-describtion">
-              <h4>My most favourite</h4>
-              <h4>place in the world</h4>
-              <p>
-                <span> <b>154</b> Reviews</span>
-              </p>
-              <p>
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor.
-                  Vivamus sed diam sollicitudin.
-                </span>
-              </p>
-              <p>
-                <span><a href="#">Read more</a></span>
-              </p>
-          </article>
-          <div class="place-photo favorite-photo">
-            <img src="./images/favorite_place.png" alt="favorite place in the world" />
-
-            <div class="user-activity">
-                <div class="sprite sprite-comment">
-                </div>
-                <span>752</span>
-
-                <div class="sprite sprite-like">
-                </div>
-                <span>2709</span>
-            </div>
-          </div>
-      </div>
-
-      <div class="diagram-wrapper">
-        <div class="diagram">
-          <div data-count="0" class="line amount-0"></div>
-          <div data-count="20" class="line amount-20"></div>
-          <div data-count="30" class="line amount-30"></div>
-          <div data-count="40" class="line amount-40"></div>
-
-
-          <div class="tooltip mon">
-            <div data-day="Mon" class="diagram-elem" style="height: 49px">
-                <span class=tooltiptext>17</span>
-            </div>
-          </div>
-          <div class="tooltip tue">
-            <div data-day="Tue" class="diagram-elem" style="height: 62px">
-              <span class=tooltiptext>19</span>
-            </div>
-
-          </div>
-          <div class="tooltip wed">
-            <div data-day="Wed" class="diagram-elem" style="height: 119px">
-              <span class=tooltiptext>27</span>
-            </div>
-          </div>
-          <div class="tooltip thu">
-            <div data-day="Thu" class="diagram-elem" style="height: 158px">
-                <span class=tooltiptext>33</span>
-            </div>
-          </div>
-          <div class="tooltip fri">
-            <div data-day="Fri" class="diagram-elem" style="height: 129px">
-                <span class=tooltiptext>28</span>
-            </div>
-          </div>
-          <div class="tooltip sat">
-            <div data-day="Sat" class="diagram-elem" style="height: 169px">
-                <span class=tooltiptext>34</span>
-            </div>
-          </div>
-          <div class="tooltip sun">
-            <div data-day="Sun" class="diagram-elem" style="height: 143px">
-                <span class=tooltiptext>33</span>
-            </div>
-          </div>
         </div>
-      </div>
-
-      <div class="mail-wrapper">
-        <form class="mail-form" action="index.html" method="post">
-          <div class="input-wrapper">
-            <input type="text" name="emails" value="">
-            <div class="client-email">
-                <span>rick.james@mail.com</span>
-                <div class="sprite sprite-remowe"></div>
+        <div class="calendar">
+            <header>
+                <a href="#" class="previous-month-button"></a>
+                <a href="#" class="next-month-button"></a>
+                <div class="calendar-month-and-year">
+                    <span>2012</span>
+                    <span>july</span>
+                </div>
+            </header>
+            <table>
+                <thead>
+                    <tr>
+                        <td>s</td>
+                        <td>m</td>
+                        <td>t</td>
+                        <td>w</td>
+                        <td>t</td>
+                        <td>f</td>
+                        <td>s</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span>1</span></td>
+                        <td><span>2</span></td>
+                        <td><span>3</span></td>
+                        <td><span>4</span></td>
+                        <td><span>5</span></td>
+                        <td><span class="today">6</span></td>
+                        <td><span>7</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>8</span></td>
+                        <td><span>9</span></td>
+                        <td><span>10</span></td>
+                        <td><span>11</span></td>
+                        <td><span>12</span></td>
+                        <td><span>13</span></td>
+                        <td><span>14</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>15</span></td>
+                        <td><span>16</span></td>
+                        <td><span>17</span></td>
+                        <td><span>18</span></td>
+                        <td><span>19</span></td>
+                        <td><span>20</span></td>
+                        <td><span>21</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>22</span></td>
+                        <td><span>23</span></td>
+                        <td><span>24</span></td>
+                        <td><span>25</span></td>
+                        <td><span>26</span></td>
+                        <td><span>27</span></td>
+                        <td><span>28</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>29</span></td>
+                        <td><span>30</span></td>
+                        <td><span>31</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="weather-widget">
+            <div class="weather-widget-slider">
+                <ul>
+                    <li>
+                        <img src="img/slide-1.jpg" alt="slide 1"/>
+                    </li>
+                    <li>
+                        <img src="img/slide-1.jpg" alt="slide 2"/>
+                    </li>
+                    <li>
+                        <img src="img/slide-1.jpg" alt="slide 3"/>
+                    </li>
+                </ul>
+                <div class="slider-nav">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="slider-text">
+                    <span>73</span>
+                    <span>Zagora, Greece</span>
+                    <span>8:34 am</span>
+                </div>
             </div>
-            <div class="sprite sprite-add-copy"></div>
-          </div>
-          <div class="input-wrapper">
-            <input type="text" name="subject" value="" placeholder="Subject">
-            <div class="sprite sprite-pin-info"></div>
-          </div>
-          <textarea name="message" rows="14" cols="39" placeholder="Message"></textarea>
-          <input type="submit" name="send_email" class="lower-right-but" value="SEND">
-        </form>
-      </div>
-  </body>
+            <div class="weather-widget-buttons">
+                <button class="weather-widget-button button-fahrenheit"></button>
+                <button class="weather-widget-button button-celsius"></button>
+                <button class="weather-widget-button button-add"></button>
+                <button class="weather-widget-button button-menu"></button>
+            </div>
+        </div>
+        <div class="audio-player">
+            <div class="left-block">
+                <img src="img/albam-cover.jpg" alt="cover"/>
+                <a class="button-follow" href="#">follow</a>
+            </div>
+            <div class="right-block">
+                <h2>Faded Paper Figures</h2>
+                <h3>Invent it all again</h3>
+                <div class="progress-bar">
+                    <div class="load-progress" style="width:388px"></div>
+                    <div class="play-progress" style="width:300px"></div>
+                    <span class="time-display">-1:57</span>
+                </div>
+                <div class="controls">
+                    <button class="play-button"></button>
+                    <button class="previous-button"></button>
+                    <button class="next-button"></button>
+                    <button class="shuffle-button"></button>
+                    <button class="queue-button"></button>
+                    <button class="like-button active"></button>
+                    <button class="add-button"></button>
+                    <button class="share-button"></button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-widget">
+            <header class="clear">
+                <button class="button-menu"></button>
+                <button class="button-add"></button>
+            </header>
+            <ul>
+                <li class="clear">
+                    <img src="img/avatar-1.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Yaroslav Lozhkin</a></h2>
+                        <p>Alright got it!</p>
+                    </div>
+                    <div class="status status-online">
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="img/avatar-2.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Michael Zenaty</a></h2>
+                        <p class="sent">Sent</p>
+                    </div>
+                    <div class="status status-offline">
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="img/avatar-3.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Wells Riley</a></h2>
+                        <p class="typing">Typing...</p>
+                    </div>
+                    <div class="status">
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="img/avatar-4.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Matt Vickers</a></h2>
+                        <p class="not-delivered">Not delivered</p>
+                    </div>
+                    <div class="status">
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="img/avatar-5.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Divya Manian</a></h2>
+                        <p>You can download it on github on my profile.</p>
+                    </div>
+                    <div class="status status-away">
+                    </div>
+                </li>
+                <li class="clear">
+                    <img src="img/avatar-6.jpg" alt="avatar"/>
+                    <div class="info">
+                        <h2><a href="#">Vin Thomas</a></h2>
+                        <p>Thank you!</p>
+                    </div>
+                    <div class="status">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sign-in-widget">
+            <form>
+                <ul>
+                    <li>
+                        <label for="email" class="email active"></label>
+                        <input placeholder="Email Address..." type="email" id="email"/>
+                    </li>
+                    <li>
+                        <label for="password" class="password"></label>
+                        <input placeholder="Password..." type="password" id="password"/>
+                    </li>
+                </ul>
+                <div class="controls">
+                    <a href="#" class="sign-up-button">sign up</a>
+                    <input type="submit" class="sign-in-button" value="sign in"/>
+                </div>
+            </form>
+        </div>
+        <div class="form-elements">
+            <input type="text" class="input" value="Valid input"/>
+            <input type="range" class="range"/>
+            <input type="email" class="input" value="Invalid input"/>
+            <div class="checkbox-block">
+                <input type="checkbox" class="checkbox" id="checkbox" />
+                <label for="checkbox"></label>
+            </div>
+            <div class="radio-buttons-block">
+                <input type="radio" class="radio" id="radio-1" name="radio"/>
+                <label for="radio-1"></label>
+                <input type="radio" class="radio" id="radio-2" name="radio" checked/>
+                <label for="radio-2"></label>
+            </div>
+        </div>
+    </body>
 </html>
